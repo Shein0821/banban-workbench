@@ -607,7 +607,46 @@ ul { list-style:none; }
 .content-hero .ch-stat .label { font-size:11px; opacity:0.9; margin-top:3px; font-weight:500; }
 
 /* Content calendar block */
-.plan-block-content-cal { background:linear-gradient(160deg, #D4EAF6, #E5F1FA); }
+.plan-block-books { background:#F0F6FA; }
+.books-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.book-card { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(59,158,217,0.08); cursor:pointer; transition:transform .15s; }
+.book-card:active { transform:scale(0.96); }
+.book-cover { width:100%; aspect-ratio:3/4; object-fit:cover; background:#E3F1FA; display:flex; align-items:center; justify-content:center; color:#8CB8D8; font-size:12px; }
+.book-cover img { width:100%; height:100%; object-fit:cover; }
+.book-info { padding:10px; }
+.book-title { font-size:13px; font-weight:600; color:var(--text); line-height:1.3; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.book-meta { font-size:11px; color:var(--text-3); margin-top:4px; display:flex; gap:6px; }
+.book-empty { text-align:center; padding:24px 12px; color:var(--text-3); font-size:13px; }
+.book-detail-cover { width:120px; flex-shrink:0; border-radius:12px; overflow:hidden; box-shadow:0 4px 14px rgba(0,0,0,0.1); background:#E3F1FA; }
+.book-detail-cover img { width:100%; height:auto; display:block; }
+.book-detail-meta { flex:1; }
+.book-detail-meta .bd-title { font-size:18px; font-weight:700; color:var(--text); line-height:1.3; }
+.book-detail-meta .bd-type { display:inline-block; margin-top:8px; padding:4px 10px; border-radius:20px; font-size:12px; background:#E3F1FA; color:var(--primary-dark); }
+.book-detail-actions { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
+.book-detail-actions button { padding:8px 14px; border-radius:10px; border:none; font-size:13px; font-weight:600; cursor:pointer; }
+.book-detail-actions .bd-btn-primary { background:var(--primary); color:#fff; }
+.book-detail-actions .bd-btn-secondary { background:#E3F1FA; color:var(--primary-dark); }
+.distill-card { background:#fff; border-radius:12px; padding:14px; margin:14px 0; }
+.distill-card .dc-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+.distill-card .dc-title::before { content:''; width:4px; height:14px; border-radius:2px; background:var(--primary); }
+.distill-card .dc-item { padding:8px 0; border-bottom:0.5px solid var(--border); }
+.distill-card .dc-item:last-child { border-bottom:none; }
+.distill-card .dc-label { font-size:12px; color:var(--text-3); margin-bottom:2px; }
+.distill-card .dc-text { font-size:13px; color:var(--text); line-height:1.5; }
+.issue-pool { background:#fff; border-radius:12px; padding:14px; }
+.issue-pool .ip-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.issue-pool .ip-title { font-size:14px; font-weight:700; color:var(--text); }
+.issue-pool .ip-add { font-size:12px; color:var(--primary); background:#E3F1FA; border:none; padding:6px 12px; border-radius:20px; cursor:pointer; font-weight:600; }
+.issue-item { display:flex; align-items:flex-start; gap:10px; padding:10px; border-radius:10px; background:#F8FAFC; margin-bottom:8px; }
+.issue-item.ai { border-left:3px solid var(--primary); }
+.issue-item.user { border-left:3px solid #27AE60; }
+.issue-item.sprout { border-left:3px solid #E67E22; }
+.issue-item .ii-num { width:22px; height:22px; border-radius:50%; background:#E3F1FA; color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; }
+.issue-item .ii-text { flex:1; font-size:13px; color:var(--text); line-height:1.4; }
+.issue-item .ii-actions { display:flex; gap:6px; }
+.issue-item .ii-actions button { font-size:11px; color:var(--text-3); background:transparent; border:none; cursor:pointer; padding:2px 4px; }
+.book-modal-cover-preview { width:100%; max-width:160px; aspect-ratio:3/4; border-radius:12px; background:#E3F1FA; display:flex; align-items:center; justify-content:center; overflow:hidden; margin:0 auto 12px; }
+.book-modal-cover-preview img { width:100%; height:100%; object-fit:cover; }
 .plan-block-content-cal .content-cal-nav { margin-bottom:14px; }
 .plan-block-content-cal .content-cal-nav .nav-btn { background:#fff; box-shadow:0 2px 8px rgba(59,158,217,0.12); }
 .plan-block-content-cal .content-cal-nav .nav-label { font-size:18px; font-weight:800; color:var(--text); }
@@ -811,25 +850,42 @@ ul { list-style:none; }
 .vb-vision-add { border:2px dashed rgba(59,158,217,0.3); border-radius:var(--radius); min-height:110px; display:flex; align-items:center; justify-content:center; font-size:28px; color:var(--primary); cursor:pointer; background:rgba(255,255,255,0.4); }
 .vb-vision-add:active { border-color:var(--primary); color:var(--primary); background:rgba(255,255,255,0.6); }
 
-/* === 愿景板 v2.1 两栏布局 === */
-.vb-main-layout { display:flex; gap:14px; align-items:flex-start; }
-.vb-left-col { flex:0 0 42%; display:flex; flex-direction:column; gap:12px; }
-.vb-right-col { flex:1; min-width:0; display:flex; flex-direction:column; background:rgba(255,255,255,0.55); backdrop-filter:blur(4px); border-radius:18px; padding:14px; }
+/* === 愿景板 v2.2 三模块上下布局 === */
+.vb-main-layout { display:flex; flex-direction:column; gap:14px; align-items:stretch; }
+.vb-row { background:rgba(255,255,255,0.6); backdrop-filter:blur(6px); border-radius:18px; padding:16px 18px; display:flex; flex-direction:column; gap:12px; box-shadow:0 1px 3px rgba(59,158,217,0.06); }
+.vb-row-title { font-size:14px; font-weight:700; color:var(--text); display:flex; align-items:center; gap:8px; }
+.vb-row-title-num { width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg,var(--primary),#2563EB); color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.vb-row-hint { font-size:11px; color:var(--text-3); font-weight:400; margin-left:auto; }
+.vb-row-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:760px) { .vb-row-grid2 { grid-template-columns:1fr; } .vb-row { padding:12px 14px; } }
+/* 旧的两栏布局类保留作兜底，避免 JS 旧逻辑报错 */
+.vb-left-col { display:contents; }
+.vb-right-col { display:contents; }
 
 /* Tab bar */
 .vb-tab-bar { display:flex; align-items:center; gap:6px; margin-bottom:12px; }
 .vb-tab { padding:7px 18px; border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; transition:all .15s; color:var(--text-secondary); background:transparent; border:none; white-space:nowrap; }
 .vb-tab.active { background:var(--primary); color:#fff; }
 .vb-tab-add-btn { width:28px;height:28px;border-radius:50%;border:1.5px dashed var(--primary);background:transparent;color:var(--primary);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
-.vb-tab-panel { min-height:200px; }
+.vb-tab-restore-btn { width:28px;height:28px;border-radius:50%;border:1.5px solid var(--border);background:transparent;color:var(--text-3);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+.vb-tab-restore-btn:hover { color:var(--primary); border-color:var(--primary); }
+/* 3 模块重构后：.vb-row 是按内容撑开的，panel 用 flex:1 1 0 会和父级循环依赖导致高度=0
+   改为按内容撑开 + 内部 .vb-rt-list / .vb-chat-messages 各自 max-height + overflow 滚动（见下） */
+.vb-tab-panel { display:flex; flex-direction:column; flex:0 0 auto; overflow:visible; min-height:0; }
+.vb-tab-panel::-webkit-scrollbar { width:6px; }
+.vb-tab-panel::-webkit-scrollbar-track { background:transparent; }
+.vb-tab-panel::-webkit-scrollbar-thumb { background:rgba(59,158,217,0.35); border-radius:3px; }
+.vb-tab-panel { scrollbar-width:thin; scrollbar-color:rgba(59,158,217,0.35) transparent; }
 
 /* Profile / Ambitions / Pick / Actions */
-.vb-profile-section,.vb-ambitions-section,.vb-pick-section,.vb-actions-section { background:rgba(255,255,255,0.65); backdrop-filter:blur(4px); border-radius:14px; padding:14px; }
+.vb-profile-section,.vb-ambitions-section,.vb-pick-section,.vb-actions-section { background:rgba(255,255,255,0.65); backdrop-filter:blur(4px); border-radius:14px; padding:14px; display:flex; flex-direction:column; }
+.vb-actions-section { flex:0 0 auto; min-height:0; margin-top:auto; }
+.vb-profile-section,.vb-ambitions-section,.vb-pick-section { flex:0 0 auto; }
 .vb-ps-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
 .vb-ps-title { font-size:13px; font-weight:700; color:var(--text); }
 .vb-ps-tags { display:flex; gap:4px; flex-wrap:wrap; }
 .vb-ps-tag { font-size:10px; padding:2px 8px; border-radius:10px; background:rgba(59,158,217,0.1); color:var(--primary-dark); }
-.vb-profile-textarea { width:100%; min-height:60px; border:1.5px solid rgba(59,158,217,0.12); border-radius:10px; padding:10px; font-size:13px; line-height:1.6; resize:vertical; background:rgba(255,255,255,0.5); color:var(--text); box-sizing:border-box; font-family:inherit; transition:border-color .2s; }
+.vb-profile-textarea { width:100%; min-height:80px; border:1.5px solid rgba(59,158,217,0.12); border-radius:10px; padding:10px; font-size:13px; line-height:1.6; resize:vertical; background:rgba(255,255,255,0.5); color:var(--text); box-sizing:border-box; font-family:inherit; transition:border-color .2s; }
 .vb-profile-textarea:focus { outline:none; border-color:var(--primary); background:#fff; }
 .vb-profile-textarea::placeholder { color:var(--text-3); }
 
@@ -844,6 +900,7 @@ ul { list-style:none; }
 .vb-pick-item.selected .vb-pick-check { background:var(--primary); border-color:var(--primary); }
 .vb-pick-source { font-size:9px;color:var(--text-3);white-space:nowrap;flex-shrink:0; }
 .vb-pick-confirm-btn { width:100%;padding:8px;border-radius:10px;background:var(--primary);color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer; }
+.vb-pick-confirm-btn:disabled { opacity:.6; cursor:wait; }
 
 /* Action items */
 .vb-action-progress { font-size:11px; color:var(--primary); font-weight:600; }
@@ -861,7 +918,7 @@ ul { list-style:none; }
 .vb-action-input:focus { border-color:var(--primary); border-style:solid; }
 
 /* Expert mini cards (row layout like me2) */
-.vb-expert-cards-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin-bottom:14px; }
+.vb-expert-cards-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:10px; margin-bottom:14px; }
 .vb-expert-mini-card { background:rgba(255,255,255,0.75); border-radius:12px; padding:14px 12px; cursor:pointer; transition:all .15s; border:2px solid transparent; }
 .vb-expert-mini-card.active { border-color:var(--primary); background:rgba(59,158,217,0.06); }
 .vb-emc-avatar { width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:8px; }
@@ -879,6 +936,136 @@ ul { list-style:none; }
 .vb-ed-btn-primary { background:var(--primary); color:#fff; }
 .vb-ed-btn-outline { background:transparent; color:var(--primary); border:1.5px solid var(--primary); }
 .vb-ed-empty { text-align:center; color:var(--text-3); font-size:13px; padding:30px 0; }
+/* ===== 圆桌讨论样式 ===== */
+.vb-roundtable-header { margin-bottom:12px; }
+.vb-rt-title-row { display:flex; align-items:center; gap:8px; }
+.vb-rt-icon { font-size:20px; }
+.vb-rt-title { font-size:15px; font-weight:700; color:var(--text); }
+.vb-rt-subtitle { font-size:11px; color:var(--text-3); font-weight:400; }
+
+/* 圆桌成员头像条 */
+.vb-roundtable-members { display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap; padding:10px; background:rgba(255,255,255,0.45); border-radius:12px; }
+.vb-rt-member { display:flex; flex-direction:column; align-items:center; gap:4px; min-width:52px; cursor:default; }
+.vb-rt-member-avatar { width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:600;transition:all .3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.12); }
+.vb-rt-member-name { font-size:10px; font-weight:600; color:var(--text-secondary); text-align:center; }
+.vb-rt-member-avatar.speaking { animation:rt-pulse 1s infinite; box-shadow:0 0 0 3px rgba(59,158,217,0.4); }
+.vb-rt-member-avatar.done { opacity:0.7; }
+@keyframes rt-pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.08);} }
+
+/* 议题输入区 */
+.vb-roundtable-input-area { flex:0 0 auto; margin-bottom:8px; }
+.vb-rt-topic-input { width:100%; min-height:80px; border:1.5px solid rgba(59,158,217,0.15); border-radius:14px; padding:12px 14px; font-size:14px; line-height:1.6; resize:vertical; background:rgba(255,255,255,0.6); color:var(--text); box-sizing:border-box; font-family:inherit; transition:border-color .2s; }
+.vb-rt-topic-input:focus { outline:none; border-color:var(--primary); background:#fff; }
+.vb-rt-topic-input::placeholder { color:var(--text-3); }
+.vb-rt-start-btn { width:100%;margin-top:8px;padding:10px;border-radius:12px;background:linear-gradient(135deg,#2563EB,#3B9ED9);color:#fff;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all .15s;letter-spacing:0.3px; }
+.vb-rt-start-btn:active { transform:scale(0.97); }
+
+/* 讨论记录区 */
+.vb-roundtable-discussion { flex:1; min-height:180px; overflow-y:auto; display:flex; flex-direction:column; justify-content:center; gap:12px; padding:6px; scrollbar-width:thin; }
+.vb-roundtable-discussion:has(.vb-rt-empty-hint) { flex:0 0 auto; min-height:auto; padding:2px; gap:4px; }
+.vb-rt-empty-hint { text-align:center; color:var(--text-3); padding:10px 12px; line-height:1.45; word-break:break-word; }
+.vb-rt-empty-icon { font-size:22px; margin-bottom:4px; }
+
+/* 讨论消息气泡 */
+.vb-rt-message { display:flex; flex-direction:column; gap:6px; animation:rt-fadein .3s ease; }
+@keyframes rt-fadein { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
+.vb-rt-msg-header { display:flex; align-items:center; gap:8px; }
+.vb-rt-msg-avatar { width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0;font-weight:600; }
+.vb-rt-msg-name { font-size:12px; font-weight:700; color:var(--text); }
+.vb-rt-msg-role { font-size:10px; color:var(--text-3); }
+.vb-rt-msg-body { font-size:13px; line-height:1.7; color:var(--text); padding:10px 14px; border-radius:12px; background:rgba(255,255,255,0.7); word-break:break-word; }
+.vb-rt-msg-body.user-style { background:linear-gradient(135deg,rgba(59,158,217,0.08),rgba(37,99,235,0.06)); border-left:3px solid var(--primary); }
+
+/* === 战略认知圆桌：6 卡片网格 === */
+.vb-rt-topic-box { padding:10px 12px;background:linear-gradient(135deg,rgba(59,158,217,0.10),rgba(37,99,235,0.06));border-radius:10px;margin-bottom:8px;border-left:3px solid var(--primary); }
+.vb-rt-topic-box-label { font-size:10px;color:var(--primary-dark);font-weight:700;margin-bottom:3px; }
+.vb-rt-topic-box-text { font-size:12.5px;line-height:1.6;color:var(--text);word-break:break-word;white-space:pre-wrap; }
+.vb-rt-round-header { display:flex;align-items:center;gap:8px;margin:10px 0 8px;padding-top:8px;border-top:1px dashed var(--border); }
+.vb-rt-round-header:first-of-type { border-top:none;padding-top:0;margin-top:4px; }
+.vb-rt-round-num { background:var(--primary);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px; }
+.vb-rt-round-label { font-size:11.5px;color:var(--text-3);font-weight:600; }
+/* === 圆桌：群聊流式（方案A）== */
+.vb-rt-list { display:flex; flex-direction:column; gap:6px; margin-bottom:12px; max-height:60vh; overflow-y:auto; padding-right:4px; }
+.vb-rt-topic-bubble { background:rgba(59,158,217,0.10); border:1px solid rgba(59,158,217,0.25); border-radius:14px; padding:10px 14px; margin:4px 0 6px; text-align:center; }
+.vb-rt-topic-bubble-label { font-size:11px; color:var(--primary); font-weight:600; margin-bottom:2px; }
+.vb-rt-topic-bubble-text { font-size:13.5px; color:var(--text); font-weight:500; line-height:1.55; }
+.vb-rt-divider { display:flex; align-items:center; gap:10px; margin:14px 0 8px; }
+.vb-rt-divider::before, .vb-rt-divider::after { content:''; flex:1; height:1px; background:rgba(136,135,128,0.25); }
+.vb-rt-divider-text { font-size:11px; color:var(--text-3); font-weight:600; letter-spacing:.5px; white-space:nowrap; }
+.vb-rt-msg { display:flex; gap:8px; align-items:flex-start; animation:rt-fadein .3s ease; margin-bottom:4px; }
+.vb-rt-msg-av { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; color:#fff; flex-shrink:0; box-shadow:0 1px 3px rgba(59,158,217,0.15); }
+.vb-rt-msg-main { flex:1; min-width:0; }
+.vb-rt-msg-name { font-size:11.5px; font-weight:600; color:var(--text); margin-bottom:3px; display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; }
+.vb-rt-msg-name .vb-rt-msg-role { font-size:10px; color:var(--text-3); font-weight:400; }
+.vb-rt-msg-name .vb-rt-msg-reply { font-size:11px; color:var(--primary); font-weight:500; }
+.vb-rt-msg-bubble { background:rgba(255,255,255,0.85); border:1px solid rgba(59,158,217,0.18); border-radius:4px 14px 14px 14px; padding:9px 12px; font-size:13px; line-height:1.65; color:var(--text); word-break:break-word; }
+.vb-rt-msg-bubble.empty { color:var(--text-3); font-style:italic; font-size:12px; background:transparent; border-style:dashed; }
+.vb-rt-quote { border-left:3px solid rgba(59,158,217,0.45); padding:5px 10px; margin-bottom:6px; background:rgba(59,158,217,0.06); border-radius:0 8px 8px 0; font-size:11.5px; color:var(--primary); line-height:1.55; word-break:break-word; }
+.vb-rt-quote-label { font-size:10px; color:var(--text-3); font-weight:600; margin-bottom:2px; letter-spacing:.3px; }
+.vb-rt-action-card { display:flex; align-items:flex-start; gap:8px; padding:8px 10px; margin:6px 0; border-radius:8px; background:rgba(255,255,255,0.7); border:1px solid rgba(59,158,217,0.15); cursor:pointer; transition:all .15s; }
+.vb-rt-action-card:hover { background:rgba(59,158,217,0.06); }
+.vb-rt-action-card.picked { background:rgba(59,158,217,0.10); border-color:rgba(59,158,217,0.4); }
+.vb-rt-action-check { width:16px; height:16px; border-radius:4px; border:1.5px solid #cbd5e1; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:10px; color:#fff; margin-top:1px; transition:all .15s; }
+.vb-rt-action-card.picked .vb-rt-action-check { background:var(--primary); border-color:var(--primary); }
+.vb-rt-action-text { flex:1; font-size:12.5px; line-height:1.6; color:var(--text); }
+.vb-rt-action-text .vb-rt-action-source { font-size:10.5px; color:var(--primary); font-weight:600; margin-right:4px; }
+.vb-rt-action-card.picked .vb-rt-action-text { color:#1E5A8A; font-weight:500; }
+.vb-rt-actions-summary { background:rgba(59,158,217,0.08); border:1px dashed rgba(59,158,217,0.3); border-radius:10px; padding:8px 12px; margin-top:8px; font-size:11px; color:var(--primary); line-height:1.55; }
+@media (max-width:560px) { .vb-rt-msg-av { width:30px; height:30px; font-size:14px; } .vb-rt-msg-bubble { font-size:12.5px; padding:8px 10px; } }
+
+/* 专家发言颜色区分 */
+.musk-style .vb-rt-msg-body { background:rgba(37,99,235,0.06); border-left:3px solid #2563EB; }
+.jung-style .vb-rt-msg-body { background:rgba(6,78,59,0.05); border-left:3px solid #064E3B; }
+.munger-style .vb-rt-msg-body { background:rgba(120,53,15,0.04); border-left:3px solid #78350F; }
+.mankw-style .vb-rt-msg-body { background:rgba(30,58,138,0.05); border-left:3px solid #1E3A8A; }
+.dingyuan-style .vb-rt-msg-body { background:rgba(87,45,20,0.05); border-left:3px solid #572D14; }
+.naval-style .vb-rt-msg-body { background:rgba(138,90,0,0.05); border-left:3px solid #8A5A00; }
+
+/* 可勾选观点 */
+.vb-rt-point { display:flex; align-items:flex-start; gap:8px; padding:8px 10px; margin:6px 0; border-radius:8px; background:rgba(255,255,255,0.5); cursor:pointer; transition:background .15s; font-size:12px; line-height:1.55; }
+.vb-rt-point:hover { background:rgba(255,255,255,0.8); }
+.vb-rt-point.picked { background:rgba(59,158,217,0.08); border:1px solid rgba(59,158,217,0.25); }
+.vb-rt-point-check { width:16px;height:16px;border-radius:4px;border:1.5px solid #bbb;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;transition:all .15s; background:transparent; }
+.vb-rt-point.picked .vb-rt-point-check { background:var(--primary); border-color:var(--primary); content:'✓'; }
+.vb-rt-point-text { flex:1; }
+
+/* 操作按钮 */
+.vb-rt-actions { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
+.vb-rt-action-btn { padding:8px 16px; border-radius:10px; font-size:12px; font-weight:600; border:none; cursor:pointer; transition:all .15s; }
+.vb-rt-action-btn.primary { background:var(--primary); color:#fff; }
+.vb-rt-action-btn.outline { background:transparent; color:var(--primary); border:1.5px solid var(--primary); }
+
+/* ===== 思维模型分类卡片（新版） ===== */
+.vb-model-intro { font-size:12px; color:var(--text-secondary); margin-bottom:12px; line-height:1.5; }
+.vb-model-categories { display:grid; grid-template-columns:1fr; gap:12px; }
+.vb-mc-category-card { background:rgba(255,255,255,0.7); border-radius:16px; padding:18px; cursor:pointer; transition:all .2s ease; border:2px solid transparent; position:relative; overflow:hidden; }
+.vb-mc-category-card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+.vb-mc-category-card.expanded { border-color:var(--primary); }
+.vb-mc-cat-header { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.vb-mc-cat-icon { width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff; flex-shrink:0; }
+.vb-mc-cat-name { font-size:13px; font-weight:700; color:var(--text); }
+.vb-mc-cat-name-en { font-size:9px; color:var(--text-3); }
+.vb-mc-cat-count { font-size:10px; color:var(--text-3); margin-left:auto; background:rgba(0,0,0,0.04); padding:2px 8px; border-radius:10px; }
+.vb-mc-cat-desc { font-size:12px; color:var(--text-secondary); line-height:1.6; }
+.vb-mc-cat-models { margin-top:10px; display:none; flex-direction:column; gap:6px; padding-top:10px; border-top:1px solid rgba(0,0,0,0.06); }
+.vb-mc-category-card.expanded .vb-mc-cat-models { display:flex; animation:mc-slide .2s ease; }
+@keyframes mc-slide { from{opacity:0;max-height:0;} to{opacity:1;max-height:300px;} }
+.vb-mc-model-item { display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; background:rgba(0,0,0,0.02); cursor:pointer; transition:background .15s; font-size:12px; }
+.vb-mc-model-item:hover { background:rgba(0,0,0,0.05); }
+.vb-mc-model-item.selected { background:rgba(59,158,217,0.08); border:1px solid rgba(59,158,217,0.2); }
+.vb-mc-model-check { width:16px;height:16px;border-radius:4px;border:1.5px solid #ccc;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;transition:all .15s; }
+.vb-mc-model-item.selected .vb-mc-model-check { background:var(--primary); border-color:var(--primary); }
+.vb-mc-model-name { font-weight:500; color:var(--text); flex:1; }
+.vb-mc-model-desc { font-size:10px; color:var(--text-3); margin-top:1px; }
+
+/* 已选模型区域 */
+.vb-model-selected-area { margin-top:14px; background:rgba(255,255,255,0.65); border-radius:12px; padding:14px; }
+.vb-model-sel-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; font-size:12px; font-weight:700; color:var(--text); }
+.vb-model-sel-count { background:var(--primary); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px; }
+.vb-model-sel-list { display:flex; flex-direction:column; gap:4px; margin-bottom:10px; }
+.vb-model-sel-item { font-size:11px; color:var(--text-secondary); padding:4px 8px; background:rgba(0,0,0,0.02); border-radius:6px; }
+
+
 
 /* Thinking models */
 .vb-model-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
@@ -889,14 +1076,16 @@ ul { list-style:none; }
 .vb-model-analysis { margin-top:14px; background:rgba(255,255,255,0.7); border-radius:12px; padding:14px; }
 .vb-model-analysis-body { font-size:13px; line-height:1.7; color:var(--text); }
 
-/* Chat panel */
-.vb-chat-messages { flex:1; overflow-y:auto; min-height:180px; max-height:340px; display:flex; flex-direction:column; gap:10px; margin-bottom:10px; padding:4px; }
+#vbPanelChat { display:flex; flex-direction:column; flex:0 0 auto; min-height:0; overflow:visible; }
+#vbPanelChat > .vb-chat-messages { flex:0 0 auto; }
+#vbPanelChat > .vb-chat-input-row { flex:0 0 auto; margin-top:auto; }
+.vb-chat-messages { flex:0 0 auto; max-height:50vh; overflow-y:auto; min-height:0; display:flex; flex-direction:column; gap:10px; margin-bottom:10px; padding:4px; }
 .vb-chat-bubble { max-width:85%; padding:10px 14px; border-radius:12px; font-size:13px; line-height:1.6; word-break:break-word; }
 .vb-chat-bubble.user { align-self:flex-end; background:var(--primary); color:#fff; border-bottom-right-radius:4px; }
 .vb-chat-bubble.buddy { align-self:flex-start; background:rgba(255,255,255,0.8); color:var(--text); border-bottom-left-radius:4px; }
 .vb-chat-time { font-size:9px; opacity:0.6; margin-top:4px; }
-.vb-chat-input-row { display:flex; gap:8px; align-items:flex-end; }
-.vb-chat-input { flex:1; min-height:40px; max-height:100px; border:1.5px solid rgba(59,158,217,0.15); border-radius:12px; padding:10px 12px; font-size:13px; line-height:1.5; resize:none; background:rgba(255,255,255,0.6); color:var(--text); font-family:inherit; }
+.vb-chat-input-row { display:flex; gap:8px; align-items:flex-end; flex-shrink:0; margin-top:auto; }
+.vb-chat-input { flex:1; min-height:90px; border:1.5px solid rgba(59,158,217,0.15); border-radius:14px; padding:14px 16px; font-size:14px; line-height:1.6; resize:vertical; background:rgba(255,255,255,0.6); color:var(--text); font-family:inherit; }
 .vb-chat-input:focus { outline:none; border-color:var(--primary); background:#fff; }
 .vb-chat-send-btn { padding:8px 16px; border-radius:10px; background:var(--primary); color:#fff; font-size:12px; font-weight:600; border:none; cursor:pointer; white-space:nowrap; flex-shrink:0; }
 
@@ -905,6 +1094,86 @@ ul { list-style:none; }
 .vb-color-picker { display:flex; gap:8px; flex-wrap:wrap; }
 .vb-color-dot { width:32px; height:32px; border-radius:50%; cursor:pointer; border:3px solid transparent; transition:border-color .15s ease; }
 .vb-color-dot.selected { border-color:var(--text); }
+
+/* ===== 愿景板移动端适配（手机 < 768px） ===== */
+@media(max-width:768px){
+  /* 三模块单列在移动端自然成立，不再需要 flex-direction:column 强制 */
+  .vb-row { border-radius:14px; padding:12px 14px; gap:10px; }
+  .vb-row-title { font-size:13px; }
+  .vb-row-grid2 { grid-template-columns:1fr; }
+
+  /* 海报墙缩小 */
+  .vb-section { margin-bottom:10px; padding:12px; border-radius:14px; }
+  .vb-section-title { font-size:14px; padding:6px 12px 6px 8px; border-radius:20px; }
+  .vb-vision-grid { grid-template-columns:repeat(2,1fr) !important; gap:8px !important; }
+  .vb-vision-card { min-height:80px !important; padding:10px !important; border-radius:10px !important; }
+  .vb-vision-card .vbc-text { font-size:13px; }
+  .vb-vision-card .vbc-desc { font-size:10px; margin-top:4px; }
+
+  /* 左栏模块间距压缩 */
+  .vb-profile-section,.vb-ambitions-section,.vb-pick-section,.vb-actions-section { padding:10px; border-radius:12px; }
+  .vb-ps-title { font-size:12px; }
+  .vb-profile-textarea { min-height:48px; font-size:13px; padding:8px; }
+
+  /* 右栏 */
+  .vb-right-col { padding:10px; border-radius:14px; }
+  .vb-tab { padding:6px 14px; font-size:11px; }
+
+  /* 圆桌成员横滑 */
+  .vb-roundtable-members { flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px; gap:14px; scrollbar-width:none; }
+  .vb-roundtable-members::-webkit-scrollbar{display:none;}
+  .vb-rt-member { min-width:48px; }
+  .vb-rt-member-avatar { width:38px;height:38px;font-size:17px; }
+
+  /* 议题输入 */
+  .vb-rt-topic-input { min-height:72px; font-size:13px; padding:12px; }
+  .vb-rt-start-btn { padding:9px; font-size:12px; }
+
+  /* 讨论消息 */
+  .vb-roundtable-discussion { flex:none; min-height:140px; max-height:none; }
+  .vb-roundtable-discussion:has(.vb-rt-empty-hint) { flex:0 0 auto; min-height:auto; padding:2px; gap:4px; }
+  .vb-rt-empty-hint { padding:8px 10px; line-height:1.4; }
+  .vb-rt-empty-icon { font-size:20px; margin-bottom:3px; }
+  .vb-rt-msg-body { font-size:12px; padding:8px 10px; }
+
+  /* 模型卡片单列 */
+  .vb-model-categories { grid-template-columns:1fr !important; gap:8px !important; }
+  .vb-mc-category-card { padding:10px; border-radius:12px; }
+  .vb-mc-cat-icon { width:28px;height:28px;font-size:15px; }
+  .vb-mc-cat-name { font-size:12px; }
+  .vb-mc-model-item { padding:6px 8px; font-size:11px; }
+
+  /* 行动列表 */
+  .vb-action-list { max-height:160px; }
+  .vb-action-text { font-size:11px; }
+
+  /* 摘取框 */
+  .vb-pick-list { max-height:120px; }
+  .vb-pick-item { font-size:11px; padding:6px 8px; }
+
+  /* 通用对话 */
+  .vb-chat-messages { max-height:240px; }
+  .vb-chat-bubble { font-size:12px; padding:8px 12px; }
+  .vb-chat-input { min-height:72px; font-size:13px; padding:10px 12px; }
+  #vbPanelChat { flex:none; min-height:auto; }
+  #vbPanelChat > .vb-chat-messages { flex:none; min-height:200px; }
+  #vbPanelChat > .vb-chat-input-row { margin-top:0; }
+
+  /* 移动端取消等高拉伸，恢复自然高度 */
+  .vb-actions-section { flex:0 0 auto; margin-top:0; }
+  .vb-profile-textarea { min-height:48px; resize:vertical; }
+  .vb-right-col { min-height:auto !important; }
+  .vb-tab-panel { flex:none; overflow:visible; }
+}
+
+/* 超小屏 (< 380px) 进一步压缩 */
+@media(max-width:380px){
+  .vb-vision-grid { grid-template-columns:1fr !important; }
+  .vb-tab { padding:5px 12px; font-size:10px; }
+  .vb-roundtable-members { gap:10px; }
+  .vb-rt-member-avatar { width:34px;height:34px;font-size:15px; }
+  .vb-mc-category-card { padding:8px; }
+}
 
 /* SVG icon helpers */
 .vb-ic svg { display:block; }
@@ -1044,6 +1313,64 @@ ul { list-style:none; }
 .ve-empty-title { font-size:16px; font-weight:700; color:var(--text-2); margin-bottom:4px; }
 .ve-empty-sub { font-size:13px; }
 
+/* ===== 知识库（卡片笔记） ===== */
+.kb-stats { display:flex; gap:12px; margin-bottom:14px; }
+.kb-stat { flex:1; text-align:center; background:linear-gradient(135deg,#E3F1FA,#F0F7FC); border-radius:12px; padding:12px 6px; }
+.kb-stat .value { font-size:22px; font-weight:800; color:var(--primary); }
+.kb-stat .label { font-size:11px; color:var(--text-3); margin-top:2px; }
+.kb-tabs { display:flex; gap:8px; margin-bottom:12px; }
+.kb-tab { flex:1; text-align:center; font-size:14px; font-weight:600; padding:9px; border-radius:10px; background:#F0F7FC; color:var(--text-3); cursor:pointer; transition:all .15s; }
+.kb-tab.active { background:var(--primary); color:#fff; }
+.kb-card { background:#fff; border-radius:12px; padding:14px; margin-bottom:10px; border:1px solid var(--border); border-left:3px solid var(--primary-light); }
+.kb-card.pending { border-left-color:#F0C674; }
+.kb-card .kb-content { font-size:14px; color:var(--text); line-height:1.55; margin-bottom:8px; }
+.kb-card .kb-memo { font-size:13px; color:var(--text-3); line-height:1.45; margin-bottom:8px; padding:8px 10px; background:#F8FBFE; border-radius:8px; }
+.kb-card .kb-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+.kb-tag { font-size:11px; padding:3px 9px; border-radius:8px; background:#EAF3FA; color:var(--primary); font-weight:600; }
+.kb-card .kb-meta { font-size:11px; color:var(--text-3); margin-bottom:10px; display:flex; gap:10px; align-items:center; }
+.kb-src { background:#F0F7FC; padding:2px 8px; border-radius:8px; font-weight:600; }
+.kb-actions { display:flex; gap:8px; flex-wrap:wrap; }
+.kb-btn { font-size:13px; padding:8px 14px; border-radius:8px; border:none; cursor:pointer; font-weight:600; transition:all .15s; }
+.kb-btn:active { transform:scale(0.95); }
+.kb-btn.approve { background:var(--primary); color:#fff; }
+.kb-btn.reject { background:#FFF0EE; color:#E74C3C; }
+.kb-btn.edit { background:#F0F7FC; color:var(--primary); }
+.kb-btn.detail { background:#EAF3FA; color:var(--primary); }
+.kb-btn.review { background:var(--primary); color:#fff; }
+.kb-rel-count { font-size:12px; color:var(--primary); font-weight:600; }
+.kb-empty { text-align:center; padding:32px 20px; color:var(--text-3); font-size:13px; }
+
+/* 卡片详情 modal（主卡 + 关联侧栏） */
+.kb-detail-overlay { position:fixed; inset:0; z-index:1100; background:rgba(26,43,60,0.5); display:flex; align-items:flex-end; justify-content:center; animation:fadeIn .2s; }
+.kb-detail-panel { background:#fff; border-radius:24px 24px 0 0; width:100%; max-width:640px; padding:20px; padding-bottom:calc(20px + env(safe-area-inset-bottom)); max-height:92vh; overflow-y:auto; }
+.kb-detail-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+.kb-detail-title { font-size:17px; font-weight:700; color:var(--text); }
+.kb-detail-close { font-size:28px; color:var(--text-3); cursor:pointer; line-height:1; padding:0 8px; }
+.kb-detail-main { background:#F8FBFE; border-radius:12px; padding:14px; margin-bottom:16px; }
+.kb-detail-main .kb-content { font-size:15px; color:var(--text); line-height:1.6; margin-bottom:8px; }
+.kb-detail-main .kb-memo { font-size:13px; color:var(--text-3); line-height:1.5; }
+.kb-detail-rel-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+.kb-rel-item { background:#fff; border:1px solid var(--border); border-radius:10px; padding:11px; margin-bottom:8px; }
+.kb-rel-item .kb-rel-content { font-size:13px; color:var(--text); line-height:1.5; margin-bottom:6px; cursor:pointer; }
+.kb-rel-item .kb-rel-content:hover { color:var(--primary); }
+.kb-rel-item .kb-rel-reason { font-size:12px; color:var(--text-3); margin-bottom:8px; padding-left:10px; border-left:2px solid var(--border); }
+.kb-rel-item .kb-rel-actions { display:flex; gap:6px; }
+.kb-rel-btn { font-size:12px; padding:5px 11px; border-radius:7px; border:none; cursor:pointer; font-weight:600; }
+.kb-rel-btn.confirm { background:var(--primary); color:#fff; }
+.kb-rel-btn.reject { background:#FFF0EE; color:#E74C3C; }
+.kb-rel-type { font-size:10px; padding:1px 6px; border-radius:6px; font-weight:600; }
+.kb-rel-type.related { background:#EAF3FA; color:var(--primary); }
+.kb-rel-type.supports { background:#E8F7EE; color:#4FAA76; }
+.kb-rel-type.contradicts { background:#FFE8E5; color:#E74C3C; }
+.kb-rel-confirmed { font-size:11px; color:#4FAA76; font-weight:600; }
+
+/* 编辑卡片 modal */
+.kb-edit-overlay { position:fixed; inset:0; z-index:1100; background:rgba(26,43,60,0.5); display:flex; align-items:flex-end; justify-content:center; animation:fadeIn .2s; }
+.kb-edit-panel { background:#fff; border-radius:24px 24px 0 0; width:100%; max-width:640px; padding:20px; padding-bottom:calc(20px + env(safe-area-inset-bottom)); max-height:92vh; overflow-y:auto; }
+.kb-edit-panel textarea { width:100%; border:1px solid var(--border); border-radius:10px; padding:12px; font-size:14px; line-height:1.5; font-family:inherit; resize:vertical; min-height:120px; box-sizing:border-box; }
+.kb-edit-panel input { width:100%; border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px; font-family:inherit; box-sizing:border-box; margin-top:6px; }
+.kb-edit-panel .kb-edit-label { font-size:13px; font-weight:600; color:var(--text-3); margin-top:12px; }
+
 /* 录音 modal */
 .voice-recorder-overlay { position:fixed; inset:0; z-index:1000; background:rgba(26,43,60,0.5); display:flex; align-items:flex-end; justify-content:center; animation:fadeIn .2s; }
 .vr-panel { background:#fff; border-radius:24px 24px 0 0; width:100%; max-width:560px; padding:20px; padding-bottom:calc(20px + env(safe-area-inset-bottom)); max-height:90vh; overflow-y:auto; }
@@ -1132,6 +1459,13 @@ ul { list-style:none; }
 .inbox-empty .es-icon { margin-bottom:12px; opacity:0.4; }
 .inbox-empty .es-text { font-size:14px; line-height:1.6; }
 
+/* 已归类折叠区 */
+.inbox-filed-toggle { cursor:pointer; user-select:none; display:flex; align-items:center; justify-content:space-between; opacity:0.85; }
+.inbox-filed-chevron { font-size:12px; color:var(--primary); font-weight:600; padding:3px 10px; background:#E3F1FA; border-radius:10px; }
+.inbox-filed-list { display:none; margin-top:12px; }
+.inbox-filed-section.expanded .inbox-filed-list { display:block; }
+.inbox-filed-section.expanded .inbox-filed-chevron { background:var(--border); color:var(--text-3); }
+
 /* Inbox file modal */
 .inbox-file-modal { position:fixed; inset:0; z-index:500; display:none; align-items:flex-end; justify-content:center; }
 .inbox-file-modal.open { display:flex; }
@@ -1139,14 +1473,16 @@ ul { list-style:none; }
 .inbox-file-sheet { position:relative; width:100%; max-width:560px; background:#fff; border-radius:20px 20px 0 0; padding:20px; max-height:80vh; overflow-y:auto; }
 .inbox-file-sheet .ifs-title { font-size:18px; font-weight:700; text-align:center; margin-bottom:4px; }
 .inbox-file-sheet .ifs-sub { font-size:13px; color:var(--text-3); text-align:center; margin-bottom:16px; }
-.inbox-file-sheet .ifs-preview { background:#F0F7FC; border-radius:12px; padding:12px; margin-bottom:16px; font-size:13px; color:var(--text-2); max-height:80px; overflow:hidden; }
-.inbox-file-group { margin-bottom:14px; }
-.inbox-file-group-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+.inbox-file-sheet .ifs-preview { background:#F0F7FC; border-radius:12px; padding:12px 14px; margin-bottom:18px; font-size:13px; color:var(--text-2); max-height:72px; overflow:hidden; line-height:1.5; border-left:3px solid var(--primary); }
+.ifs-group { margin-bottom:18px; }
+.ifs-group-title { font-size:11px; font-weight:700; color:var(--text-3); margin-bottom:10px; padding:0 2px; display:flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:0.05em; }
+.ifs-subgroup { margin-bottom:12px; }
+.ifs-subgroup-label { font-size:13px; font-weight:600; color:var(--text-2); margin-bottom:8px; padding-left:2px; }
 .inbox-file-options { display:flex; flex-wrap:wrap; gap:8px; }
 .inbox-file-opt { padding:8px 14px; border-radius:20px; border:1.5px solid var(--border); background:#fff; font-size:13px; font-weight:600; color:var(--text-2); cursor:pointer; transition:all .15s; }
 .inbox-file-opt:active { transform:scale(0.95); }
-.inbox-file-opt.selected { border-color:var(--primary); background:#E3F1FA; color:var(--primary-dark); }
-.inbox-file-confirm { width:100%; margin-top:16px; padding:14px; border:none; border-radius:12px; background:linear-gradient(135deg,var(--primary),var(--primary-light)); color:#fff; font-size:15px; font-weight:700; cursor:pointer; }
+.inbox-file-opt.selected { border-color:var(--primary); background:#E3F1FA; color:var(--primary-dark); box-shadow:0 2px 8px rgba(59,158,217,0.18); }
+.inbox-file-confirm { width:100%; margin-top:16px; padding:14px; border:none; border-radius:14px; background:linear-gradient(135deg,var(--primary),var(--primary-light)); color:#fff; font-size:15px; font-weight:700; cursor:pointer; box-shadow:0 4px 14px rgba(59,158,217,0.3); }
 .inbox-file-confirm:active { transform:scale(0.97); }
 .inbox-file-confirm:disabled { opacity:0.5; }
 
@@ -1361,6 +1697,66 @@ ul { list-style:none; }
 .mode-btn { flex:1; padding:12px 8px; border-radius:12px; border:2px solid var(--border); background:var(--card); color:var(--text-2); font-size:14px; font-weight:600; cursor:pointer; line-height:1.4; transition:all .15s; }
 .mode-btn.on { border-color:var(--primary); background:#E8F4FD; color:var(--primary-dark); }
 .mode-btn:active { transform:scale(.97); }
+
+/* ===== AI军师 ===== */
+.strat-wrap { padding:0 0 24px; }
+.strat-hero {
+  background:linear-gradient(135deg,var(--primary),var(--primary-light));
+  border-radius:var(--radius); padding:20px 18px; color:#fff; margin-bottom:16px;
+  box-shadow:0 4px 20px rgba(59,158,217,0.25);
+}
+.strat-hero-title { font-size:18px; font-weight:700; margin-bottom:6px; }
+.strat-hero-sub { font-size:13px; opacity:0.85; line-height:1.5; }
+.strat-hero-stats { display:flex; gap:12px; margin-top:14px; }
+.strat-hero-stat { background:rgba(255,255,255,0.15); border-radius:10px; padding:8px 12px; flex:1; text-align:center; }
+.strat-hero-stat-num { font-size:20px; font-weight:700; }
+.strat-hero-stat-label { font-size:11px; opacity:0.8; margin-top:2px; }
+
+.strat-card { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:16px; overflow:hidden; }
+.strat-card-header { display:flex; align-items:center; justify-content:space-between; padding:16px 18px; cursor:pointer; }
+.strat-card-title { font-size:15px; font-weight:600; color:var(--text); display:flex; align-items:center; gap:8px; }
+.strat-card-toggle { font-size:12px; color:var(--text-3); transition:transform .2s; }
+.strat-card-body { padding:0 18px 18px; }
+
+/* 约束配置 */
+.strat-cfg-row { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-top:0.5px solid var(--border); }
+.strat-cfg-row:first-child { border-top:none; }
+.strat-cfg-icon { width:36px; height:36px; border-radius:10px; background:#E8F4FD; display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--primary); }
+.strat-cfg-icon svg { width:20px; height:20px; }
+.strat-cfg-info { flex:1; min-width:0; }
+.strat-cfg-label { font-size:14px; font-weight:600; color:var(--text); margin-bottom:4px; }
+.strat-cfg-value { font-size:13px; color:var(--text-2); line-height:1.5; }
+.strat-cfg-edit { font-size:12px; color:var(--primary); flex-shrink:0; padding:4px 10px; border-radius:8px; background:#E8F4FD; border:none; cursor:pointer; }
+
+/* 时间块 */
+.strat-timeline { position:relative; padding-left:20px; }
+.strat-timeline::before { content:''; position:absolute; left:6px; top:8px; bottom:8px; width:2px; background:var(--border); }
+.strat-block { position:relative; margin-bottom:14px; }
+.strat-block::before { content:''; position:absolute; left:-20px; top:14px; width:12px; height:12px; border-radius:50%; background:var(--primary); border:2px solid #fff; box-shadow:0 0 0 2px var(--primary); }
+.strat-block.fixed::before { background:var(--text-3); box-shadow:0 0 0 2px var(--text-3); }
+.strat-block.ai::before { background:var(--primary); box-shadow:0 0 0 2px var(--primary); }
+.strat-block-time { font-size:12px; font-weight:700; color:var(--primary-dark); margin-bottom:4px; }
+.strat-block-content { background:var(--card); border:0.5px solid var(--border); border-radius:12px; padding:12px 14px; }
+.strat-block-title { font-size:14px; font-weight:600; color:var(--text); margin-bottom:4px; }
+.strat-block-reason { font-size:12px; color:var(--text-2); line-height:1.5; margin-bottom:8px; }
+.strat-block-actions { display:flex; gap:8px; }
+.strat-block-btn { font-size:12px; padding:5px 12px; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
+.strat-block-btn.adopt { background:var(--primary); color:#fff; }
+.strat-block-btn.skip { background:#F0F6FA; color:var(--text-2); }
+.strat-block-tag { display:inline-block; font-size:10px; padding:2px 8px; border-radius:6px; font-weight:600; margin-right:6px; }
+.strat-block-tag.fixed { background:#E8ECEF; color:var(--text-2); }
+.strat-block-tag.ai { background:#E8F4FD; color:var(--primary-dark); }
+.strat-block-tag.main { background:#FFE8EC; color:#D85A30; }
+
+/* 空状态 */
+.strat-empty { text-align:center; padding:32px 20px; color:var(--text-3); }
+.strat-empty-icon { font-size:36px; margin-bottom:8px; }
+.strat-empty-text { font-size:14px; line-height:1.6; }
+
+/* 生成按钮 */
+.strat-gen-btn { background:var(--primary); color:#fff; border:none; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:6px; }
+.strat-gen-btn:active { transform:scale(0.96); }
+.strat-gen-btn:disabled { opacity:0.5; }
 </style>
 </head>
 <body>
@@ -1756,6 +2152,15 @@ ul { list-style:none; }
       <div class="growth-grid" id="growthGrid"></div>
     </div>
 
+    <!-- 书籍学习 -->
+    <div class="plan-block plan-block-books">
+      <div class="plan-section-title personal" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>书籍学习</span>
+        <button class="btn-outline" style="padding:6px 12px;font-size:12px;" onclick="openBookModal()">+ 添加书籍</button>
+      </div>
+      <div id="booksGrid"></div>
+    </div>
+
     <!-- 知识库（卡片笔记 · Zettelkasten） -->
     <div class="plan-block plan-block-kb" id="kbBlock">
       <div class="plan-section-title personal">知识库 <span class="help-btn in-title" onclick="showHelp('knowledge-base')">?</span></div>
@@ -1764,12 +2169,19 @@ ul { list-style:none; }
         <div class="kb-stat"><div class="value" id="kbApproved">0</div><div class="label">已审</div></div>
         <div class="kb-stat"><div class="value" id="kbDue">0</div><div class="label">今日到期</div></div>
       </div>
+      <button class="kb-btn" style="margin:6px 0;width:100%;" onclick="openBedtimeModal()">🌙 拉到愿景板对谈（处理矛盾）</button>
       <div class="kb-tabs">
         <div class="kb-tab active" id="kbTabPending" onclick="switchKbTab('pending')">待审</div>
         <div class="kb-tab" id="kbTabApproved" onclick="switchKbTab('approved')">已审</div>
+        <div class="kb-tab" id="kbTabGraph" onclick="switchKbTab('graph')">图谱</div>
+        <div class="kb-tab" id="kbTabReports" onclick="switchKbTab('reports')">报告</div>
+        <div class="kb-tab" id="kbTabFramework" onclick="switchKbTab('framework')">🧭 框架</div>
       </div>
       <div id="kbPendingList"></div>
       <div id="kbApprovedList" style="display:none;"></div>
+      <div id="kbGraph" style="display:none;"></div>
+      <div id="kbReports" style="display:none;"></div>
+      <div id="kbFramework" style="display:none;"></div>
     </div>
 
     <!-- 复盘板块（日常复盘 / 协作复盘 / 历史复盘，按需求排序） -->
@@ -1787,6 +2199,61 @@ ul { list-style:none; }
       <div id="reviewHistory"></div>
     </div>
   </section>
+
+  <!-- ===== 书籍学习详情页 ===== -->
+  <section class="page" id="page-book-detail">
+    <div class="page-header">
+      <div class="ph-title" style="display:flex;align-items:center;gap:10px;cursor:pointer;" onclick="goPage('growth')">
+        <span>←</span>
+        <span id="bd-title">书籍详情</span>
+      </div>
+    </div>
+    <div id="bookDetailBody"></div>
+  </section>
+
+  <!-- ===== 生活乐子 ===== -->
+  <section class="page" id="page-life">
+    <div class="page-header">
+      <div class="ph-title">生活乐子 <span class="help-btn in-title" onclick="showHelp('page-life')">?</span></div>
+      <div class="ph-sub">看看世界 · 喝点小酒 · 搞点穿搭</div>
+    </div>
+    <div class="life-tabs">
+      <div class="life-tab active" data-ltab="world" onclick="switchLifeTab('world')">🌍 看看世界</div>
+      <div class="life-tab" data-ltab="drink" onclick="switchLifeTab('drink')">🍸 喝点小酒</div>
+      <div class="life-tab" data-ltab="style" onclick="switchLifeTab('style')">👗 搞点穿搭</div>
+    </div>
+    <div class="life-panel active" data-lpanel="world">
+      <div class="world-status-tabs" style="display:flex;gap:8px;margin-bottom:10px;">
+        <div class="world-status-tab active" data-wstatus="want" onclick="switchWorldStatus('want')">想去</div>
+        <div class="world-status-tab" data-wstatus="plan" onclick="switchWorldStatus('plan')">计划中</div>
+        <div class="world-status-tab" data-wstatus="done" onclick="switchWorldStatus('done')">已去</div>
+      </div>
+      <button class="life-btn life-btn-primary" style="margin:4px 0 12px;width:100%;" onclick="openTripModal()">+ 新增目的地</button>
+      <div id="worldListArea"></div>
+    </div>
+    <div class="life-panel" data-lpanel="drink">
+      <div id="lifeDrinkPanel"><div id="drinkGrid"></div></div>
+    </div>
+    <div class="life-panel" data-lpanel="style">
+      <div id="styleListArea"></div>
+    </div>
+  </section>
+
+  <!-- ===== AI军师 ===== -->
+  <section class="page" id="page-strategist">
+    <div class="page-header">
+      <div class="ph-title">AI军师 <span class="help-btn in-title" onclick="showHelp('page-strategist')">?</span></div>
+      <div class="ph-sub">目标对齐 · 智能排程 · 阶段复盘</div>
+    </div>
+    <div class="strat-wrap" id="stratWrap">
+      <!-- 动态渲染 -->
+    </div>
+  </section>
+
+  <!-- 知识库 modal 容器 -->
+  <div class="kb-detail-overlay" id="kbDetailOverlay" style="display:none;" onclick="closeKbDetail()"></div>
+  <div class="kb-edit-overlay" id="kbEditOverlay" style="display:none;" onclick="closeKbEdit()"></div>
+  <div id="kbBedtimeOverlay" style="display:none;position:fixed;inset:0;background:rgba(15,30,45,.55);z-index:1200;align-items:center;justify-content:center;padding:16px;" onclick="closeBedtimeModal()"></div>
 
   <!-- ===== 年历 ===== -->
   <section class="page" id="page-calendar">
@@ -1898,95 +2365,232 @@ ul { list-style:none; }
       <div class="vb-vision-grid" id="vbVisionGrid"></div>
     </div>
 
-        <!-- 主面板：左 Profile+行动 / 右 Tab切换 -->
+        <!-- 三模块上下布局：模块1 现状+愿景 / 模块2 圆桌 / 模块3 摘取+行动 -->
     <div class="vb-main-layout">
 
-      <!-- 左栏：Profile + 行动拆解 -->
-      <div class="vb-left-col">
-
-        <!-- Profile -->
-        <div class="vb-profile-section">
-          <div class="vb-ps-header">
-            <span class="vb-ps-title">Profile</span>
-            <div class="vb-ps-tags" id="vbProfileTags"></div>
-          </div>
-          <textarea class="vb-profile-textarea" id="vbProfileInput" placeholder="我的现状...&#10;当前体重、工作状态、收入、时间分配、最困扰的事..." oninput="autoSaveProfile()"></textarea>
+      <!-- ===== 模块 1：现状 + 愿景 ===== -->
+      <div class="vb-row">
+        <div class="vb-row-title">
+          <span class="vb-row-title-num">1</span>
+          现状 & 愿景
         </div>
+        <div class="vb-row-grid2">
+          <!-- Profile -->
+          <div class="vb-profile-section" style="background:transparent;padding:0;">
+            <div class="vb-ps-header">
+              <span class="vb-ps-title">Profile · 我的现状</span>
+              <div class="vb-ps-tags" id="vbProfileTags"></div>
+            </div>
+            <textarea class="vb-profile-textarea" id="vbProfileInput" placeholder="我的现状...&#10;当前体重、工作状态、收入、时间分配、最困扰的事..." oninput="autoSaveProfile()"></textarea>
+          </div>
 
-        <!-- Ambitions -->
-        <div class="vb-ambitions-section">
-          <div class="vb-ps-header">
-            <span class="vb-ps-title">Ambitions</span>
-          </div>
-          <textarea class="vb-profile-textarea" id="vbAmbitionInput" placeholder="阶段性目标（1-3年）...&#10;两三年后想要去到的目标" oninput="autoSaveProfile()"></textarea>
-        </div>
-
-        <!-- 筛选框：从专家建议中摘取有用的 -->
-        <div class="vb-pick-section">
-          <div class="vb-ps-header">
-            <span class="vb-ps-title">&#10022; 摘取</span>
-            <span class="vb-pick-hint">勾选专家说的对你有用的点</span>
-          </div>
-          <div class="vb-pick-list" id="vbPickList">
-            <div class="vb-pick-empty">获取专家建议后，这里会显示可勾选的要点</div>
-          </div>
-          <button class="vb-pick-confirm-btn" onclick="convertPickedToActions()" style="display:none" id="vbPickConfirmBtn">&rarr; 转为行动项</button>
-        </div>
-
-        <!-- 行动拆解 -->
-        <div class="vb-actions-section">
-          <div class="vb-ps-header">
-            <span class="vb-ps-title">&#9889; 行动</span>
-            <span class="vb-action-progress" id="vbActionProgress"></span>
-          </div>
-          <div class="vb-action-list" id="vbActionList"></div>
-          <div class="vb-action-add-row">
-            <input type="text" class="vb-action-input" id="vbActionInput" placeholder="+ 添加行动项" onkeydown="if(event.key==='Enter')addActionItem()">
+          <!-- Ambitions -->
+          <div class="vb-ambitions-section" style="background:transparent;padding:0;">
+            <div class="vb-ps-header">
+              <span class="vb-ps-title">Ambitions · 阶段性目标</span>
+            </div>
+            <textarea class="vb-profile-textarea" id="vbAmbitionInput" placeholder="阶段性目标（1-3年）...&#10;两三年后想要去到的目标" oninput="autoSaveProfile()"></textarea>
           </div>
         </div>
-
       </div>
 
-      <!-- 右栏：Tab 面板（专家 / 思维模型 / 通用） -->
-      <div class="vb-right-col">
+      <!-- ===== 模块 2：圆桌 / 模型 / 通用 Tab 面板 ===== -->
+      <div class="vb-row">
+        <div class="vb-row-title">
+          <span class="vb-row-title-num">2</span>
+          思维决策圆桌
+          <span class="vb-row-hint">专家 · 模型 · 通用 三种分析视角</span>
+        </div>
 
         <!-- Tab 栏 -->
-        <div class="vb-tab-bar">
+        <div class="vb-tab-bar" style="margin-bottom:8px;">
           <div class="vb-tab active" data-tab="experts" onclick="switchVbTab('experts')">专家</div>
-          <div class="vb-tab" data-tab="models" onclick="switchVbTab('models')">顿悟</div>
+          <div class="vb-tab" data-tab="models" onclick="switchVbTab('models')">模型</div>
           <div class="vb-tab" data-tab="chat" onclick="switchVbTab('chat')">通用</div>
-          <div style="margin-left:auto;display:flex;align-items:center;gap:8px">
+          <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
             <span style="font-size:11px;color:var(--text-3)" id="vbExpertCount"></span>
+            <button class="vb-tab-restore-btn" onclick="restoreDefaultExperts()" title="恢复 6 位默认专家">↺</button>
             <button class="vb-tab-add-btn" onclick="showAddExpertDialog()">＋</button>
           </div>
         </div>
 
-        <!-- 专家面板 -->
-        <div class="vb-tab-panel" id="vbPanelExperts">
-          <div class="vb-expert-cards-row" id="vbExpertCards"></div>
-          <div class="vb-expert-detail" id="vbExpertDetail"></div>
+        <!-- 专家面板 - 圆桌讨论 -->
+        <div class="vb-tab-panel" id="vbPanelExperts" style="display:flex;flex-direction:column;justify-content:flex-start;">
+          <div class="vb-roundtable-header">
+            <div class="vb-rt-title-row">
+              <span class="vb-rt-icon">🤝</span>
+              <span class="vb-rt-title">6 位专家 × 你的议题</span>
+              <span class="vb-rt-subtitle">R1 各自表态 → R2 回应前序 + 行动建议</span>
+            </div>
+          </div>
+          <!-- 议题输入 -->
+          <div class="vb-roundtable-input-area">
+            <textarea class="vb-rt-topic-input" id="vbRoundtableTopic" placeholder="输入你想讨论的议题或目标...&#10;例如：我想在3个月内把自媒体粉丝从0做到1万"></textarea>
+            <button class="vb-rt-start-btn" onclick="startRoundtable()">开启圆桌讨论</button>
+          </div>
+          <div class="vb-rt-kb-toggle-row" style="display:flex;align-items:center;gap:8px;padding:2px 4px 10px;flex-wrap:wrap">
+            <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-2);cursor:pointer;user-select:none">
+              <input type="checkbox" id="vbRtUseKnowledge" checked style="width:16px;height:16px;accent-color:#3B9ED9;cursor:pointer">
+              <span>读取我的知识积累</span>
+            </label>
+            <span id="vbRtKbCount" style="font-size:11px;color:var(--text-3)"></span>
+          </div>
+          <!-- 6 位专家行（启动前为空壳，启动后填入 R1/R2/行动） -->
+          <div class="vb-rt-list" id="vbRoundtableDiscussion"></div>
+          <!-- 摘取操作区 -->
+          <div class="vb-rt-actions" id="vbRtActions" style="display:none">
+            <div style="font-size:11px;color:var(--text-3);padding:8px 12px;background:rgba(59,158,217,0.08);border-radius:8px;flex:1;line-height:1.5">👆 勾选上方观点/行动会自动填入下方摘取框</div>
+            <button class="vb-rt-action-btn outline" onclick="syncActionsToCalendar()">📅 同步行动到日历</button>
+            <button class="vb-rt-action-btn outline" onclick="saveRoundtableAsCard()">📚 沉淀圆桌为知识卡</button>
+            <button class="vb-rt-action-btn outline" onclick="startRoundtable()">🔄 重新讨论</button>
+          </div>
         </div>
 
-        <!-- 思维模型面板 -->
-        <div class="vb-tab-panel" id="vbPanelModels" style="display:none">
-          <div class="vb-model-grid" id="vbModelGrid"></div>
-          <div class="vb-model-analysis" id="vbModelAnalysis" style="display:none">
-            <div class="vb-model-analysis-body" id="vbModelAnalysisBody"></div>
+        <!-- 思维模型面板 - 学科分类 -->
+        <div class="vb-tab-panel" id="vbPanelModels" style="display:none;justify-content:flex-start;">
+          <div class="vb-model-intro">
+            选择不同学科的思考模型，AI会自动调用相关模型交叉分析——
+          </div>
+          <div class="vb-model-categories" id="vbModelCategories"></div>
+          <div class="vb-model-selected-area" id="vbModelSelectedArea" style="display:none">
+            <div class="vb-model-sel-header">
+              <span>已选模型</span>
+              <span class="vb-model-sel-count" id="vbModelSelCount">0</span>
+            </div>
+            <div class="vb-model-sel-list" id="vbModelSelList"></div>
+            <div class="vb-model-analysis" id="vbModelAnalysis" style="display:none">
+              <div class="vb-model-analysis-body" id="vbModelAnalysisBody"></div>
+            </div>
           </div>
         </div>
 
         <!-- 通用对话面板 -->
-        <div class="vb-tab-panel" id="vbPanelChat" style="display:none">
+        <div class="vb-tab-panel" id="vbPanelChat" style="display:none;flex:1 1 0;justify-content:flex-start;">
           <div class="vb-chat-messages" id="vbChatMessages"></div>
           <div class="vb-chat-input-row">
             <textarea class="vb-chat-input" id="vbChatInput" placeholder="和小迪聊...&#10;任何想法、疑问、想讨论的都可以扔进来" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendVbChat()}"></textarea>
             <button class="vb-chat-send-btn" onclick="sendVbChat()">发送</button>
           </div>
         </div>
+      </div>
 
+      <!-- ===== 模块 3：摘取 + 行动 ===== -->
+      <div class="vb-row">
+        <div class="vb-row-title">
+          <span class="vb-row-title-num">3</span>
+          摘取 & 行动
+          <span class="vb-row-hint">勾选圆桌观点 → 转成可执行的行动项</span>
+        </div>
+
+        <div class="vb-row-grid2">
+          <!-- 筛选框：从专家建议中摘取有用的 -->
+          <div class="vb-pick-section" style="background:transparent;padding:0;">
+            <div class="vb-ps-header">
+              <span class="vb-ps-title">✦ 摘取</span>
+              <span class="vb-pick-hint">勾选专家说的对你有用的点</span>
+            </div>
+            <div class="vb-pick-list" id="vbPickList">
+              <div class="vb-pick-empty">获取专家建议后，这里会显示可勾选的要点</div>
+            </div>
+            <div style="display:flex;gap:6px;margin-top:8px;">
+              <button class="vb-pick-confirm-btn" onclick="distillPickedToActions()" style="display:none;flex:1;" id="vbPickConfirmBtn">🧠 按成长目标梳理</button>
+              <button class="vb-rt-action-btn outline" style="display:none;font-size:11px;padding:6px 10px;" id="vbPickRawBtn" onclick="convertPickedToActions()" title="跳过 AI，直接原样转为行动">原样</button>
+            </div>
+          </div>
+
+          <!-- 行动拆解 -->
+          <div class="vb-actions-section" style="background:transparent;padding:0;margin-top:0;">
+            <div class="vb-ps-header">
+              <span class="vb-ps-title">⚡ 行动</span>
+              <span class="vb-action-progress" id="vbActionProgress"></span>
+            </div>
+            <div class="vb-action-list" id="vbActionList"></div>
+            <div class="vb-action-add-row">
+              <input type="text" class="vb-action-input" id="vbActionInput" placeholder="+ 添加行动项" onkeydown="if(event.key==='Enter')addActionItem()">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Inbox (收集箱) ===== -->
+  <section class="page" id="page-inbox">
+    <div class="inbox-hero">
+      <div class="ih-title">收集箱</div>
+      <div class="ih-sub">看到的、想到的、听过的，先丢进来</div>
+      <div class="ih-stats">
+        <div class="ih-stat"><div class="v" id="inboxPendingCount">0</div><div class="l">待归类</div></div>
+        <div class="ih-stat"><div class="v" id="inboxFiledCount">0</div><div class="l">已归类</div></div>
+        <div class="ih-stat"><div class="v" id="inboxTotalCount">0</div><div class="l">总计</div></div>
       </div>
     </div>
-  </section></main>
+
+    <!-- 添加文字 -->
+    <div class="inbox-input-card">
+      <textarea id="inboxInput" placeholder="粘贴链接、写两句灵感、丢个想法…"></textarea>
+      <button class="inbox-add-btn" onclick="addInboxItem()">丢进收集箱</button>
+    </div>
+
+    <!-- tabs -->
+    <div class="inbox-tabs">
+      <div class="inbox-tab active" data-tab="text" onclick="switchInboxTab('text')">文字 <span class="it-badge" id="inboxPendingBadge">0</span></div>
+      <div class="inbox-tab" data-tab="image" onclick="switchInboxTab('image')">图片 <span class="it-badge" id="imageTabBadge">0</span></div>
+      <div class="inbox-tab" data-tab="voice" onclick="switchInboxTab('voice')">语音 <span class="it-badge" id="voiceTabBadge">0</span></div>
+      <div class="inbox-tab" data-tab="meeting" onclick="switchInboxTab('meeting')">会议 <span class="it-badge" id="meetingTabBadge">0</span></div>
+    </div>
+
+    <!-- text panel -->
+    <div class="inbox-tab-panel active" data-panel="text">
+      <div class="inbox-section">
+        <div class="inbox-section-title">待归类</div>
+        <div id="inboxPendingList"></div>
+      </div>
+      <div class="inbox-section inbox-filed-section" id="inboxFiledSection" style="display:none">
+        <div class="inbox-section-title inbox-filed-toggle" onclick="toggleInboxFiled()">
+          <span>已归类 <span class="inbox-section-count" id="inboxFiledBadge">0</span></span>
+          <span class="inbox-filed-chevron" id="inboxFiledChevron">展开</span>
+        </div>
+        <div id="inboxFiledList" class="inbox-filed-list"></div>
+      </div>
+    </div>
+
+    <!-- image panel -->
+    <div class="inbox-tab-panel" data-panel="image">
+      <div class="inbox-image-upload-card">
+        <div class="inbox-image-dropzone" onclick="document.getElementById('inboxImageInput').click()">
+          <div style="font-size:30px;margin-bottom:6px;">🖼️</div>
+          <div>点击选择图片，或粘贴截图（Ctrl+V）</div>
+        </div>
+        <input type="file" id="inboxImageInput" accept="image/*" multiple hidden onchange="handleInboxImageSelect(event)">
+        <button class="inbox-add-btn" onclick="addInboxImages()">添加图片到收集箱</button>
+        <div class="inbox-image-preview" id="inboxImagePreview"></div>
+        <div class="inbox-image-hint" id="inboxImageHint" style="display:none;"></div>
+      </div>
+      <div id="inboxImageList"></div>
+      <div id="imageEmpty" class="inbox-empty" style="display:none;"></div>
+    </div>
+
+    <!-- voice panel -->
+    <div class="inbox-tab-panel" data-panel="voice">
+      <div style="margin-bottom:14px;">
+        <button class="inbox-add-btn" onclick="openVoiceRecorder()">🎤 录一条语音备忘</button>
+      </div>
+      <div class="inbox-section-title">语音备忘 <span class="inbox-section-count" id="voiceMemosCount">0</span></div>
+      <div id="voiceMemosList"></div>
+      <div id="voiceEmpty" class="inbox-empty" style="display:none;"></div>
+    </div>
+
+    <!-- meeting panel -->
+    <div class="inbox-tab-panel" data-panel="meeting">
+      <div class="inbox-section-title">会议纪要</div>
+      <div id="meetingList"></div>
+      <div id="meetingEmpty" class="inbox-empty" style="display:none;"></div>
+    </div>
+  </section>
+
+</main>
 
 <!-- ===== Review Modal (艾宾浩斯复习) ===== -->
 <div class="modal-overlay" id="reviewModalOverlay" style="display:none;">
@@ -1999,7 +2603,6 @@ ul { list-style:none; }
   </div>
 </div>
 
-<!-- ===== Voice Recorder Modal ===== -->
 <div class="voice-recorder-overlay" id="voiceRecorderOverlay" style="display:none;">
   <div class="vr-panel">
     <div class="vr-header">
@@ -2090,6 +2693,57 @@ ul { list-style:none; }
     <div class="ifs-preview" id="ifsPreview"></div>
     <div id="ifsOptions"></div>
     <button class="inbox-file-confirm" id="ifsConfirm" onclick="confirmFileInbox()" disabled>确认归类</button>
+  </div>
+</div>
+
+<!-- ===== Book Modal ===== -->
+<div class="modal-overlay" id="bookModalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="bm-title">添加书籍</div>
+      <div class="modal-close" onclick="closeBookModal()">×</div>
+    </div>
+    <input type="hidden" id="bm-id">
+    <div class="book-modal-cover-preview" id="bm-cover-preview">
+      <span style="color:#8CB8D8;font-size:13px;">暂无封面</span>
+    </div>
+    <div class="form-group">
+      <label class="form-label">书名</label>
+      <input type="text" class="form-input" id="bm-title-input" placeholder="如：穷查理宝典">
+    </div>
+    <div class="form-group">
+      <label class="form-label">封面图</label>
+      <input type="file" class="form-input" id="bm-cover-input" accept="image/*" onchange="handleBookCoverSelect(event)">
+      <div style="font-size:12px;color:var(--text-3);margin-top:4px;">或粘贴图片到此处（Ctrl+V）</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">类型</label>
+      <select class="form-select" id="bm-type">
+        <option value="repeated">常翻书</option>
+        <option value="once">一次性</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">补充内容（可选）</label>
+      <textarea class="form-textarea" id="bm-notes" placeholder="书的目录、你已有的读书笔记、划线、想讨论的问题…"></textarea>
+    </div>
+    <button class="btn-primary" onclick="saveBook()">保存</button>
+  </div>
+</div>
+
+<!-- ===== Book Sprout/Interrogate Modal ===== -->
+<div class="modal-overlay" id="bookActiveModalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="bam-title">发芽</div>
+      <div class="modal-close" onclick="closeBookActiveModal()">×</div>
+    </div>
+    <input type="hidden" id="bam-mode">
+    <div id="bam-body"></div>
+    <div class="form-group" style="margin-top:12px;">
+      <textarea class="form-textarea" id="bam-input" placeholder="补充你的思考…"></textarea>
+    </div>
+    <button class="btn-primary" id="bam-run" onclick="runBookActiveMode()">生成</button>
   </div>
 </div>
 
@@ -3609,6 +4263,16 @@ const HELP_DATA = {
       { title: '内容复盘', body: '月历视图，记录每天发布的内容效果数据（播放/点赞/评论/转发、完播率、2 秒跳出率、流量来源）。点击日期看当日记录，有内容日期显示小圆点。' },
     ]
   },
+  'knowledge-base': {
+    title: '知识库 · 卡片笔记',
+    sections: [
+      { title: '这是什么', body: '用<b>卡片笔记法（Zettelkasten）</b>沉淀你的洞察。AI 每天自动从成长记录、语音备忘提炼成「一卡一 idea」的卡片，你负责<b>审</b>和<b>建关联</b>。' },
+      { title: '待审区', body: 'AI 提炼的卡片先进入待审区。你可以：<b>✓ 通过</b>（进入知识库）、<b>✕ 拒绝</b>（丢弃）、<b>编辑</b>（改内容/标签）。只留你真正认同的洞察。' },
+      { title: '已审区 & 关联', body: '通过的卡片进入已审区。点「查看 / 关联」打开详情：主卡 + 关联侧栏。AI 会自动建议关联，你<b>确认</b>或<b>拒绝</b>。确认后卡片互相链接，复习时一起浮现。' },
+      { title: '复习', body: '已审卡片按<b>艾宾浩斯 1/2/4/7/15/30 天</b>排期。首页「今日复习」会同时包含成长记录和知识卡片。复习的是<b>关联后的融合内容</b>，不是孤立条目。' },
+      { title: '睡前对话', body: 'Sprint 2 将接入：睡前语音讨论冲突点 → 转写 → 结论新建卡片。' },
+    ]
+  },
   'page-growth': {
     title: '个人成长',
     sections: [
@@ -3706,7 +4370,7 @@ const HELP_DATA = {
       { title: '内容复盘', body: '月历视图记录每天发布效果：播放、点赞、完播率、流量来源。积累爆款数据。<span class="tip">入口：侧边栏第 5 项</span>' },
       { title: '每日复盘', body: '个人日常 + 工作内容双卡片复盘。明日待办自动加入次日计划。<span class="tip">入口：侧边栏第 6 项</span>' },
       { title: '个人成长', body: '5 大分类（健康/审美/拿证/商业/品牌），每条记录学习内容和备忘。<span class="tip">入口：侧边栏第 7 项</span>' },
-      { title: '收集箱', body: '三合一：文字收集（智能归类）+ 语音备忘（AI 转写）+ 会议纪要（腾讯会议同步）。<span class="tip">入口：侧边栏第 8 项</span>' },
+      { title: '收集箱', body: '三合一：文字收集（智能归类）+ 语音备忘（AI 转写）+ 会议纪要（腾讯会议同步）。<span class="tip">入口：侧边栏第 6 项</span>' },
       { title: '全局搜索', body: '右上角放大镜，跨 9 个模块搜索所有内容。<span class="tip">入口：topbar 右侧</span>' },
       { title: '云同步', body: '数据自动同步到 Supabase 云端。侧边栏底部可手动触发。<span class="tip">入口：侧边栏底部</span>' },
       { title: '提醒管理', body: 'Bark 推送提醒，到了设定时间通知 iPhone。<span class="tip">入口：侧边栏底部</span>' },
@@ -3779,6 +4443,7 @@ const PAGES = [
   { id:'growth',   label:'个人成长', icon: ic('assets/judy-growth.jpg') },
   { id:'inbox',    label:'收集箱',   icon: ic('inbox') },
   { id:'life',     label:'生活乐子', icon: ic('sparkles') },
+  { id:'strategist', label:'AI军师', icon: ic('brain') },
 ];
 
 let currentPage = 'plan';
@@ -3795,13 +4460,14 @@ function goPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-'+pageId).classList.add('active');
   const page = PAGES.find(p => p.id === pageId);
-  document.getElementById('pageTitle').textContent = page.label;
+  document.getElementById('pageTitle').textContent = page ? page.label : '';
   document.getElementById('topbarRight').style.display = pageId === 'plan' ? 'flex' : 'none';
   renderNav();
   closeSidebar();
   if (pageId==='plan') renderPlan();
   if (pageId==='studio') renderStudio();
-  if (pageId==='growth') renderGrowth();
+  if (pageId==='growth') { renderGrowth(); renderKnowledgeBase(); renderBooks(); }
+  if (pageId==='book-detail') renderBookDetail();
   if (pageId==='calendar') {
     renderCalendar();
     // 进入日历页面时强制刷新会议（避免显示陈旧数据）
@@ -3810,6 +4476,7 @@ function goPage(pageId) {
   if (pageId==='vision') renderVision();
   if (pageId==='inbox') renderInbox();
   if (pageId==='life') renderLife();
+  if (pageId==='strategist') renderStrategist();
   window.scrollTo(0,0);
 }
 
@@ -6161,6 +6828,15 @@ const GROWTH_GROUPS = [
       { id: 'wellness-brand', label: '养生品牌', icon: 'assets/judy-wellness-brand.jpg', subs: ['产品', '视觉设计'] },
       { id: 'endorsement', label: '专家/品牌背书', icon: 'handshake' }
     ]
+  },
+  {
+    id: 'ai', label: 'AI 与效率', icon: 'cpu', color: '#3B9ED9',
+    items: [
+      { id: 'ai-tools', label: 'AI 工具', icon: 'cpu' },
+      { id: 'ai-prompts', label: 'AI 提示词', icon: 'message-square' },
+      { id: 'ai-cases', label: 'AI 应用案例', icon: 'sparkles' },
+      { id: 'ai-news', label: 'AI 前沿资讯', icon: 'trending-up' }
+    ]
   }
 ];
 
@@ -6705,12 +7381,12 @@ function getAllReviewable() {
 }
 
 function updateReviewBlock() {
-  const due = getDueReviews();
+  const dueCount = getDueReviews().length + getKbDueReviews().length;
   const block = document.getElementById('reviewBlock');
   if (!block) return;
-  if (due.length > 0) {
+  if (dueCount > 0) {
     block.style.display = 'block';
-    document.getElementById('reviewCount').textContent = due.length + ' 条到期复习';
+    document.getElementById('reviewCount').textContent = dueCount + ' 条到期复习';
   } else {
     block.style.display = 'none';
   }
@@ -6728,16 +7404,18 @@ function closeReviewModal() {
 function renderReviewModal() {
   const due = getDueReviews();
   const all = getAllReviewable();
+  const kbDue = getKbDueReviews();
+  const totalDue = due.length + kbDue.length;
   const mastered = getGrowthLogs().filter(l => l.masteryLevel === 'mastered').length;
   const content = document.getElementById('reviewContent');
   
   let html = `<div class="review-stats">
-    <div class="review-stat"><div class="v">${due.length}</div><div class="l">今日到期</div></div>
-    <div class="review-stat"><div class="v">${all.length - due.length}</div><div class="l">未到期</div></div>
-    <div class="review-stat"><div class="v">${mastered}</div><div class="l">已掌握</div></div>
+    <div class="review-stat"><div class="v">${totalDue}</div><div class="l">今日到期</div></div>
+    <div class="review-stat"><div class="v">${all.length - due.length}</div><div class="l">未到期(成长)</div></div>
+    <div class="review-stat"><div class="v">${mastered}</div><div class="l">已掌握(成长)</div></div>
   </div>`;
   
-  if (!due.length) {
+  if (!totalDue) {
     html += `<div class="review-empty"><div class="review-empty-icon">🎉</div><div style="font-size:16px;font-weight:700;color:var(--text-2);">今日没有到期复习</div><div style="font-size:13px;margin-top:4px;">继续保持，新内容会自动安排复习</div></div>`;
     content.innerHTML = html;
     return;
@@ -6767,6 +7445,33 @@ function renderReviewModal() {
       </div>
     </div>`;
   }).join('');
+
+  // 知识库卡片到期复习
+  if (kbDue.length) {
+    html += kbDue.map(card => {
+      const reviewCount = card.review_count || 0;
+      const dots = REVIEW_INTERVALS.map((_, i) => {
+        const cls = i < reviewCount ? 'done' : (i === reviewCount ? 'current' : '');
+        return `<div class="ri-dot ${cls}"></div>`;
+      }).join('');
+      const daysOverdue = Math.floor((new Date(todayKey()) - new Date(card.next_review_at)) / 86400000);
+      const dueLabel = daysOverdue === 0 ? '今日到期' : `逾期${daysOverdue}天`;
+      const tags = (card.tags || []).slice(0, 3).map(t => '#' + escapeHtml(t)).join(' ');
+      return `<div class="review-item" style="border-left-color:var(--primary);">
+        <div class="ri-category">📚 知识卡片 ${tags ? '· ' + tags : ''}</div>
+        <div class="ri-content">${escapeHtml(card.content)}</div>
+        <div class="ri-meta">
+          <span>复习 ${reviewCount}/${REVIEW_INTERVALS.length}</span>
+          <span style="color:${daysOverdue > 0 ? '#E74C3C' : 'var(--text-3)'};">${dueLabel}</span>
+          <div class="ri-progress">${dots}</div>
+        </div>
+        <div class="ri-actions">
+          <button class="ri-btn review" onclick="markCardReviewed('${card.id}')">✓ 已复习</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  
   content.innerHTML = html;
 }
 
@@ -6790,7 +7495,7 @@ function markReviewed(logId) {
   renderReviewModal();
   updateReviewBlock();
   if (log.masteryLevel === 'mastered') {
-    showToast('🎉 已掌握！完成全部复习周期');
+    showToast('🎉 已掌握！完成全部复习周期 · 已进入圆桌素材池');
   } else {
     showToast('✓ 已记录 · 下次复习：' + log.nextReviewAt);
   }
@@ -6804,6 +7509,654 @@ function deleteGrowthLog(id) {
   }
 }
 
+/* ===== 知识库（卡片笔记 Zettelkasten） ===== */
+const KB_SOURCE_LABELS = { growth_log: '成长记录', voice_memo: '语音备忘', inbox_text: '收集箱文字', inbox_image: '收集箱图片', meeting_minutes: '会议纪要' };
+let knowledgeCardsCache = [];
+let _kbOpenCardId = null;
+
+async function loadKnowledgeCards() {
+  if (!isSupabaseReady()) return;
+  try {
+    const { data, error } = await supabaseClient().from('knowledge_cards').select('*').order('created_at', { ascending: false });
+    if (error) throw error;
+    knowledgeCardsCache = data || [];
+    // 预拉关联，便于详情页秒开
+    const { data: rels } = await supabaseClient().from('card_relations').select('*');
+    const relMap = {};
+    (rels || []).forEach(r => {
+      (relMap[r.card_id] = relMap[r.card_id] || []).push(r);
+      (relMap[r.related_card_id] = relMap[r.related_card_id] || []).push(r);
+    });
+    knowledgeCardsCache.forEach(c => { c._relations = relMap[c.id] || []; });
+  } catch (e) {
+    console.error('loadKnowledgeCards failed:', e);
+  }
+}
+
+async function renderKnowledgeBase() {
+  await loadKnowledgeCards();
+  const pending = knowledgeCardsCache.filter(c => c.status === 'pending_review');
+  const approved = knowledgeCardsCache.filter(c => c.status === 'approved');
+  const due = getKbDueReviews();
+  document.getElementById('kbPending').textContent = pending.length;
+  document.getElementById('kbApproved').textContent = approved.length;
+  document.getElementById('kbDue').textContent = due.length;
+
+  const pl = document.getElementById('kbPendingList');
+  if (!pending.length) {
+    pl.innerHTML = '<div class="kb-empty">暂无待审卡片。AI 每天会自动从成长记录/语音备忘提炼，或等下次 cron 触发。</div>';
+  } else {
+    pl.innerHTML = pending.map(c => `
+      <div class="kb-card pending">
+        <div class="kb-content">${escapeHtml(c.content)}</div>
+        ${c.memo ? `<div class="kb-memo">${escapeHtml(c.memo)}</div>` : ''}
+        <div class="kb-tags">${(c.tags || []).map(t => `<span class="kb-tag">#${escapeHtml(t)}</span>`).join('')}</div>
+        <div class="kb-meta"><span class="kb-src">${KB_SOURCE_LABELS[c.source_type] || c.source_type}</span><span>${formatDate(c.created_at)}</span></div>
+        <div class="kb-actions">
+          <button class="kb-btn approve" onclick="approveCard('${c.id}')">✓ 通过</button>
+          <button class="kb-btn reject" onclick="rejectCard('${c.id}')">✕ 拒绝</button>
+          <button class="kb-btn edit" onclick="editCard('${c.id}')">编辑</button>
+        </div>
+      </div>`).join('');
+  }
+
+  const al = document.getElementById('kbApprovedList');
+  if (!approved.length) {
+    al.innerHTML = '<div class="kb-empty">还没有已审卡片。通过待审卡片后会出现在这里。</div>';
+  } else {
+    al.innerHTML = approved.map(c => {
+      const relCnt = (c._relations || []).filter(r => r.status === 'confirmed').length;
+      const reviewCount = c.review_count || 0;
+      return `
+      <div class="kb-card">
+        <div class="kb-content">${escapeHtml(c.content)}</div>
+        <div class="kb-tags">${(c.tags || []).map(t => `<span class="kb-tag">#${escapeHtml(t)}</span>`).join('')}</div>
+        <div class="kb-meta"><span class="kb-src">${KB_SOURCE_LABELS[c.source_type] || c.source_type}</span><span class="kb-rel-count">🔗 ${relCnt} 关联</span><span>复习 ${reviewCount}/${REVIEW_INTERVALS.length}</span></div>
+        <div class="kb-actions">
+          <button class="kb-btn detail" onclick="openCardDetail('${c.id}')">查看 / 关联</button>
+          <button class="kb-btn review" onclick="markCardReviewed('${c.id}')">✓ 已复习</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+}
+
+function switchKbTab(tab) {
+  document.getElementById('kbTabPending').classList.toggle('active', tab === 'pending');
+  document.getElementById('kbTabApproved').classList.toggle('active', tab === 'approved');
+  document.getElementById('kbTabGraph').classList.toggle('active', tab === 'graph');
+  document.getElementById('kbTabReports').classList.toggle('active', tab === 'reports');
+  document.getElementById('kbTabFramework').classList.toggle('active', tab === 'framework');
+  document.getElementById('kbPendingList').style.display = tab === 'pending' ? 'block' : 'none';
+  document.getElementById('kbApprovedList').style.display = tab === 'approved' ? 'block' : 'none';
+  document.getElementById('kbGraph').style.display = tab === 'graph' ? 'block' : 'none';
+  document.getElementById('kbReports').style.display = tab === 'reports' ? 'block' : 'none';
+  document.getElementById('kbFramework').style.display = tab === 'framework' ? 'block' : 'none';
+  if (tab === 'graph') renderKbGraph();
+  if (tab === 'reports') renderKbReports();
+  if (tab === 'framework') renderKbFramework();
+}
+
+/* 渲染 kb_framework 主框架表（你的成长地图 · 蒸馏剧本） */
+async function renderKbFramework() {
+  const wrap = document.getElementById('kbFramework');
+  if (!wrap) return;
+  wrap.innerHTML = '<div class="kb-empty">加载中…</div>';
+  try {
+    const { data, error } = await supabaseClient()
+      .from('kb_framework')
+      .select('*')
+      .order('domain', { ascending: true });
+    if (error) throw error;
+    if (!data || !data.length) {
+      wrap.innerHTML = '<div class="kb-empty">还没有主框架数据。请在 Supabase Dashboard 跑 knowledge-cards-sprint2.sql 插入 9 域种子。</div>';
+      return;
+    }
+    wrap.innerHTML = `
+      <div style="background:linear-gradient(135deg,#EAF3FA 0%,#F4F8FB 100%);border-radius:14px;padding:14px;margin-bottom:14px;">
+        <div style="font-weight:700;color:var(--primary-dark);font-size:14px;margin-bottom:4px;">🧭 我的成长主框架</div>
+        <div style="font-size:12px;color:var(--text-2);">9 个域的「学什么 / 产什么 / 节奏」——蒸馏引擎就是按这个剧本跑的</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        ${data.map(d => renderKbFrameworkCard(d)).join('')}
+      </div>
+    `;
+  } catch (e) {
+    wrap.innerHTML = `<div class="kb-empty">加载失败：${escapeHtml(e.message)}</div>`;
+  }
+}
+
+function renderKbFrameworkCard(d) {
+  const r = d.rhythm || {};
+  const rhythmParts = [];
+  if (r.daily) rhythmParts.push('日');
+  if (r.weekly) rhythmParts.push('周');
+  if (r.monthly) rhythmParts.push('月');
+  const rhythmText = rhythmParts.length ? rhythmParts.join('+') + (r.hour ? ' ' + r.hour : '') : '不定期';
+  const kws = d.keywords || [];
+  const colorByDomain = d.domain.startsWith('成长') ? '#5BBF8A' : '#3B9ED9';
+  return `
+    <div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;border-left:3px solid ${colorByDomain};">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div style="font-weight:700;color:${colorByDomain};font-size:14px;">${escapeHtml(d.domain)}</div>
+        <span style="background:${colorByDomain}15;color:${colorByDomain};font-size:11px;padding:2px 8px;border-radius:10px;">${escapeHtml(rhythmText)}</span>
+      </div>
+      <div style="font-size:12.5px;color:var(--text-2);line-height:1.6;margin-bottom:8px;">
+        <b style="color:var(--text);">学什么：</b>${escapeHtml(d.focus || '（未填）')}
+      </div>
+      ${kws.length ? `<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">
+        ${kws.slice(0, 6).map(k => `<span style="background:#F4F8FB;color:var(--text-3);font-size:10.5px;padding:2px 7px;border-radius:10px;">#${escapeHtml(k)}</span>`).join('')}
+        ${kws.length > 6 ? `<span style="font-size:10.5px;color:var(--text-3);">+${kws.length - 6}</span>` : ''}
+      </div>` : ''}
+    </div>
+  `;
+}
+
+async function supabaseUpdate(table, keyObj, patch) {
+  const { error } = await supabaseClient().from(table).update(patch).match(keyObj);
+  if (error) throw error;
+}
+
+async function approveCard(id) {
+  try {
+    await supabaseUpdate('knowledge_cards', { id }, { status: 'approved', approved_at: new Date().toISOString() });
+    showToast('✓ 已通过，进入知识库');
+    renderKnowledgeBase();
+  } catch (e) { showToast('操作失败：' + e.message); }
+}
+
+async function rejectCard(id) {
+  try {
+    await supabaseUpdate('knowledge_cards', { id }, { status: 'rejected' });
+    showToast('已拒绝');
+    renderKnowledgeBase();
+  } catch (e) { showToast('操作失败：' + e.message); }
+}
+
+function editCard(id) {
+  const c = knowledgeCardsCache.find(x => x.id === id);
+  if (!c) return;
+  const overlay = document.getElementById('kbEditOverlay');
+  overlay.innerHTML = `
+    <div class="kb-edit-panel" onclick="event.stopPropagation()">
+      <div class="kb-detail-head"><div class="kb-detail-title">编辑卡片</div><div class="kb-detail-close" onclick="closeKbEdit()">×</div></div>
+      <div class="kb-edit-label">卡片内容（一卡一 idea）</div>
+      <textarea id="kbEditContent">${escapeHtml(c.content)}</textarea>
+      <div class="kb-edit-label">备注 / 背景</div>
+      <textarea id="kbEditMemo" style="min-height:70px;">${escapeHtml(c.memo || '')}</textarea>
+      <div class="kb-edit-label">标签（逗号分隔）</div>
+      <input id="kbEditTags" value="${escapeHtml((c.tags || []).join(', '))}" />
+      <div style="display:flex;gap:8px;margin-top:16px;">
+        <button class="kb-btn approve" style="flex:1;" onclick="saveCardEdit('${c.id}')">保存</button>
+        <button class="kb-btn reject" onclick="closeKbEdit()">取消</button>
+      </div>
+    </div>`;
+  overlay.style.display = 'flex';
+}
+function closeKbEdit() { document.getElementById('kbEditOverlay').style.display = 'none'; }
+async function saveCardEdit(id) {
+  const content = document.getElementById('kbEditContent').value.trim();
+  const memo = document.getElementById('kbEditMemo').value.trim();
+  const tags = document.getElementById('kbEditTags').value.split(',').map(s => s.trim()).filter(Boolean);
+  if (!content) { showToast('内容不能为空'); return; }
+  try {
+    await supabaseUpdate('knowledge_cards', { id }, { content, memo, tags });
+    showToast('已保存');
+    closeKbEdit();
+    renderKnowledgeBase();
+  } catch (e) { showToast('保存失败：' + e.message); }
+}
+
+async function openCardDetail(id) {
+  _kbOpenCardId = id;
+  const c = knowledgeCardsCache.find(x => x.id === id);
+  if (!c) return;
+  const rels = (c._relations || []);
+  const relHtml = buildRelationHtml(id, rels);
+  const overlay = document.getElementById('kbDetailOverlay');
+  overlay.innerHTML = `
+    <div class="kb-detail-panel" onclick="event.stopPropagation()">
+      <div class="kb-detail-head"><div class="kb-detail-title">知识卡片</div><div class="kb-detail-close" onclick="closeKbDetail()">×</div></div>
+      <div class="kb-detail-main">
+        <div class="kb-content">${escapeHtml(c.content)}</div>
+        ${c.memo ? `<div class="kb-memo">${escapeHtml(c.memo)}</div>` : ''}
+        <div class="kb-tags" style="margin-top:8px;">${(c.tags || []).map(t => `<span class="kb-tag">#${escapeHtml(t)}</span>`).join('')}</div>
+        ${(() => {
+          const used = getCardModelsUsed(id);
+          const topModelsHtml = renderTopModelsHTML(5);
+          const usedHtml = used.length ? `
+          <div style="margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);">
+            <div style="font-size:11px;color:var(--text-3);margin-bottom:6px;">🧠 这张卡用过的模型</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              ${used.map(m => {
+                const cnt = getModelUsage()[m.id] || 0;
+                return `<span class="kb-tag" style="background:${m.color}15;color:${m.color};">${m.icon} ${m.name} <small style="opacity:.6;">×${cnt}</small></span>`;
+              }).join('')}
+            </div>
+          </div>` : '';
+          return usedHtml + topModelsHtml;
+        })()}
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+          <button class="kb-btn" style="flex:1;background:rgba(59,158,217,0.12);color:var(--primary);" onclick="pullCardToRoundtable('${c.id}')">🎙️ 拉到愿景板对谈</button>
+        </div>
+      </div>
+      <div class="kb-detail-rel-title">🔗 关联卡片（<span id="kbRelCount">${rels.length}</span>）</div>
+      <div id="kbRelList">${relHtml}</div>
+    </div>`;
+  overlay.style.display = 'flex';
+}
+function closeKbDetail() { document.getElementById('kbDetailOverlay').style.display = 'none'; }
+
+/* 把卡片拉到愿景板对谈：跳页 + 预填议题（卡片内容 + 关联矛盾摘要） */
+function pullCardToRoundtable(cardId) {
+  const c = knowledgeCardsCache.find(x => x.id === cardId);
+  if (!c) return;
+  // 关闭卡片详情
+  closeKbDetail();
+  // 拼议题：卡片内容 + 关联卡片（最多 2 张，凸显矛盾）
+  const rels = (c._relations || []).filter(r => r.status === 'confirmed').slice(0, 2);
+  const otherLines = rels.map(r => {
+    const otherId = r.card_id === cardId ? r.related_card_id : r.card_id;
+    const other = knowledgeCardsCache.find(x => x.id === otherId);
+    return other ? `· [${relTypeLabel(r.relation_type || 'related')}] ${other.content}` : '';
+  }).filter(Boolean).join('\n');
+  const topic = `【卡片】${c.content}${otherLines ? '\n' + otherLines : ''}`;
+  // 跳到愿景板
+  switchPage('vision');
+  // 预填议题
+  setTimeout(() => {
+    const ti = document.getElementById('vbRoundtableTopic');
+    if (ti) {
+      ti.value = topic;
+      ti.focus();
+    }
+  }, 200);
+  showToast('已拉去愿景板，点击「开启圆桌讨论」即可开始');
+}
+
+function buildRelationHtml(cardId, rels) {
+  if (!rels || !rels.length) return '<div class="kb-empty">暂无关联。已审卡片增多后，AI 会自动建议关联。</div>';
+  let html = '';
+  for (const r of rels) {
+    const otherId = r.card_id === cardId ? r.related_card_id : r.card_id;
+    const other = knowledgeCardsCache.find(x => x.id === otherId);
+    const otherContent = other ? other.content : '(该卡片已删除)';
+    const relCls = r.relation_type || 'related';
+    if (r.status === 'confirmed') {
+      html += `<div class="kb-rel-item">
+        <span class="kb-rel-type ${relCls}">${relTypeLabel(relCls)}</span>
+        <div class="kb-rel-content" onclick="openCardDetail('${otherId}')">${escapeHtml(otherContent)}</div>
+        ${r.reason ? `<div class="kb-rel-reason">${escapeHtml(r.reason)}</div>` : ''}
+        <div class="kb-rel-confirmed">✓ 已确认关联</div>
+      </div>`;
+    } else if (r.status === 'pending') {
+      html += `<div class="kb-rel-item">
+        <span class="kb-rel-type ${relCls}">${relTypeLabel(relCls)}</span>
+        <div class="kb-rel-content" onclick="openCardDetail('${otherId}')">${escapeHtml(otherContent)}</div>
+        ${r.reason ? `<div class="kb-rel-reason">${escapeHtml(r.reason)}</div>` : ''}
+        <div class="kb-rel-actions">
+          <span style="font-size:12px;color:var(--text-3);margin-right:2px;">确认类型：</span>
+          <button class="kb-rel-btn confirm" onclick="confirmRelation('${r.id}','related')">相关</button>
+          <button class="kb-rel-btn confirm" onclick="confirmRelation('${r.id}','supports')">印证</button>
+          <button class="kb-rel-btn confirm" onclick="confirmRelation('${r.id}','contradicts')">矛盾</button>
+          <button class="kb-rel-btn reject" onclick="rejectRelation('${r.id}')">✕ 拒绝</button>
+        </div>
+      </div>`;
+    } else {
+      html += `<div class="kb-rel-item" style="opacity:.6;">
+        <span class="kb-rel-type ${relCls}">${relTypeLabel(relCls)}</span>
+        <div class="kb-rel-content">${escapeHtml(otherContent)}</div>
+        <div class="kb-rel-confirmed" style="color:var(--text-3);">已拒绝关联</div>
+      </div>`;
+    }
+  }
+  return html;
+}
+function relTypeLabel(t) { return t === 'supports' ? '互相印证' : t === 'contradicts' ? '矛盾' : '相关'; }
+
+async function confirmRelation(relId, type) {
+  try {
+    await supabaseUpdate('card_relations', { id: relId }, { status: 'confirmed', relation_type: type || 'related', confirmed_at: new Date().toISOString() });
+    showToast('✓ 已确认关联：' + relTypeLabel(type || 'related'));
+    if (_kbOpenCardId) openCardDetail(_kbOpenCardId);
+  } catch (e) { showToast('操作失败：' + e.message); }
+}
+async function rejectRelation(relId) {
+  try {
+    await supabaseUpdate('card_relations', { id: relId }, { status: 'rejected' });
+    showToast('已拒绝关联');
+    if (_kbOpenCardId) openCardDetail(_kbOpenCardId);
+  } catch (e) { showToast('操作失败：' + e.message); }
+}
+
+// 复习接入
+function getKbDueReviews() {
+  const today = todayKey();
+  return knowledgeCardsCache.filter(c =>
+    c.status === 'approved' &&
+    c.next_review_at && c.next_review_at <= today
+  );
+}
+async function markCardReviewed(id) {
+  const c = knowledgeCardsCache.find(x => x.id === id);
+  if (!c) return;
+  const newCount = (c.review_count || 0) + 1;
+  let nextReviewAt = null, mastery = 'learning';
+  if (newCount >= REVIEW_INTERVALS.length) {
+    mastery = 'mastered';
+  } else {
+    mastery = newCount >= 3 ? 'reviewing' : 'learning';
+    nextReviewAt = calcNextReview(newCount);
+  }
+  try {
+    await supabaseUpdate('knowledge_cards', { id }, {
+      review_count: newCount, last_review_at: todayKey(), next_review_at: nextReviewAt, mastery_level: mastery
+    });
+    showToast(newCount >= REVIEW_INTERVALS.length ? '🎉 已掌握！完成全部复习周期 · 已进入圆桌素材池' : '✓ 已记录 · 下次：' + nextReviewAt);
+    renderKnowledgeBase();
+    updateReviewBlock();
+  } catch (e) { showToast('操作失败：' + e.message); }
+}
+
+function formatDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return `${d.getMonth() + 1}月${d.getDate()}日`;
+}
+
+/* ===== 知识库：图谱可视化 + 睡前收口 ===== */
+function renderKbGraph() {
+  const wrap = document.getElementById('kbGraph'); if (!wrap) return;
+  const cards = knowledgeCardsCache.filter(c => c.status === 'approved');
+  if (!cards.length) { wrap.innerHTML = '<div class="kb-empty">还没有已审卡片，先通过一些卡片再来画图谱～</div>'; return; }
+  const edges = [];
+  const idSet = new Set(cards.map(c => c.id));
+  for (const c of cards) {
+    for (const r of (c._relations || [])) {
+      if (r.status === 'confirmed' && idSet.has(c.id) && idSet.has(r.related_card_id)) {
+        const key = [c.id, r.related_card_id].sort().join('|');
+        if (!edges.find(e => e.key === key)) edges.push({ key, a: c.id, b: r.related_card_id, type: r.relation_type || 'related' });
+      }
+    }
+  }
+  drawKbGraph(wrap, cards, edges);
+}
+
+/* ---- 蒸馏报告：自生长引擎的"产出"层 ---- */
+async function renderKbReports(domainFilter='all', scopeFilter='all') {
+  const wrap = document.getElementById('kbReports');
+  if (!wrap) return;
+  wrap.innerHTML = '<div class="kb-empty">加载中…</div>';
+
+  // 顶部操作栏：手动触发 + 筛选
+  const toolbar = document.createElement('div');
+  toolbar.style.cssText = 'display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;';
+  toolbar.innerHTML = `
+    <button class="kb-btn approve" onclick="triggerDistillNow()" style="font-size:12px;">⚡ 现在跑一次蒸馏</button>
+    <span style="font-size:10.5px;color:var(--text-3);" id="kbDistillHint">手动触发后等 30 秒，刷新本 Tab 即可看到新报告</span>
+  `;
+  wrap.innerHTML = '';
+  wrap.appendChild(toolbar);
+  const listWrap = document.createElement('div');
+  listWrap.id = 'kbReportsList';
+  listWrap.innerHTML = '<div class="kb-empty">加载中…</div>';
+  wrap.appendChild(listWrap);
+
+  try {
+    let query = supabaseClient().from('distillation_reports').select('*').order('report_date', { ascending: false }).limit(60);
+    const { data, error } = await query;
+    if (error) throw error;
+    if (!data || !data.length) {
+      listWrap.innerHTML = '<div class="kb-empty">还没有蒸馏报告。<br><br>👉 点上方「⚡ 现在跑一次蒸馏」按钮即可手动触发 EF<br>（或等每天 pg_cron 自动跑一次）</div>';
+      return;
+    }
+    // 按域筛选：daily 综合报告含所有域；domain:xxx 只对应单一域
+    let filtered = data;
+    if (domainFilter !== 'all') {
+      filtered = data.filter(r => {
+        if (r.scope === 'daily') return true;
+        return r.scope === `domain:${domainFilter}`;
+      });
+    }
+    if (scopeFilter !== 'all') {
+      if (scopeFilter === 'daily') filtered = filtered.filter(r => r.scope === 'daily');
+      else if (scopeFilter === 'domain') filtered = filtered.filter(r => r.scope.startsWith('domain:'));
+    }
+    if (!filtered.length) {
+      listWrap.innerHTML = renderKbReportFilters(domainFilter, scopeFilter) +
+        `<div class="kb-empty">当前筛选暂无报告，换个域或类型试试～</div>`;
+      bindKbReportFilterClicks(listWrap, domainFilter, scopeFilter);
+      return;
+    }
+    listWrap.innerHTML = renderKbReportFilters(domainFilter, scopeFilter) +
+      filtered.map(r => renderKbReport(r)).join('');
+    bindKbReportFilterClicks(listWrap, domainFilter, scopeFilter);
+  } catch (e) {
+    listWrap.innerHTML = `<div class="kb-empty">报告加载失败：${escapeHtml(e.message)}</div>`;
+  }
+}
+
+/* 手动触发 EF card-extract 跑一次蒸馏（不需要等 pg_cron） */
+async function triggerDistillNow() {
+  const btn = document.querySelector('#kbReports button');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ 跑中…'; }
+  try {
+    const url = (window.SUPABASE_URL || SUPABASE_CONFIG?.url || 'https://gireppsqrggetxzfaiey.supabase.co') + '/functions/v1/card-extract';
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + (window.SUPABASE_ANON_KEY || ''),
+      },
+      body: JSON.stringify({ mode: 'auto', limit: 10 })
+    });
+    const json = await res.json();
+    if (json.ok) {
+      showToast('✓ 蒸馏完成 · 提取 ' + (json.success || 0) + '/' + (json.processed || 0) + ' 张卡' + (json.judgment ? '，已生成今日报告' : '（无新素材）'));
+      setTimeout(() => renderKbReports(), 1500);
+    } else {
+      showToast('蒸馏失败：' + (json.error || '未知错误'));
+    }
+  } catch (e) {
+    showToast('触发失败：' + e.message + '（检查 EF 是否已 deploy）');
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '⚡ 现在跑一次蒸馏'; }
+  }
+}
+
+function bindKbReportFilterClicks(wrap, domainFilter, scopeFilter) {
+  wrap.querySelectorAll('[data-domain-filter]').forEach(el => {
+    el.addEventListener('click', () => renderKbReports(el.dataset.domainFilter, scopeFilter));
+  });
+  wrap.querySelectorAll('[data-scope-filter]').forEach(el => {
+    el.addEventListener('click', () => renderKbReports(domainFilter, el.dataset.scopeFilter));
+  });
+}
+
+function renderKbReportFilters(activeDomain, activeScope) {
+  const domains = [
+    {k:'all', l:'全部域'},
+    {k:'创作', l:'🎯 创作'},
+    {k:'成长:减脂', l:'减脂'},
+    {k:'成长:英语', l:'英语'},
+    {k:'成长:中医', l:'中医'},
+    {k:'成长:健身', l:'健身'},
+    {k:'成长:妆容', l:'妆容'},
+    {k:'成长:穿搭', l:'穿搭'},
+    {k:'成长:调酒', l:'调酒'},
+    {k:'成长:旅行', l:'旅行'}
+  ];
+  const scopes = [
+    {k:'all', l:'全部类型'},
+    {k:'daily', l:'综合日报'},
+    {k:'domain', l:'按域'}
+  ];
+  const chip = (active, k, l) => `
+    <button data-domain-filter="${k}" ${active===k?'':''} style="border:1px solid ${active===k?'var(--primary)':'var(--line)'};background:${active===k?'var(--primary)':'#fff'};color:${active===k?'#fff':'var(--text-2)'};border-radius:14px;padding:5px 11px;font-size:12px;cursor:pointer;font-weight:${active===k?'700':'500'};">${l}</button>
+  `;
+  const scopeChip = (active, k, l) => `
+    <button data-scope-filter="${k}" style="border:1px solid ${active===k?'#7BC8E8':'var(--line)'};background:${active===k?'#E6F4FB':'#fff'};color:${active===k?'var(--primary-d)':'var(--text-2)'};border-radius:14px;padding:4px 10px;font-size:11.5px;cursor:pointer;">${l}</button>
+  `;
+  return `
+    <div style="margin-bottom:14px;">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        ${domains.map(d => chip(activeDomain, d.k, d.l)).join('')}
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        ${scopes.map(s => scopeChip(activeScope, s.k, s.l)).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderKbReport(r) {
+  const angles = (r.angles || []).map(a => `<li><b>${escapeHtml(a.title)}</b> · <span style="color:var(--text-3);">${escapeHtml(a.reason || '')}</span> <small style="opacity:.6;">[${escapeHtml(a.difficulty || '?')}]</small></li>`).join('');
+  const viewpoints = (r.viewpoints || []).map(v => `<li><b>${escapeHtml(v.point)}</b><br><small style="color:var(--text-3);">证据：${escapeHtml(v.evidence || '')}</small></li>`).join('');
+  const risks = (r.risks || []).map(x => `<li><b style="color:#E2708A;">⚠ ${escapeHtml(x.risk)}</b><br><small>对策：${escapeHtml(x.mitigation || '')}</small></li>`).join('');
+  const followups = (r.followups || []).map(x => `<li><b>${escapeHtml(x.question)}</b><br><small style="color:var(--text-3);">${escapeHtml(x.why || '')}</small></li>`).join('');
+  const takeaways = (r.learning_takeaways || []).map(t => `
+    <li style="margin-bottom:8px;padding:9px 11px;background:#FBF6E9;border-radius:10px;border-left:3px solid #C9A45C;list-style:none;">
+      <div style="font-size:13px;"><b style="color:#8a6324;">📚 学到：</b>${escapeHtml(t.teaches_me || '')}</div>
+      ${t.contradicts ? `<div style="margin-top:4px;font-size:12.5px;"><b style="color:#B85A6A;">⚡ 冲突：</b>${escapeHtml(t.contradicts)}</div>` : ''}
+      <div style="margin-top:4px;font-size:12.5px;"><b style="color:#3F7A5C;">▶ 下一步：</b>${escapeHtml(t.next_action || '')}</div>
+    </li>
+  `).join('');
+  const scopeBadge = r.scope.startsWith('domain:')
+    ? `<span style="background:#E6F4FB;color:var(--primary-d);font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px;">${escapeHtml(r.scope.replace('domain:',''))}</span>`
+    : `<span style="background:#EAF3FA;color:#5BBF8A;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px;">综合日报</span>`;
+  return `
+    <div style="background:linear-gradient(135deg,#EAF3FA 0%,#F4F8FB 100%);border:1px solid rgba(59,158,217,.2);border-radius:14px;padding:14px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:4px;">
+        <div style="font-weight:700;color:var(--primary-dark);font-size:14px;">${escapeHtml(r.topic || '（无主题）')}${scopeBadge}</div>
+        <small style="color:var(--text-3);font-size:11.5px;">${r.report_date}</small>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:rgba(255,255,255,.65);border-radius:10px;padding:11px;">
+          <div style="font-size:12px;color:var(--primary-dark);font-weight:700;margin-bottom:8px;">🎯 内容轨 · 给创作弹药</div>
+          ${angles ? `<div style="margin-top:6px;"><div style="font-size:11px;color:var(--primary-dark);font-weight:600;">选题角度</div><ul style="margin:4px 0;padding-left:18px;font-size:12.5px;line-height:1.65;">${angles}</ul></div>` : ''}
+          ${viewpoints ? `<div style="margin-top:6px;"><div style="font-size:11px;color:var(--primary-dark);font-weight:600;">核心观点</div><ul style="margin:4px 0;padding-left:18px;font-size:12.5px;line-height:1.65;">${viewpoints}</ul></div>` : ''}
+          ${risks ? `<div style="margin-top:6px;"><div style="font-size:11px;color:#E2708A;font-weight:600;">风险</div><ul style="margin:4px 0;padding-left:18px;font-size:12.5px;line-height:1.65;">${risks}</ul></div>` : ''}
+          ${followups ? `<div style="margin-top:6px;"><div style="font-size:11px;color:var(--primary-dark);font-weight:600;">待补充</div><ul style="margin:4px 0;padding-left:18px;font-size:12.5px;line-height:1.65;">${followups}</ul></div>` : ''}
+        </div>
+        <div style="background:rgba(255,255,255,.65);border-radius:10px;padding:11px;">
+          <div style="font-size:12px;color:#8a6324;font-weight:700;margin-bottom:8px;">🧠 学习轨 · 给成长钩子</div>
+          ${takeaways ? `<ul style="margin:0;padding:0;list-style:none;font-size:12.5px;line-height:1.6;">${takeaways}</ul>` : '<div style="font-size:12px;color:var(--text-3);font-style:italic;">暂无学习收获</div>'}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function drawKbGraph(wrap, cards, edges) {
+  const W = wrap.clientWidth || 600;
+  const H = Math.max(380, cards.length * 28);
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('width', '100%'); svg.setAttribute('height', H);
+  const nodes = cards.map((c, i) => ({
+    id: c.id, content: c.content,
+    x: W / 2 + Math.cos(i / cards.length * Math.PI * 2) * Math.min(W, H) * 0.38,
+    y: H / 2 + Math.sin(i / cards.length * Math.PI * 2) * Math.min(W, H) * 0.38,
+    vx: 0, vy: 0
+  }));
+  const idx = {}; nodes.forEach((n, i) => idx[n.id] = i);
+  for (let it = 0; it < 140; it++) {
+    for (const n of nodes) {
+      let fx = 0, fy = 0;
+      for (const e of edges) {
+        if (e.a === n.id || e.b === n.id) {
+          const m = nodes[idx[e.a === n.id ? e.b : e.a]];
+          const dx = m.x - n.x, dy = m.y - n.y, d = Math.hypot(dx, dy) || 1;
+          fx += dx / d * 0.02 * (d - 130); fy += dy / d * 0.02 * (d - 130);
+        }
+      }
+      for (const m of nodes) { if (m === n) continue; const dx = n.x - m.x, dy = n.y - m.y, d = Math.hypot(dx, dy) || 1; fx += dx / d * 420 / (d * d); fy += dy / d * 420 / (d * d); }
+      fx += (W / 2 - n.x) * 0.006; fy += (H / 2 - n.y) * 0.006;
+      n.vx = (n.vx + fx) * 0.85; n.vy = (n.vy + fy) * 0.85;
+      n.x += n.vx; n.y += n.vy;
+      n.x = Math.max(44, Math.min(W - 44, n.x)); n.y = Math.max(26, Math.min(H - 26, n.y));
+    }
+  }
+  const colors = { related: '#3B9ED9', supports: '#5BBF8A', contradicts: '#E2708A' };
+  for (const e of edges) {
+    const a = nodes[idx[e.a]], b = nodes[idx[e.b]];
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', a.x); line.setAttribute('y1', a.y); line.setAttribute('x2', b.x); line.setAttribute('y2', b.y);
+    line.setAttribute('stroke', colors[e.type] || '#3B9ED9'); line.setAttribute('stroke-width', '1.5'); line.setAttribute('opacity', '0.55');
+    svg.appendChild(line);
+  }
+  for (const n of nodes) {
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.style.cursor = 'pointer';
+    g.addEventListener('click', () => openCardDetail(n.id));
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', n.x); circle.setAttribute('cy', n.y); circle.setAttribute('r', '6'); circle.setAttribute('fill', '#3B9ED9');
+    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const label = n.content.length > 14 ? n.content.slice(0, 14) + '…' : n.content;
+    text.setAttribute('x', n.x + 10); text.setAttribute('y', n.y + 4); text.setAttribute('font-size', '11'); text.setAttribute('fill', '#1F2A37');
+    text.textContent = label;
+    g.appendChild(circle); g.appendChild(text); svg.appendChild(g);
+  }
+  wrap.innerHTML = ''; wrap.appendChild(svg);
+  const tip = document.createElement('div'); tip.style.cssText = 'font-size:12px;color:var(--text-3);margin-top:8px;';
+  tip.innerHTML = '🔵 相关 · 🟢 印证 · 🔴 矛盾 ｜ 点击节点看卡片';
+  wrap.appendChild(tip);
+}
+
+/* ---- 睡前收口：矛盾关联讨论 → 结论写回新卡片 ---- */
+/* 把矛盾关联打包成议题，直接拉去愿景板对谈室（不再在弹窗里写结论） */
+async function openBedtimeModal() {
+  await loadKnowledgeCards();
+  const conflicts = [];
+  for (const c of knowledgeCardsCache) {
+    for (const r of (c._relations || [])) {
+      if (r.relation_type === 'contradicts' && r.status !== 'resolved') {
+        const otherId = r.card_id === c.id ? r.related_card_id : r.card_id;
+        const other = knowledgeCardsCache.find(x => x.id === otherId);
+        conflicts.push({ relId: r.id, a: c.content, b: other ? other.content : '(该卡片已删除)' });
+      }
+    }
+  }
+  if (!conflicts.length) {
+    showToast('🎉 目前没有待收口的矛盾关联，直接去愿景板开议题吧');
+    switchPage('vision');
+    setTimeout(() => {
+      const ti = document.getElementById('vbRoundtableTopic');
+      if (ti) { ti.focus(); }
+    }, 200);
+    return;
+  }
+  // 拼议题：第一组矛盾（最多 3 组都加）
+  const topic = conflicts.slice(0, 3).map((cf, i) =>
+    `[矛盾${i + 1}]\n🅰 ${cf.a}\n🅱 ${cf.b}`
+  ).join('\n\n');
+  // 关闭弹窗（如有）并跳转
+  document.getElementById('kbBedtimeOverlay').style.display = 'none';
+  switchPage('vision');
+  setTimeout(() => {
+    const ti = document.getElementById('vbRoundtableTopic');
+    if (ti) {
+      ti.value = topic;
+      ti.focus();
+    }
+  }, 200);
+  showToast(`已拉 ${conflicts.length} 组矛盾去愿景板，点击「开启圆桌讨论」即可开始`);
+}
+function closeBedtimeModal() { document.getElementById('kbBedtimeOverlay').style.display = 'none'; }
+async function saveBedtimeCard() {
+  const conclusion = document.getElementById('kbBedtimeConclusion')?.value.trim();
+  if (!conclusion) { showToast('先写点结论再写回～'); return; }
+  const tags = (document.getElementById('kbBedtimeTags')?.value || '').split(',').map(s => s.trim()).filter(Boolean);
+  try {
+    const { data, error } = await supabaseClient().from('knowledge_cards').insert({
+      content: conclusion, tags, source_type: 'bedtime', source_meta: {}, status: 'approved',
+      approved_at: new Date().toISOString(), mastery_level: 'learning', review_count: 0
+    }).select('id').single();
+    if (error) throw error;
+    showToast('✓ 已写回知识库');
+    closeBedtimeModal();
+    renderKnowledgeBase();
+  } catch (e) { showToast('写回失败：' + e.message); }
+}
+
 /* ===== 愿景板 v2.1 - me² 风格专家驱动型目标管理 ===== */
 const VISION_COLORS = [
   '#3B9ED9', '#2E7AB5', '#5BB0DA', '#7BC8E8',
@@ -6813,44 +8166,411 @@ const VISION_COLORS = [
 /* --- 默认4位圆桌专家 --- */
 const DEFAULT_EXPERTS = [
   { id:'musk', name:'埃隆·马斯克', shortName:'马斯克', role:'第一性原理',
-    question:'剥离一切表象，这件事的本质是什么？', color:'#1a1a2e', bg:'linear-gradient(135deg,#1a1a2e,#16213e)', icon:'\u{1F9EA}',
+    question:'剥离一切表象，这件事的本质是什么？', color:'#1a1a2e', bg:'linear-gradient(135deg,#1a1a2e,#16213e)', icon:'🧪',
     promptTemplate:'' },
   { id:'jung', name:'卡尔·荣格', shortName:'荣格', role:'深度心理学',
-    question:'你内心真正想要的是什么？阴影面在说什么？', color:'#2d4a3e', bg:'linear-gradient(135deg,#2d4a3e,#1e3d32)', icon:'\u{1F52E}',
+    question:'你内心真正想要的是什么？阴影面在说什么？', color:'#2d4a3e', bg:'linear-gradient(135deg,#2d4a3e,#1e3d32)', icon:'🔮',
     promptTemplate:'' },
   { id:'munger', name:'查理·芒格', shortName:'芒格', role:'逆向思维 / 多元模型',
-    question:'这里最容易死？反过来想——不做哪些必败？', color:'#3d2914', bg:'linear-gradient(135deg,#3d2914,#2a1d0e)', icon:'\u2696\uFE0F',
+    question:'这里最容易死？反过来想——不做哪些必败？', color:'#3d2914', bg:'linear-gradient(135deg,#3d2914,#2a1d0e)', icon:'⚖️',
     promptTemplate:'' },
   { id:'mankiw', name:'格里高利·曼昆', shortName:'曼昆', role:'经济学 / 成本分析',
-    question:'机会成本是什么？激励对齐了吗？', color:'#1a3a5c', bg:'linear-gradient(135deg,#1a3a5c,#0f2540)', icon:'\u{1F4CA}',
+    question:'机会成本是什么？激励对齐了吗？', color:'#1a3a5c', bg:'linear-gradient(135deg,#1a3a5c,#0f2540)', icon:'📊',
+    promptTemplate:'' },
+  { id:'ding', name:'丁元英', shortName:'丁元英', role:'文化属性 / 天道思维',
+    question:'这件事的客观规律是什么？强势文化还是弱势文化驱动？', color:'#4a3728', bg:'linear-gradient(135deg,#4a3728,#332818)', icon:'☯️',
+    promptTemplate:'' },
+  { id:'naval', name:'纳瓦尔·拉维坎特', shortName:'纳瓦尔', role:'杠杆 / 财富与幸福',
+    question:'你能用什么杠杆放大这件事？你的特定知识是什么？', color:'#8a5a00', bg:'linear-gradient(135deg,#8a5a00,#6b4500)', icon:'🚀',
     promptTemplate:'' }
 ];
 
 /* --- 思维模型库 --- */
-const THINKING_MODELS = [
-  {id:'first-principles',name:'第一性原理',category:'物理与工程',icon:'\u{1F9EA}'},
-  {id:'incentives',name:'激励机制',category:'经济学',icon:'\U0001F4B0'},
-  {id:'opportunity-cost',name:'机会成本',category:'经济学',icon:'\u2696\uFE0F'},
-  {id:'confirmation-bias',name:'确认偏误',category:'心理学',icon:'\U0001F50D'},
-  {id:'shadow',name:'阴影与投射',category:'心理学',icon:'\u{1F319}'},
-  {id:'marginal-thinking',name:'边际思维',category:'经济学',icon:'\U0001F4C8'},
-  {id:'inversion',name:'逆向思维',category:'通用决策',icon:'\u21A9\uFE0F'},
-  {id:'antifragility',name:'反脆弱',category:'系统论',icon:'\U0001F48E'},
-  {id:'second-order',name:'二阶效应',category:'系统论',icon:'\U0001F504'},
-  {id:'circle-competence',name:'能力圈',category:'商业战略',icon:'\u2B55'},
+/* --- 学科分类定义 --- */
+const MODEL_CATEGORIES = [
+  { id:'math-prob', name:'数学与概率', nameEn:'Math & Probability', icon:'📊', color:'#2563EB', models:[
+    {id:'bayes',name:'贝叶斯更新',desc:'用新证据修正信念强度，而非固守初始判断'},
+    {id:'law-large-numbers',name:'大数定律',desc:'样本足够大时，频率趋近概率；短期波动不代表趋势'},
+    {id:'regression-mean',name:'均值回归',desc:'极端表现后倾向于回归平均，不要线性外推'},
+    {id:'expected-value',name:'期望值计算',desc:'E=概率×收益，决策应最大化期望值而非单次结果'}
+  ]},
+  { id:'economics', name:'经济学模型', nameEn:'Economics', icon:'💰', color:'#059669', models:[
+    {id:'opportunity-cost',name:'机会成本',desc:'选择A的成本是放弃的最佳替代方案B的价值'},
+    {id:'incentives',name:'激励机制',desc:'行为由激励结构决定；设计激励比道德劝说有效'},
+    {id:'marginal-thinking',name:'边际思维',desc:'决策看增量：第1单位投入产出最高，递减后停止'},
+    {id:'comparative-advantage',name:'比较优势',desc:'专注相对优势领域，通过交换实现双赢'},
+    {id:'supply-demand',name:'供需均衡',desc:'价格由供需决定；稀缺创造价值，过剩压低价格'}
+  ]},
+  { id:'psychology', name:'心理学模型', nameEn:'Psychology', icon:'🧠', color:'#7C3AED', models:[
+    {id:'confirmation-bias',name:'确认偏误',desc:'倾向寻找支持己见的信息，主动找反例破除'},
+    {id:'shadow',name:'阴影与投射',desc:'被压抑的欲望可能伪装成"高尚目标"，直面真实动机'},
+    {id:'cognitive-dissonance',name:'认知失调',desc:'行为与信念冲突时人会合理化行为，而非改变信念'},
+    {id:'anchoring',name:'锚定效应',desc:'第一印象成为锚点，后续判断围绕它调整'},
+    {id:'loss-aversion',name:'损失厌恶',desc:'失去的痛苦≈获得快乐的2倍，框架效应影响决策'}
+  ]},
+  { id:'biology-evolution', name:'生物学与进化', nameEn:'Biology & Evolution', icon:'🌿', color:'#047857', models:[
+    {id:'natural-selection',name:'自然选择',desc:'环境筛选适应性特征；不适应的被淘汰'},
+    {id:'homeostasis',name:'稳态平衡',desc:'生物系统趋向动态平衡，剧烈干预会触发代偿反应'},
+    {id:'evolutionary-mismatch',name:'进化错配',desc:'现代环境与进化环境不匹配（如糖分渴望→肥胖）'},
+    {id:'redundancy',name:'冗余备份',desc:'关键功能有多重保障（双肾、双眼），系统更抗风险'}
+  ]},
+  { id:'physics-engineering', name:'物理与工程', nameEn:'Physics & Engineering', icon:'⚙️', color:'#DC2626', models:[
+    {id:'first-principles',name:'第一性原理',desc:'剥离表象到最基本事实，从物理约束重新推导'},
+    {id:'entropy',name:'熵增定律',desc:'封闭系统必然走向无序；维持有序需要持续输入能量'},
+    {id:'leverage',name:'杠杆原理',desc:'找到支点，小力撬动大效果；时间/资本/技术都是杠杆'},
+    {id:'feedback-loops',name:'反馈回路',desc:'正反馈放大变化（雪球），负反馈稳定系统（恒温器）'}
+  ]},
+  { id:'systems-complexity', name:'系统论与复杂性', nameEn:'Systems & Complexity', icon:'📡', color:'#0891B2', models:[
+    {id:'antifragility',name:'反脆弱',desc:'从波动和压力中获益的系统，不只是抗压而是变强'},
+    {id:'second-order',name:'二阶效应',desc:'直接效果的间接后果往往更重要且被忽视'},
+    {id:'emergence',name:'涌现现象',desc:'个体简单规则交互产生复杂集体行为（蚁群、市场）'},
+    {id:'bottleneck',name:'瓶颈理论',desc:'系统的整体吞吐量受限于最慢环节，优化瓶颈优先'}
+  ]},
+  { id:'business-strategy', name:'商业与战略', nameEn:'Business & Strategy', icon:'💼', color:'#D97706', models:[
+    {id:'circle-competence',name:'能力圈',desc:'只在认知优势范围内下注，圈外先学习再行动'},
+    {id:'moat',name:'护城河',desc:'品牌/网络效应/转换成本/规模效应构成竞争壁垒'},
+    {id:'pareto',name:'帕累托法则',desc:'80%的结果来自20%的原因；聚焦关键少数'},
+    {id:'network-effects',name:'网络效应',desc:'每增加一个用户，对所有用户的价值都提升'}
+  ]},
+  { id:'decision-science', name:'通用决策模型', nameEn:'Decision Science', icon:'\u2728', color:'#6366F1', models:[
+    {id:'inversion',name:'逆向思维',desc:'要成功先想怎么失败，然后避免那些路径'},
+    {id:'occam',name:'奥卡姆剃刀',desc:'解释越少假设越好；简单方案优先于复杂方案'},
+    {id:'map-territory',name:'地图非疆域',desc:'所有模型都是简化；别把地图当现实本身'},
+    {id:'probabilistic',name:'概率思维',desc:'世界是不确定的；用概率分布思考而非二元判断'}
+  ]}
 ];
+
+/* 扁平列表（兼容旧逻辑） */
+const THINKING_MODELS = MODEL_CATEGORIES.flatMap(cat =>
+  cat.models.map(m => ({...m, categoryId: cat.id, categoryName: cat.name, categoryColor: cat.color}))
+);
 
 /* === Data Access === */
 function getVisions() { return DB.get('visions', []); }
 function setVisions(v) { DB.set('visions', v); }
-function getExperts() { return DB.get('experts', DEFAULT_EXPERTS.map(e=>({...e}))); }
+function getExperts() {
+  const stored = DB.get('experts', null);
+  if (Array.isArray(stored) && stored.length) return stored;
+  // 防御：空数组/null 时强制回退默认 6 位
+  const def = DEFAULT_EXPERTS.map(e => ({...e}));
+  DB.set('experts', def);
+  return def;
+}
 function setExperts(e) { DB.set('experts', e); }
 function getExpertAdvice() { return DB.get('expertAdvice', []); }
 function setExpertAdvice(a) { DB.set('expertAdvice', a); }
 function getActions() { return DB.get('visionActions', []); }
 function setActions(a) { DB.set('visionActions', a); }
+function getModelUsage() { return DB.get('modelUsage', {}); }  // { modelId: count }
+function bumpModelUsage(modelId) {
+  const u = getModelUsage(); u[modelId] = (u[modelId] || 0) + 1; DB.set('modelUsage', u);
+}
+function getModelMeta(id) {
+  for (const cat of (typeof MODEL_CATEGORIES !== 'undefined' ? MODEL_CATEGORIES : [])) {
+    const m = (cat.models || []).find(x => x.id === id);
+    if (m) return Object.assign({}, m, { color: cat.color, icon: cat.icon });
+  }
+  return { name: id, color: '#3B9ED9', icon: '🧠' };
+}
+/* 卡片详情里展示「我最近常用 Top N 模型」——把频次反哺给用户看 */
+function renderTopModelsHTML(n) {
+  n = n || 5;
+  const usage = getModelUsage();
+  if (!usage || Object.keys(usage).length === 0) {
+    return '<div style="margin-top:10px;padding:10px;background:rgba(59,158,217,0.06);border-radius:8px;font-size:12px;color:var(--text-3);line-height:1.6;">💡 <b>还没用过思维模型</b> · 去「愿景板」启动一次圆桌，系统会记录每位专家的核心模型，下次圆桌按你偏好顺序发言</div>';
+  }
+  const sorted = Object.keys(usage)
+    .map(id => Object.assign({ id, cnt: usage[id] || 0 }, getModelMeta(id)))
+    .filter(x => x.name && x.cnt > 0)
+    .sort((a, b) => b.cnt - a.cnt)
+    .slice(0, n);
+  if (!sorted.length) {
+    return '<div style="margin-top:10px;padding:10px;background:rgba(59,158,217,0.06);border-radius:8px;font-size:12px;color:var(--text-3);">💡 已启动圆桌但模型尚未记录 · 再跑一次圆桌即可</div>';
+  }
+  return '<div style="margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);">'
+    + '<div style="font-size:11px;color:var(--text-3);margin-bottom:6px;">📊 你最近常用 Top ' + sorted.length + '（圆桌按此顺序发言）</div>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:6px;">'
+    + sorted.map((m, i) =>
+        '<span style="background:' + (m.color || '#3B9ED9') + '15;color:' + (m.color || '#3B9ED9') + ';font-size:12px;padding:4px 10px;border-radius:12px;' + (i === 0 ? 'border:1px solid ' + (m.color || '#3B9ED9') + '66;font-weight:700;' : '') + '">'
+        + (m.icon || '🧠') + ' ' + escapeHtml(m.name || m.id) + ' <b style="margin-left:4px;opacity:.85;">×' + m.cnt + '</b>'
+        + '</span>'
+      ).join('')
+    + '</div>'
+    + '<div style="font-size:10.5px;color:var(--text-3);margin-top:4px;font-style:italic;">圆桌按你的偏好顺序发言（首位专家 = 你最常用模型）</div>'
+    + '</div>';
+}
+
+/* 找该卡片曾参与过哪些圆桌，统计被调用的思维模型（按出现频率排序） */
+function getCardModelsUsed(cardId) {
+  const card = knowledgeCardsCache.find(x => x.id === cardId);
+  if (!card) return [];
+  const advices = getExpertAdvice();
+  const usage = getModelUsage();
+  const tally = {};
+  advices.forEach(a => {
+    if (!a.topic || !a.modelsUsed) return;
+    // 议题里包含卡片内容视为该卡片参与
+    if (a.topic.includes(card.content.slice(0, 20))) {
+      a.modelsUsed.forEach(mid => { tally[mid] = (tally[mid] || 0) + 1; });
+    }
+  });
+  // 按总使用次数排序（THINKING_MODELS 是全局扁平表）
+  return Object.entries(tally)
+    .map(([mid, n]) => {
+      const m = THINKING_MODELS.find(x => x.id === mid);
+      if (!m) return null;
+      return { ...m, topicUses: n, totalUses: usage[mid] || 0 };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.totalUses - a.totalUses);
+}
+function setActions(a) { DB.set('visionActions', a); }
 function getProfile() { return DB.get('profile', {current:'', goal:'', tags:[]}); }
 function setProfile(p) { DB.set('profile', p); }
+
+/* ===== AI军师 ===== */
+const DEFAULT_CONSTRAINTS = {
+  sleep: { bedtime:'00:00', waketime:'07:00', duration:7, note:'睡够就清醒，不挑时间' },
+  meals: [
+    { name:'练后餐', time:'12:00', note:'健身后1h内补碳水+蛋白质，微波炉或健身房解决' },
+    { name:'晚餐', time:'17:30', note:'下午5-6点' }
+  ],
+  exercise: { time:'10:00', duration:120, leaveTime:'09:17', days:'每天', note:'2小时' },
+  commute: { mode:'公交', durationMin:30, note:'通勤时间可用：选题/审片/发布/学英语' },
+  energy: { level:'high', note:'精力充沛不怕累，深度块可连排', pomodoro:'25/5' },
+  period: { note:'例假前一周能睡，排程自动放宽' },
+  mainGoal: { text:'带货视频拿大结果——每天发满10条', deadline:'1个月' }
+};
+function getConstraints() { return DB.get('aiConstraints', DEFAULT_CONSTRAINTS); }
+function setConstraints(c) { DB.set('aiConstraints', c); }
+
+function renderStrategist() {
+  const c = getConstraints();
+  const profile = getProfile();
+  const tasks = getTasks();
+  const tk = todayKey();
+  const todayTasks = tasks[tk] || [];
+  const aiTasks = todayTasks.filter(t => t.source === 'ai');
+  const doneTasks = todayTasks.filter(t => t.done);
+  const pendingTasks = todayTasks.filter(t => !t.done);
+
+  const wrap = document.getElementById('stratWrap');
+  if (!wrap) return;
+  wrap.innerHTML = `
+    <!-- 军师Hero卡 -->
+    <div class="strat-hero">
+      <div class="strat-hero-title">今日军师</div>
+      <div class="strat-hero-sub">${c.mainGoal.text}</div>
+      <div class="strat-hero-stats">
+        <div class="strat-hero-stat">
+          <div class="strat-hero-stat-num">${todayTasks.length}</div>
+          <div class="strat-hero-stat-label">今日任务</div>
+        </div>
+        <div class="strat-hero-stat">
+          <div class="strat-hero-stat-num">${doneTasks.length}</div>
+          <div class="strat-hero-stat-label">已完成</div>
+        </div>
+        <div class="strat-hero-stat">
+          <div class="strat-hero-stat-num">${aiTasks.length}</div>
+          <div class="strat-hero-stat-label">军师排的</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 今日时间线 -->
+    <div class="strat-card">
+      <div class="strat-card-header" onclick="toggleStratCard('timeline')">
+        <div class="strat-card-title">${ic('calendar')} 今日排程</div>
+        <span class="strat-card-toggle" id="stratTimelineToggle">▾</span>
+      </div>
+      <div class="strat-card-body" id="stratTimelineBody">
+        ${renderStratTimeline(todayTasks, c)}
+      </div>
+    </div>
+
+    <!-- 约束配置 -->
+    <div class="strat-card">
+      <div class="strat-card-header" onclick="toggleStratCard('config')">
+        <div class="strat-card-title">${ic('settings')} 约束配置</div>
+        <span class="strat-card-toggle" id="stratConfigToggle">▾</span>
+      </div>
+      <div class="strat-card-body" id="stratConfigBody" style="display:none;">
+        ${renderStratConfig(c)}
+      </div>
+    </div>
+
+    <!-- 目标对齐 -->
+    <div class="strat-card">
+      <div class="strat-card-header" onclick="toggleStratCard('goal')">
+        <div class="strat-card-title">${ic('check-circle')} 目标对齐</div>
+        <span class="strat-card-toggle" id="stratGoalToggle">▾</span>
+      </div>
+      <div class="strat-card-body" id="stratGoalBody" style="display:none;">
+        ${renderStratGoal(profile, c)}
+      </div>
+    </div>
+  `;
+}
+
+function renderStratTimeline(tasks, c) {
+  if (!tasks.length) {
+    return `<div class="strat-empty">
+      <div class="strat-empty-icon">${ic('brain')}</div>
+      <div class="strat-empty-text">今天还没有排程<br>点「生成排程」让军师帮你安排</div>
+      <button class="strat-gen-btn" style="margin-top:12px;" onclick="generateStratPlan()">生成今日排程</button>
+    </div>`;
+  }
+  const sorted = [...tasks].sort((a,b) => (a.time||'99:99').localeCompare(b.time||'99:99'));
+  return `<div class="strat-timeline">
+    ${sorted.map(t => renderStratBlock(t)).join('')}
+  </div>`;
+}
+
+function renderStratBlock(t) {
+  const isFixed = t.source === 'routine' || t.source === 'posture';
+  const isAi = t.source === 'ai';
+  const isMain = t.text && (t.text.includes('带货') || t.text.includes('视频') || t.text.includes('拍摄') || t.text.includes('剪辑') || t.text.includes('发布'));
+  const tagClass = isFixed ? 'fixed' : (isAi ? 'ai' : '');
+  const tagText = isFixed ? '固定' : (isAi ? '军师' : '手动');
+  const blockClass = isFixed ? 'fixed' : (isAi ? 'ai' : '');
+  return `<div class="strat-block ${blockClass}">
+    <div class="strat-block-time">${t.time || '全天'} ${t.done ? '✓' : ''}</div>
+    <div class="strat-block-content">
+      <div class="strat-block-title">
+        ${isMain ? '<span class="strat-block-tag main">主线</span>' : ''}
+        ${tagClass ? `<span class="strat-block-tag ${tagClass}">${tagText}</span>` : ''}
+        ${t.text || ''}
+      </div>
+      ${t.reason ? `<div class="strat-block-reason">${t.reason}</div>` : ''}
+      ${isAi && !t.done ? `<div class="strat-block-actions">
+        <button class="strat-block-btn adopt" onclick="adoptStratTask('${t.id}')">采纳</button>
+        <button class="strat-block-btn skip" onclick="skipStratTask('${t.id}')">跳过</button>
+      </div>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderStratConfig(c) {
+  return `
+    <div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('moon')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">睡眠</div>
+        <div class="strat-cfg-value">${c.sleep.bedtime} 睡 → ${c.sleep.waketime} 起（约${c.sleep.duration}h）<br>${c.sleep.note}</div>
+      </div>
+    </div>
+    <div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('dumbbell')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">健身</div>
+        <div class="strat-cfg-value">${c.exercise.time} 开始，${c.exercise.leaveTime}出门，练${c.exercise.duration/60}h<br>${c.exercise.days}，${c.exercise.note}</div>
+      </div>
+    </div>
+    <div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('utensils')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">饮食（${c.meals.length}顿）</div>
+        <div class="strat-cfg-value">${c.meals.map(m => `${m.time} ${m.name}（${m.note}）`).join('<br>')}</div>
+      </div>
+    </div>
+    <div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('bus')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">通勤</div>
+        <div class="strat-cfg-value">${c.commute.mode} 约${c.commute.durationMin}min<br>${c.commute.note}</div>
+      </div>
+    </div>
+    <div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('battery')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">精力节奏</div>
+        <div class="strat-cfg-value">${c.energy.note}<br>番茄钟 ${c.energy.pomodoro}</div>
+      </div>
+    </div>
+    <div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('droplet')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">周期</div>
+        <div class="strat-cfg-value">${c.period.note}</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderStratGoal(profile, c) {
+  return `
+    <div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('rocket')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">近期主目标</div>
+        <div class="strat-cfg-value">${c.mainGoal.text}<br>期限：${c.mainGoal.deadline}</div>
+      </div>
+    </div>
+    ${profile.current ? `<div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('trending-up')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">当下现状（愿景板）</div>
+        <div class="strat-cfg-value">${profile.current}</div>
+      </div>
+    </div>` : ''}
+    ${profile.goal ? `<div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('star')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">长期目标（愿景板）</div>
+        <div class="strat-cfg-value">${profile.goal}</div>
+      </div>
+    </div>` : ''}
+    ${profile.tags && profile.tags.length ? `<div class="strat-cfg-row">
+      <div class="strat-cfg-icon">${ic('tag')}</div>
+      <div class="strat-cfg-info">
+        <div class="strat-cfg-label">提升维度</div>
+        <div class="strat-cfg-value">${profile.tags.join(' · ')}</div>
+      </div>
+    </div>` : ''}
+  `;
+}
+
+function toggleStratCard(name) {
+  const body = document.getElementById('strat'+name.charAt(0).toUpperCase()+name.slice(1)+'Body');
+  const toggle = document.getElementById('strat'+name.charAt(0).toUpperCase()+name.slice(1)+'Toggle');
+  if (!body) return;
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : '';
+  if (toggle) toggle.textContent = isOpen ? '▸' : '▾';
+}
+
+function generateStratPlan() {
+  // 第2步实现排程引擎，这里先弹提示
+  alert('排程引擎开发中（第2步），约束配置已就绪！');
+}
+
+function adoptStratTask(taskId) {
+  // 采纳 = 保持任务不变（已在任务列表中）
+  const tasks = getTasks();
+  const tk = todayKey();
+  const todayTasks = tasks[tk] || [];
+  const idx = todayTasks.findIndex(t => t.id === taskId);
+  if (idx !== -1) {
+    todayTasks[idx].source = 'manual';
+    tasks[tk] = todayTasks;
+    setTasks(tasks);
+    renderStrategist();
+    if (typeof renderPlan === 'function') renderPlan();
+    if (typeof renderSchedule === 'function') renderSchedule();
+  }
+}
+
+function skipStratTask(taskId) {
+  // 跳过 = 从任务列表删除
+  const tasks = getTasks();
+  const tk = todayKey();
+  const todayTasks = tasks[tk] || [];
+  tasks[tk] = todayTasks.filter(t => t.id !== taskId);
+  setTasks(tasks);
+  renderStrategist();
+  if (typeof renderPlan === 'function') renderPlan();
+  if (typeof renderSchedule === 'function') renderSchedule();
+}
 function getVbChat() { return DB.get('vbChat', []); }
 function setVbChat(ch) { DB.set('vbChat', ch); }
 
@@ -6863,11 +8583,127 @@ function renderVision() {
   document.getElementById('visionDateSub').textContent = formatDate(new Date());
   renderVisionWall();
   renderProfile();
-  renderExpertCards();
   renderPickList();
   renderActions();
   renderModels();
   renderVbChat();
+  preRenderExpertShells();
+}
+
+/* 圆桌 Tab 打开时预渲染 6 行群聊流式空壳：议题气泡 + R1/R2 分隔线 + 6 位专家的 R1/R2 占位气泡 + 行动区（隐藏） */
+function preRenderExpertShells() {
+  const list = document.getElementById('vbRoundtableDiscussion');
+  if (!list) return;
+  const experts = getExperts();
+  if (!experts.length) {
+    list.innerHTML = '<div class="vb-rt-empty-hint" style="padding:24px;text-align:center;color:var(--text-3);font-size:12px">⚠ 没有专家数据 · 点右上角 ↺ 恢复 6 位默认专家</div>';
+    return;
+  }
+  list.innerHTML = '';
+
+  // 议题气泡（启动前显示"等待议题..."）
+  const topicBubble = document.createElement('div');
+  topicBubble.className = 'vb-rt-topic-bubble';
+  topicBubble.id = 'vbRtTopicBubble';
+  topicBubble.innerHTML = '<div class="vb-rt-topic-bubble-label">📌 议题</div><div class="vb-rt-topic-bubble-text" id="vbRtTopicBubbleText" style="color:var(--text-3);font-style:italic">输入议题后开启圆桌</div>';
+  list.appendChild(topicBubble);
+
+  // R1 分隔线
+  const d1 = document.createElement('div');
+  d1.className = 'vb-rt-divider';
+  d1.innerHTML = '<span class="vb-rt-divider-text">💡 第一轮 · 各自表态</span>';
+  list.appendChild(d1);
+
+  // R1 列表容器
+  const r1Wrap = document.createElement('div');
+  r1Wrap.id = 'vbRtRound1List';
+  list.appendChild(r1Wrap);
+
+  // R2 分隔线
+  const d2 = document.createElement('div');
+  d2.className = 'vb-rt-divider';
+  d2.innerHTML = '<span class="vb-rt-divider-text">🔁 第二轮 · 互相回应</span>';
+  list.appendChild(d2);
+
+  // R2 列表容器
+  const r2Wrap = document.createElement('div');
+  r2Wrap.id = 'vbRtRound2List';
+  list.appendChild(r2Wrap);
+
+  // 行动共识分隔线（启动前不显示）
+  const d3 = document.createElement('div');
+  d3.className = 'vb-rt-divider';
+  d3.id = 'vbRtActionsDivider';
+  d3.style.display = 'none';
+  d3.innerHTML = '<span class="vb-rt-divider-text">⚡ 行动共识</span>';
+  list.appendChild(d3);
+
+  // 行动列表容器（启动前不显示）
+  const actionWrap = document.createElement('div');
+  actionWrap.id = 'vbRtActionsList';
+  actionWrap.style.display = 'none';
+  list.appendChild(actionWrap);
+
+  // 为每个专家创建 R1 + R2 消息壳子
+  const shells = {};
+  experts.forEach((expert) => {
+    // R1 消息壳子
+    const r1 = createMsgShell(expert, false);
+    r1Wrap.appendChild(r1.row);
+    // R2 消息壳子（带引用块占位）
+    const r2 = createMsgShell(expert, true);
+    r2Wrap.appendChild(r2.row);
+    shells[expert.id] = {
+      r1Row: r1.row, r1Bubble: r1.bubble,
+      r2Row: r2.row, r2Quote: r2.quote, r2Bubble: r2.bubble,
+      actionWrap: actionWrap
+    };
+  });
+  window._rtShells = shells;
+}
+
+/* 单条消息壳子（群聊气泡风格）：avatar + 名字+角色 + 气泡（空时 italic 占位）；isR2=true 时额外带引用块 */
+function createMsgShell(expert, isR2) {
+  const row = document.createElement('div');
+  row.className = 'vb-rt-msg';
+
+  const av = document.createElement('div');
+  av.className = 'vb-rt-msg-av';
+  av.style.background = expert.bg || 'linear-gradient(135deg,#3B9ED9,#1E5A8A)';
+  av.textContent = expert.icon || '🧠';
+  row.appendChild(av);
+
+  const main = document.createElement('div');
+  main.className = 'vb-rt-msg-main';
+
+  const name = document.createElement('div');
+  name.className = 'vb-rt-msg-name';
+  name.innerHTML = '<span>' + escapeHtml(expert.shortName || expert.name) + '</span><span class="vb-rt-msg-role">' + escapeHtml(expert.role || '') + '</span>';
+  if (isR2) {
+    const replyTag = document.createElement('span');
+    replyTag.className = 'vb-rt-msg-reply';
+    replyTag.textContent = '等待前序...';
+    name.appendChild(replyTag);
+  }
+  main.appendChild(name);
+
+  // 引用块（仅 R2）
+  let quote = null;
+  if (isR2) {
+    quote = document.createElement('div');
+    quote.className = 'vb-rt-quote';
+    quote.style.display = 'none';
+    quote.innerHTML = '<div class="vb-rt-quote-label">↳ 回应</div><div class="vb-rt-quote-text"></div>';
+    main.appendChild(quote);
+  }
+
+  const bubble = document.createElement('div');
+  bubble.className = 'vb-rt-msg-bubble empty';
+  bubble.textContent = isR2 ? '等待发言...' : '等待发言...';
+  main.appendChild(bubble);
+
+  row.appendChild(main);
+  return { row, bubble, quote };
 }
 
 /* --- Vision Wall (unchanged) --- */
@@ -6942,79 +8778,6 @@ function switchVbTab(tab){
   if(tab==='chat'){const msgs=document.getElementById('vbChatMessages');if(msgs)msgs.scrollTop=msgs.scrollHeight;}
 }
 
-/* --- Expert Cards Row (me2 style) + Detail --- */
-function renderExpertCards(){
-  const experts=getExperts();
-  const countEl=document.getElementById('vbExpertCount');
-  countEl.textContent=experts.length+'位';
-
-  const rowEl=document.getElementById('vbExpertCards');
-  rowEl.innerHTML=experts.map(e=>
-    `<div class="vb-expert-mini-card ${(_activeExpertId===e.id)?'active':''}" onclick="selectExpertCard('${e.id}')">
-      <div class="vb-emc-avatar" style="background:${e.bg}">${e.icon}</div>
-      <div class="vb-emc-name">${e.name}</div>
-      <div class="vb-emc-role">${e.role}</div>
-      <div class="vb-emc-quote">\u${201C}${e.question}\u201D</div>
-    </div>`
-  ).join('');
-
-  if(!_activeExpertId&&experts.length>0)_activeExpertId=experts[0].id;
-  renderExpertDetail();
-}
-function selectExpertCard(id){
-  _activeExpertId=id;
-  document.querySelectorAll('.vb-expert-mini-card').forEach(c=>c.classList.toggle('active',c.onclick?.toString().includes(id)||false));
-  // Re-render to update active state
-  renderExpertCards();
-}
-function renderExpertDetail(){
-  const container=document.getElementById('vbExpertDetail');
-  const experts=getExperts();
-  const expert=experts.find(e=>e.id===_activeExpertId)||experts[0];
-  if(!expert){container.innerHTML='<div class="vb-ed-empty">\u70B9\u51FB\u4E0A\u65B9\u300C+\u6DFB\u52A0\u300D\u9080\u8BF7\u7B2C\u4E00\u4F4D\u4E13\u5BB6</div>';return;}
-
-  const adviceList=getExpertAdvice().filter(a=>a.expertId===expert.id);
-  const latest=adviceList.length>0?adviceList[adviceList.length-1]:null;
-
-  container.innerHTML=
-    `<div class="vb-ed-header">
-      <div class="vb-ed-avatar" style="background:${expert.bg}">${expert.icon}</div>
-      <div><div class="vb-ed-name">${expert.name}</div><div class="vb-ed-role">${expert.role}</div></div>
-    </div>`+
-    (latest?
-      `<div class="vb-ed-advice">${formatAdviceText(latest.advice)}</div>
-       <div class="vb-ed-actions">
-         <button class="vb-ed-btn vb-ed-btn-primary" onclick="fillPickList('${expert.id}')">\u27A4 \u586B\u5165\u6458\u53D6\u6846</button>
-         <button class="vb-ed-btn vb-ed-btn-outline" onclick="reAskExpert('${expert.id}')">\u91CD\u65B0\u5206\u6790</button>
-       </div>`
-      :`<div class="vb-ed-empty">\u586B\u5199 Profile \u540E\u70B9\u51FB\u83B7\u53D6\u5EFA\u8BAE<br>\u6216\u76F4\u63A5\u70B9\u201C\u91CD\u65B0\u5206\u6790\u201D</div>
-       <div class="vb-ed-actions"><button class="vb-ed-btn vb-ed-btn-primary" onclick="askExpert('${expert.id}')">\u83B7\u53D6${expert.shortName}\u7684\u5EFA\u8BAE</button></div>`
-    );
-}
-function formatAdviceText(text){return text.replace(/\n/g,'<br>').replace(/</g,'&lt;');}
-
-function askExpert(expertId){
-  const expert=getExperts().find(e=>e.id===expertId);if(!expert)return;
-  const p=getProfile();
-  const mockAdvice=generateMockAdvice(expert,p,getVisions());
-  const list=getExpertAdvice();
-  list.push({id:genId(),expertId,advice:mockAdvice,timestamp:Date.now(),snapshot:{current:p.current,goal:p.goal}});
-  setExpertAdvice(list);
-  renderExpertDetail();
-}
-function reAskExpert(id){askExpert(id);}
-
-function generateMockAdvice(expert,p,visions){
-  const goal=p.goal||'\uFF08待\u660E\u786E\uFF09';const g=goal.slice(0,30);
-  const adv={
-    musk:'**\u672C\u8D28\u5206\u6790**\n\n\u5173\u4E8E\u300C'+g+'...\u300D\n\n1. **\u7B2C\u4E00\u6027\u62C6\u89E3**\uFF1A\u8FD9\u4E2A\u76EE\u6807\u7684\u6700\u5E95\u5C42\u9A71\u52A8\u529B\u662F\u4EC0\u4E48\uFF1F\n2. **\u7269\u7406\u7EA6\u675F**\uFF1A\u65F6\u95F4/\u8D44\u91D1/\u4F53\u80FD\u662F\u786C\u7EA6\u675F\n3. **\u6700\u4F18\u8DEF\u5F84**\uFF1A\u6BCF\u59292h\u4E13\u6CE8\u00D7365d=730h\uFF0C\u590D\u5229\u6548\u679C\u8FDC\u8D85\u5206\u6563\n4. **\u5E94\u907F\u514D**\uFF1A\u540C\u65F6\u8FFD3\u4E2A\u4EE5\u4E0A\u76EE\u6801\u3001\u7B49\u5F85\u5B8C\u7F8E\u673A\u4F1A\u3001\u8FC7\u5EA6\u89C4\u5212\u4E0D\u884C\u52A8',
-    jung:'**\u5FC3\u7406\u6DF1\u5EA6\u5206\u6790**\n\n\u5173\u4E8E\u300C'+g+'...\u300D\n\n1. **\u5185\u5728\u52A8\u673A\u68C0\u67E5**\uFF1A\u8FD9\u4E2A\u76EE\u6807\u662F\u6765\u81EA\u771F\u5B9E\u6E34\u671B\uFF0C\u8FD8\u662F\u793E\u4F1A\u6BD4\u8F83\u7684\u4EA7\u7269\uFF1F\n2. **\u9634\u5F71\u9762**\uFF1A\u5BF9\u5931\u8D25\u7684\u6050\u60E7\u53EF\u80FD\u4F2A\u88C5\u6210\u201C\u5B8C\u7F8E\u4E3B\u4E49\u201D\n3. **\u6574\u5408\u5EFA\u8BAE**\uFF1A\u628A\u5927\u76EE\u6807\u62C6\u89E3\u6210\u201C\u4ECA\u5929\u5C31\u80FD\u5F00\u59CB\u7684\u4E00\u5C0F\u6B65\u201D',
-    munger:'**\u9006\u5411\u601D\u7EF4 & \u591A\u6A21\u578B\u68C0\u9A8C**\n\n\u5173\u4E8E\u300C'+g+'...\u300D\n\n1. **\u600E\u4E48\u505A\u5FC5\u8D25\uFF1F** \u76EE\u6807\u592A\u6A21\u7CCA\u3001\u540C\u65F6\u5F00\u592A\u591A\u6218\u7EBF\u3001\u4E0D\u8BBE\u6B62\u635F\u7EBF\n2. **\u7ECF\u6D4E\u5B66\u89C6\u89D2**\uFF1A\u6BCF\u5929\u82B1\u5728\u8FD9\u4EF6\u4E8B\u4E0A\u7684\u673A\u4F1A\u6210\u672C\u662F\u591A\u5C11\uFF1F\n3. **\u5FC3\u7406\u5B66\u89C6\u89D2**\uFF1A\u786E\u8BA4\u504F\u8BEF\u4F1A\u8BA9\u4F60\u53EA\u770B\u5230\u652F\u6301\u6027\u4FE1\u606F\n4. **\u7CFB\u7EDF\u89C6\u89D2**\uFF1A\u76EE\u6807\u4E0D\u662F\u5B64\u7ACB\u7684\uFF0C\u548C\u5065\u5EB7/\u4EBA\u9645/\u8D22\u52A1\u6784\u6210\u7CFB\u7EDF',
-    mankw:'**\u7ECF\u6D4E\u5B66\u5206\u6790\u6846\u67B6**\n\n\u5173\u4E8E\u300C'+g+'...\u300D\n\n1. **\u673A\u4F1A\u6210\u672C\u8BA1\u7B97**\uFF1A\u5B9E\u73B0\u8FD9\u4E2A\u76EE\u6807\u9700\u8981\u591A\u5C11\u5C0F\u65F6\uFF1F\u8FD9\u4E9B\u65F6\u95F4\u7684\u6B21\u4F18\u7528\u9014\u662F\u4EC0\u4E48\uFF1F\n2. **\u6FC0\u52B1\u5BF9\u9F50\u68C0\u67E5**\uFF1A\u5F53\u524D\u73AF\u5883\u662F\u5728\u5956\u52B1\u8FDB\u6B65\u8FD8\u662F\u60E9\u7F5A\uFF1F\n3. **\u8FB9\u9645\u5206\u6790**\uFF1A\u7B2C1\u5C0F\u65F6\u56DE\u62A5\u6700\u9AD8\uFF0C\u5EFA\u8BAE\u6BCF\u5929\u9AD8\u8D28\u91CF90\u5206\u949F'
-  };
-  return adv[expert.id]||adv.musk;
-}
-
 /* --- Pick/Filter Box (摘取框) --- */
 function fillPickList(expertId){
   const adviceList=getExpertAdvice().filter(a=>a.expertId===expertId);
@@ -7075,11 +8838,1048 @@ function convertPickedToActions(){
   renderActions();
   renderPickList();
   document.getElementById('vbPickConfirmBtn').style.display='none';
+  const rawBtn=document.getElementById('vbPickRawBtn'); if(rawBtn) rawBtn.style.display='none';
+}
+
+/* === 按成长目标梳理（规则引擎版，可升级 AI） === */
+/* 读 Profile(现状)+Ambitions(目标)+勾选观点 → 输出 1-3 条针对用户的具体执行动作 */
+function distillPickedToActions(){
+  if(_pickedAdviceIds.size===0){showToast('请先勾选要点');return;}
+  const btn=document.getElementById('vbPickConfirmBtn');
+  const oldText=btn.innerHTML;
+  btn.disabled=true; btn.innerHTML='⏳ 梳理中…';
+
+  setTimeout(()=>{
+    try{
+      const allAdvice=getExpertAdvice();
+      const pickedTexts=[];
+      _pickedAdviceIds.forEach(key=>{
+        const [adviceId,idx]=key.split('_');
+        const advice=allAdvice.find(a=>a.id===adviceId);
+        if(!advice)return;
+        const lines=parseAdviceLines(advice.advice);
+        const text=lines[parseInt(idx)];
+        if(text) pickedTexts.push(text.replace(/^[\s\-\*·•\d\.\)]+/,'').trim());
+      });
+      const profile=getProfile();
+      const distilled=distillRules(pickedTexts, profile);
+      const existing=getActions();
+      let added=0;
+      distilled.forEach(text=>{
+        if(text && !existing.some(a=>a.text===text)){
+          existing.push({id:genId(),text,done:false,dueDate:'',createdAt:Date.now(),source:'distill',profileAt:profile._at||Date.now()});
+          added++;
+        }
+      });
+      setActions(existing);
+      renderActions();
+      _pickedAdviceIds.clear();
+      renderPickList();
+      btn.style.display='none';
+      const rawBtn=document.getElementById('vbPickRawBtn'); if(rawBtn) rawBtn.style.display='none';
+      showToast(added>0 ? `✓ 已梳理 ${added} 条执行动作（针对你的成长目标）` : '已存在，未新增');
+    }catch(e){
+      showToast('梳理失败：'+e.message);
+    }finally{
+      btn.disabled=false; btn.innerHTML=oldText;
+    }
+  }, 600);
+}
+
+/* 规则引擎：基于 Profile 关键词 × 观点关键词，匹配执行模板 */
+function distillRules(pickedTexts, profile){
+  const out=[];
+  const ctx = (profile.current||'') + ' ' + (profile.goal||'');
+  const domains = [
+    {key:'减脂', kw:['减脂','减重','减肥','体脂','瘦','体重'], acts:[
+      '工作日早餐改为高蛋白低 GI（鸡蛋/希腊酸奶/全麦），晚餐 6 点前完成',
+      '明早起 30 分钟空腹有氧（跳绳/慢跑/健身操任选），设 7:00 闹钟',
+      '本周日早 10 点称重并记到复盘板块，对比上周'
+    ]},
+    {key:'写作', kw:['写作','更新','发文','内容','选题','文案','脚本'], acts:[
+      '今晚列好明天 3 条选题，写到「选题灵感」模块',
+      '明早 9 点前写 500 字开头，不删不改，先动笔',
+      '本周日复盘本周内容数据，把高赞选题加进主框架'
+    ]},
+    {key:'学习', kw:['学习','英语','英文','读书','阅读','认知'], acts:[
+      '明早通勤听 1 集英文播客，记 3 个生词',
+      '今晚睡前 30 分钟读 1 个章节，做 3 行笔记',
+      '本周找 1 个真实场景用今天学的英文表达一次'
+    ]},
+    {key:'健身', kw:['健身','运动','训练','跑步','撸铁','瑜伽'], acts:[
+      '今晚排好明天训练计划（动作+组数）写进今日计划',
+      '本周完成 3 次训练，每次不少于 30 分钟',
+      '明晚 8 点做 10 分钟拉伸放松并记录身体感受'
+    ]},
+    {key:'护肤', kw:['护肤','化妆','妆容','皮肤','保养'], acts:[
+      '今晚按新流程护肤（卸妆-精华-面霜），拍对比照',
+      '明天上班前按新妆容试一次，记录耗时',
+      '本周买齐新流程缺的 1-2 个产品'
+    ]},
+    {key:'穿搭', kw:['穿搭','衣服','搭配','衣柜','胶囊衣橱'], acts:[
+      '今晚拍 3 套新搭配照片存档',
+      '本周整理衣柜一次，按风格分 3 区',
+      '明早按新思路出门，拍 1 张全身照留底'
+    ]},
+    {key:'调酒', kw:['调酒','鸡尾酒','饮品'], acts:[
+      '今晚试调 1 杯新配方，记录糖酒比',
+      '本周研究 1 个经典鸡尾酒背景故事',
+      '明天邀请朋友来家里试调一次，收集反馈'
+    ]},
+    {key:'旅行', kw:['旅行','出游','假期','行程'], acts:[
+      '今晚定下一个目的地候选 + 时间窗口',
+      '本周查 3 条路线 + 预算，写进知识库',
+      '本周日列 1 张「旅行装备」清单'
+    ]},
+    {key:'中医', kw:['中医','养生','体质','经络','穴位'], acts:[
+      '今晚试做 1 个简单穴位按摩 10 分钟',
+      '明天饮食按体质调整 1 餐',
+      '本周记录身体感受 3 天，写到复盘'
+    ]},
+  ];
+  const matched=[];
+  domains.forEach(d=>{
+    const hitPicked = pickedTexts.some(t=>d.kw.some(k=>t.includes(k)));
+    const hitCtx = d.kw.some(k=>ctx.includes(k));
+    if(hitPicked || hitCtx) matched.push(d);
+  });
+  // 从匹配的域各取 1 条最具体的动作，最多 3 条
+  matched.slice(0,3).forEach(d=> out.push(d.acts[Math.floor(Math.random()*d.acts.length)]));
+  // 如果一个都没匹配，用通用模板（基于观点本身）
+  if(out.length===0 && pickedTexts.length){
+    out.push(`今晚把「${pickedTexts[0].slice(0,20)}」拆成 3 步行动，写进今日计划`);
+  }
+  // 永远从勾选的观点里抽出 1 条作为"反思型"动作
+  if(pickedTexts[0]){
+    out.push(`睡前 3 分钟反思：今天「${pickedTexts[0].slice(0,15)}」做到了多少 %？`);
+  }
+  return out.slice(0,3);
+}
+
+/* 把行动区里没同步到日历的行动批量写入今天的 task list */
+function syncActionsToCalendar(){
+  const actions=getActions();
+  const undone=actions.filter(a=>!a.done);
+  if(undone.length===0){showToast('当前没有未完成的行动可同步');return;}
+  const today=todayKey();
+  const tasks=getTasks();
+  if(!tasks[today]) tasks[today]=[];
+  let synced=0;
+  undone.forEach(a=>{
+    // 防重：同文本同日不同加
+    if(!tasks[today].some(t=>t.text===a.text)){
+      tasks[today].push({
+        id:genId(), text:a.text, done:false,
+        column:'work', category:'publish',
+        source:'vision-roundtable',
+        actionRefId:a.id,
+        createdAt:Date.now()
+      });
+      synced++;
+    }
+  });
+  setTasks(tasks);
+  showToast(synced>0 ? `✓ ${synced} 条行动已同步到今天日历` : '全部已在日历里了');
+}
+
+/* 圆桌共识沉淀为知识卡：把这次 _roundtableMessages 合并成一张 approved 卡 */
+async function saveRoundtableAsCard(){
+  if (!_roundtableMessages || _roundtableMessages.length === 0) {
+    showToast('还没有圆桌结论可沉淀，先开一次圆桌～');
+    return;
+  }
+  const topic = (document.getElementById('vbRoundtableTopic')?.value || '').trim() || '圆桌共识';
+  const expertToModel = { musk: 'first-principles', jung: 'shadow', munger: 'inversion', mankiw: 'supply-demand', ding: 'map-territory', naval: 'leverage' };
+  const experts = getExperts();
+  const shortById = Object.fromEntries(experts.map(e => [e.id, e.shortName || e.name]));
+  // 合并各专家核心观点（去掉 markdown 标记，每位取前 3 条要点）
+  const lines = [];
+  _roundtableMessages.forEach(msg => {
+    const short = shortById[msg.expertId] || msg.expertId;
+    const cleaned = (msg.advice || '')
+      .replace(/\*\*(.*?)\*\*/g, '$1')
+      .split('\n')
+      .map(s => s.trim())
+      .filter(s => s && s.length > 4)
+      .slice(0, 3);
+    if (cleaned.length) {
+      lines.push(`【${short}】${cleaned.join('｜')}`);
+    }
+  });
+  const content = `${topic}\n\n${lines.join('\n\n')}`;
+  const modelsUsed = Array.from(new Set(_roundtableMessages.map(m => expertToModel[m.expertId]).filter(Boolean)));
+  try {
+    const { data, error } = await supabaseClient().from('knowledge_cards').insert({
+      content,
+      memo: `圆桌沉淀 · ${new Date().toLocaleString('zh-CN')}`,
+      source_type: 'roundtable',
+      source_id: topic.slice(0, 80),
+      source_meta: { topic, expertIds: _roundtableMessages.map(m => m.expertId) },
+      tags: ['圆桌', ...modelsUsed.map(m => getModelMeta(m).name).filter(Boolean)],
+      status: 'approved',
+      models_used: modelsUsed,
+      mastery_level: 'learning',
+      review_count: 0,
+      next_review_at: calcNextReview(0),
+      approved_at: new Date().toISOString(),
+    }).select('id').single();
+    if (error) throw error;
+    showToast('✓ 已沉淀为知识卡，去知识库查收');
+    if (typeof loadKnowledgeCards === 'function') loadKnowledgeCards();
+  } catch (e) {
+    showToast('沉淀失败：' + (e.message || JSON.stringify(e)));
+  }
 }
 function renderPickList(){
   const container=document.getElementById('vbPickList');
   if(!container||container.children.length>0&&!container.querySelector('.vb-pick-empty'))return; // already filled
   // Only show empty state if nothing has been picked yet
+}
+
+/* === 圆桌讨论核心 === */
+function selectExpertCard(id){ _activeExpertId=id; }
+
+let _roundtableMessages = [];
+
+/* === 圆桌素材池：已掌握的成长记录 + 已批准的知识卡 === */
+function getRoundtableKnowledgePool(){
+  const pool = [];
+  try {
+    const logs = DB.get('growthLogs', []);
+    logs.filter(l => l.masteryLevel === 'mastered').slice(-8).forEach(l => {
+      const txt = (l.content||'').trim();
+      if (txt) pool.push({ source:'成长记录', text: txt.slice(0,80) });
+    });
+  } catch(e){}
+  try {
+    (knowledgeCardsCache||[]).filter(c => c.status === 'approved').slice(0,10).forEach(c => {
+      const txt = (c.content||'').trim();
+      if (txt) pool.push({ source:'知识卡', text: txt.slice(0,80) });
+    });
+  } catch(e){}
+  return pool;
+}
+function buildKnowledgeContext(pool){
+  if (!pool || !pool.length) return '';
+  return '【用户已掌握的知识积累（圆桌参考用，发言请结合/呼应这些内容）】\n' + pool.map(p => '- [' + p.source + '] ' + p.text).join('\n');
+}
+
+/* === 战略认知圆桌：6 位专家的完整世界观 + 2 轮发言模板 === */
+const EXPERT_VIEWS = {
+  musk: {
+    worldview: '埃隆·马斯克——第一性原理 + 物理约束思维：所有"不可能"都是历史惯性，不是物理定律。',
+    question: '"这件事剥到物理层，约束是什么？成本能压到 1/10 吗？"',
+    view: (topic) => [
+      `关于「${topic.slice(0,18)}」，第一性原理：先把"不可能"的假设全列出来，逐条问"为什么不能做到 10 倍"`,
+      `成本能压到几倍？时间能压到几倍？传统流程是历史惯性，不是物理约束`,
+      `我的判断：这事剥到原子层，约束比你以为的少 80%——大家都在用"行业惯例"自我设限`
+    ],
+    action: (topic) => [
+      `今晚：把「${topic.slice(0,12)}」拆成 3 个独立的原子问题，写下来`,
+      `这周：每个原子问题找 1 个 10 倍效率的案例对照（国内外不限）`,
+      `立刻停：所有"行业惯例""大家都是这么做的"假设——逐条质疑`
+    ]
+  },
+  jung: {
+    worldview: '卡尔·荣格——阴影整合 + 自性化：你排斥的、恐惧的、被压抑的，往往是真正的方向。',
+    question: '"你内心真正想要的是什么？你的阴影面在说什么？"',
+    view: (topic) => [
+      `关于「${topic.slice(0,18)}」，先做内在检查：这件事是来自灵魂深处的真实渴望，还是社会比较的产物？`,
+      `阴影面：你自己最怕发生什么？那个被你"理性回避"的答案往往才是真的`,
+      `投影：你讨厌的某类人（成功者/失败者/某种生活方式），可能正是你压抑的自我碎片`
+    ],
+    action: (topic) => [
+      `今晚：写「${topic.slice(0,10)}」的 3 个最坏结果——别绕，看清楚你怕什么`,
+      `这周：每天 10 分钟自由书写，问自己"如果没人评判我，真正想做的是？"`,
+      `立刻停：所有"我应该"开头的念头——换成"我想"重写一遍`
+    ]
+  },
+  munger: {
+    worldview: '查理·芒格——逆向思维 + 多元思维模型：先想怎么死，再想怎么活。',
+    question: '"这里最容易死？反过来想——不做哪些事必败？"',
+    view: (topic) => [
+      `关于「${topic.slice(0,18)}」，先想怎么死：哪 3 种做法会让你 100% 失败？先把这 3 条全避开`,
+      `多元模型检查：经济学（机会成本）+ 心理学（认知偏误）+ 历史（类似案例）三个角度同时扫一遍`,
+      `激励对齐了吗？谁会因为你的成功而受损？这些人会成为你最大的阻力`
+    ],
+    action: (topic) => [
+      `今晚：列「${topic.slice(0,10)}」的 5 种必败模式，贴在每天能看到的地方`,
+      `这周：找 1 个做过类似事的人聊，问他"你最后悔没早做什么"`,
+      `立刻停：所有"先做着再说"——没有止损线的努力都是赌博`
+    ]
+  },
+  mankw: {
+    worldview: '格里高利·曼昆——经济学十大原理 + 成本收益分析：决策看边际，看激励，看机会成本。',
+    question: '"机会成本是什么？激励对齐了吗？边际收益还递增吗？"',
+    view: (topic) => [
+      `关于「${topic.slice(0,18)}」，机会成本：做这件事要放弃的最大价值选项是什么？算清楚小时成本`,
+      `激励对齐：你的激励和参与方的激励一致吗？不对齐的事推进阻力 = (不一致程度)²`,
+      `边际分析：第 1 单位的投入产出最高，到第几单位后开始递减？停在那`
+    ],
+    action: (topic) => [
+      `今晚：算「${topic.slice(0,10)}」的每小时机会成本（你的月薪÷月工作小时）`,
+      `这周：列 3 个关键参与方，画出他们的激励-阻力表`,
+      `立刻停：所有"再多投入一点"的边际递减时刻——该收手了`
+    ]
+  },
+  ding: {
+    worldview: '丁元英——《天道》文化属性：事物的客观规律不以人的意志为转移；强势文化遵规律，弱势文化等救主。',
+    question: '"这件事的客观规律是什么？你在靠规律还是靠人脉/运气？"',
+    view: (topic) => [
+      `关于「${topic.slice(0,18)}」，先认规律：这事有没有"必然如此"的底层逻辑？找到了就能顺势，找不到就是赌博`,
+      `文化属性诊断：你是"我凭什么"的强势文化（靠认知+执行），还是"谁能救我"的弱势文化（靠关系+运气）？`,
+      `天道不仁：成功不奖赏勤奋，失败不怜悯努力——只奖励"做对了事"的人`
+    ],
+    action: (topic) => [
+      `今晚：写「${topic.slice(0,10)}」的客观规律（不是"应该"是什么，是"必然"是什么）`,
+      `这周：每天自问"我今天做的事是顺势还是逆势？"`,
+      `立刻停：所有"再努力一点"——逆势时越努力死得越快，先判断势`
+    ]
+  },
+  naval: {
+    worldview: '纳瓦尔·拉维坎特——杠杆 + 特定知识 + 复利：财富/影响力来自不可复制的判断+零边际成本复制。',
+    question: '"你用什么杠杆放大这件事？你的特定知识（天赋×好奇心）在哪里？"',
+    view: (topic) => [
+      `关于「${topic.slice(0,18)}」，杠杆选择：劳动力杠杆（有上限）/ 资本杠杆（有门槛）/ 代码+媒体杠杆（零边际成本复制）——你用哪个？`,
+      `特定知识：不能被培训、只能被发现、违背直觉但对你显而易见——你在这件事上有吗？`,
+      `复利思维：每天做 1% 进步的事，1 年后是 37 倍。这件事有没有复利属性？`
+    ],
+    action: (topic) => [
+      `今晚：判断「${topic.slice(0,10)}」用 3 种杠杆中哪个最高效`,
+      `这周：每天记录"什么只有我知道而别人不知道"——找到你的特定知识`,
+      `立刻停：所有线性回报的事（时间换钱）——换成复利回报的事（一次做对，长期收益）`
+    ]
+  }
+};
+
+/* ============ 📚 书籍学习模块 ============ */
+/* 存储：localStorage（books key）+ 可选 Supabase 同步
+   AI 调用：book-ai Edge Function（mode: distill/sprout/interrogate/comment） */
+
+function getBooks() { return DB.get('books', []); }
+function setBooks(list) { DB.set('books', list); }
+
+function renderBooks() {
+  const grid = document.getElementById('booksGrid');
+  if (!grid) return;
+  const books = getBooks();
+  if (!books.length) {
+    grid.className = '';
+    grid.innerHTML = '<div class="book-empty">还没有书籍<br>点右上「+ 添加书籍」开始第一本</div>';
+    return;
+  }
+  grid.className = 'books-grid';
+  grid.innerHTML = books.map(b => `
+    <div class="book-card" onclick="openBookDetail('${b.id}')">
+      <div class="book-cover">${b.cover ? `<img src="${b.cover}" alt="">` : '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#8CB8D8;font-size:28px;">📖</div>'}</div>
+      <div class="book-info">
+        <div class="book-title">${escapeHtml(b.title)}</div>
+        <div class="book-meta"><span>${b.type === 'repeated' ? '🔁 常翻' : '✓ 一次'}</span>${b.distilled ? '<span style="color:var(--primary);">·已蒸馏</span>' : ''}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+let _bookCoverData = null;
+let _editingBookId = null;
+
+function openBookModal(bookId) {
+  _editingBookId = bookId || null;
+  _bookCoverData = null;
+  const overlay = document.getElementById('bookModalOverlay');
+  document.getElementById('bm-title').textContent = bookId ? '编辑书籍' : '添加书籍';
+  document.getElementById('bm-id').value = bookId || '';
+  document.getElementById('bm-title-input').value = '';
+  document.getElementById('bm-cover-input').value = '';
+  document.getElementById('bm-type').value = 'repeated';
+  document.getElementById('bm-notes').value = '';
+  const preview = document.getElementById('bm-cover-preview');
+  preview.innerHTML = '<span style="color:#8CB8D8;font-size:13px;">暂无封面</span>';
+  if (bookId) {
+    const b = getBooks().find(x => x.id === bookId);
+    if (b) {
+      document.getElementById('bm-title-input').value = b.title || '';
+      document.getElementById('bm-type').value = b.type || 'repeated';
+      document.getElementById('bm-notes').value = b.notes || '';
+      _bookCoverData = b.cover || null;
+      if (b.cover) preview.innerHTML = `<img src="${b.cover}" alt="">`;
+    }
+  }
+  overlay.style.display = 'flex';
+}
+
+function closeBookModal() {
+  document.getElementById('bookModalOverlay').style.display = 'none';
+  _bookCoverData = null;
+  _editingBookId = null;
+}
+
+function handleBookCoverSelect(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  if (file.size > 3 * 1024 * 1024) { showToast('封面图过大（>3MB），请压缩后再传'); return; }
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    _bookCoverData = e.target.result;
+    document.getElementById('bm-cover-preview').innerHTML = `<img src="${e.target.result}" alt="">`;
+  };
+  reader.readAsDataURL(file);
+}
+
+document.addEventListener('paste', (e) => {
+  const ov = document.getElementById('bookModalOverlay');
+  if (!ov || ov.style.display !== 'flex') return;
+  const items = e.clipboardData?.items || [];
+  for (const it of items) {
+    if (it.type.startsWith('image/')) {
+      const file = it.getAsFile();
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          _bookCoverData = ev.target.result;
+          document.getElementById('bm-cover-preview').innerHTML = `<img src="${ev.target.result}" alt="">`;
+        };
+        reader.readAsDataURL(file);
+        showToast('已粘贴封面');
+        break;
+      }
+    }
+  }
+});
+
+function saveBook() {
+  const title = document.getElementById('bm-title-input').value.trim();
+  if (!title) { showToast('请填写书名'); return; }
+  const type = document.getElementById('bm-type').value;
+  const notes = document.getElementById('bm-notes').value.trim();
+  const books = getBooks();
+  if (_editingBookId) {
+    const idx = books.findIndex(b => b.id === _editingBookId);
+    if (idx >= 0) {
+      books[idx].title = title;
+      books[idx].type = type;
+      books[idx].notes = notes;
+      if (_bookCoverData) books[idx].cover = _bookCoverData;
+      books[idx].updatedAt = Date.now();
+    }
+  } else {
+    books.push({
+      id: 'bk_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
+      title, type, notes,
+      cover: _bookCoverData,
+      distilled: false,
+      distillCard: null,
+      issues: [],
+      discussions: [],
+      createdAt: Date.now(),
+    });
+  }
+  setBooks(books);
+  closeBookModal();
+  renderBooks();
+  showToast(_editingBookId ? '✓ 已更新' : '✓ 已添加');
+}
+
+let _currentBookId = null;
+function openBookDetail(bookId) {
+  _currentBookId = bookId;
+  goPage('book-detail');
+}
+
+function renderBookDetail() {
+  if (!_currentBookId) return;
+  const book = getBooks().find(b => b.id === _currentBookId);
+  if (!book) { showToast('书籍不存在'); goPage('growth'); return; }
+  const body = document.getElementById('bookDetailBody');
+  if (!body) return;
+
+  const distillCardHtml = book.distillCard ? `
+    <div class="distill-card">
+      <div class="dc-title">📚 结构化卡${book.distilledAt ? ' · ' + formatDate(new Date(book.distilledAt).toISOString()) : ''}</div>
+      <div class="dc-item"><div class="dc-label">框架</div><div class="dc-text">${escapeHtml(book.distillCard.framework || '')}</div></div>
+      <div class="dc-item"><div class="dc-label">核心要点</div><div class="dc-text">${(book.distillCard.points || []).map(p => '• ' + escapeHtml(p)).join('<br>')}</div></div>
+      <div class="dc-item"><div class="dc-label">可行动项</div><div class="dc-text">${(book.distillCard.actions || []).map(a => '✓ ' + escapeHtml(a)).join('<br>')}</div></div>
+      <div class="dc-item"><div class="dc-label">潜在议题</div><div class="dc-text">${(book.distillCard.potentialIssues || []).map(i => '💭 ' + escapeHtml(i)).join('<br>')}</div></div>
+    </div>
+  ` : `
+    <div class="distill-card" style="text-align:center;">
+      <div style="font-size:13px;color:var(--text-3);margin-bottom:10px;">还没蒸馏 · AI 还没帮你看透这本书</div>
+      <button class="btn-primary" onclick="distillBook('${book.id}')" style="font-size:13px;">🤖 开始蒸馏（hy3）</button>
+    </div>
+  `;
+
+  const issues = book.issues || [];
+  const issueList = issues.length ? issues.map((iss, idx) => `
+    <div class="issue-item ${iss.source || 'ai'}">
+      <div class="ii-num">${idx + 1}</div>
+      <div class="ii-text">${escapeHtml(iss.text)}${iss.source === 'sprout' ? ' <span style="font-size:10px;color:#E67E22;">🌱发芽</span>' : ''}${iss.source === 'user' ? ' <span style="font-size:10px;color:#27AE60;">我加的</span>' : ''}</div>
+      <div class="ii-actions">
+        <button onclick="startBookRoundtable('${book.id}', ${idx})" title="发起圆桌">🎤</button>
+        <button onclick="moveIssue('${book.id}', ${idx}, 'up')" title="上移">↑</button>
+        <button onclick="moveIssue('${book.id}', ${idx}, 'down')" title="下移">↓</button>
+        <button onclick="deleteIssue('${book.id}', ${idx})" title="删除">×</button>
+      </div>
+    </div>
+  `).join('') : '<div style="font-size:12px;color:var(--text-3);text-align:center;padding:14px;">还没有议题 · 蒸馏后会自动生成，或点上方手动添加</div>';
+
+  const activeBar = `
+    <div style="display:flex;gap:8px;margin:14px 0;flex-wrap:wrap;">
+      <button class="btn-outline" style="font-size:12px;flex:1;min-width:90px;" onclick="openBookActiveModal('${book.id}','sprout')">🌱 发芽</button>
+      <button class="btn-outline" style="font-size:12px;flex:1;min-width:90px;" onclick="openBookActiveModal('${book.id}','interrogate')">⚔️ 拷问</button>
+      <button class="btn-outline" style="font-size:12px;flex:1;min-width:90px;" onclick="openBookActiveModal('${book.id}','comment')">✨ 点评</button>
+    </div>
+  `;
+
+  const discussions = book.discussions || [];
+  const discussionList = discussions.length ? discussions.map((d, idx) => `
+    <div class="distill-card" style="margin-top:10px;">
+      <div class="dc-title">🎤 第 ${idx + 1} 场 · ${escapeHtml(d.topic)}</div>
+      <div class="dc-item"><div class="dc-label">${formatDate(d.date)} · ${d.expertCount || 6} 位专家</div></div>
+      ${d.userReflection ? `<div class="dc-item"><div class="dc-label">我的复盘</div><div class="dc-text">${escapeHtml(d.userReflection)}</div></div>` : ''}
+      ${d.knowledgeCardId ? `<div class="dc-item"><div class="dc-label">产出知识卡</div><div class="dc-text" style="color:var(--primary);">已沉淀到知识库</div></div>` : ''}
+    </div>
+  `).join('') : '<div style="font-size:12px;color:var(--text-3);text-align:center;padding:14px;">还没有圆桌讨论 · 从议题池发起一场吧</div>';
+
+  body.innerHTML = `
+    <div style="display:flex;gap:14px;margin-bottom:14px;">
+      <div class="book-detail-cover">${book.cover ? `<img src="${book.cover}" style="width:100%;height:100%;object-fit:cover;" alt="">` : '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:40px;">📖</div>'}</div>
+      <div class="book-detail-meta">
+        <div class="bd-title">${escapeHtml(book.title)}</div>
+        <div class="bd-type">${book.type === 'repeated' ? '🔁 常翻书' : '✓ 一次性'}</div>
+        ${book.notes ? `<div style="font-size:12px;color:var(--text-3);margin-top:8px;line-height:1.5;">${escapeHtml(book.notes.slice(0, 120))}${book.notes.length > 120 ? '…' : ''}</div>` : ''}
+        <div class="book-detail-actions">
+          <button class="bd-btn-secondary" onclick="openBookModal('${book.id}')">编辑</button>
+          <button class="bd-btn-secondary" style="color:#EF4444;" onclick="deleteBook('${book.id}')">删除</button>
+        </div>
+      </div>
+    </div>
+    ${distillCardHtml}
+    ${activeBar}
+    <div class="issue-pool">
+      <div class="ip-header">
+        <div class="ip-title">💭 议题池（${issues.length}）</div>
+        <button class="ip-add" onclick="addIssue('${book.id}')">+ 补议题</button>
+      </div>
+      ${issueList}
+    </div>
+    <div style="margin-top:14px;">
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:6px;"><span style="width:4px;height:14px;border-radius:2px;background:var(--primary);display:inline-block;"></span>📖 讨论册（${discussions.length} 场）</div>
+      ${discussionList}
+    </div>
+  `;
+}
+
+function deleteBook(bookId) {
+  if (!confirm('确认删除这本书？所有议题、讨论记录都会一起删除。')) return;
+  const books = getBooks().filter(b => b.id !== bookId);
+  setBooks(books);
+  renderBooks();
+  goPage('growth');
+  showToast('已删除');
+}
+
+async function distillBook(bookId) {
+  const books = getBooks();
+  const book = books.find(b => b.id === bookId);
+  if (!book) return;
+  const card = document.querySelector('#bookDetailBody .distill-card');
+  if (card) card.innerHTML = '<div style="text-align:center;padding:20px;"><div style="font-size:13px;color:var(--text-3);">🤖 hy3 正在阅读《' + escapeHtml(book.title) + '》...</div><div style="margin-top:10px;font-size:11px;color:var(--text-3);">大约 30-60 秒</div></div>';
+  try {
+    const url = (window.SUPABASE_URL || SUPABASE_CONFIG?.url || 'https://gireppsqrggetxzfaiey.supabase.co') + '/functions/v1/book-ai';
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (window.SUPABASE_ANON_KEY || SUPABASE_CONFIG?.anonKey || '') },
+      body: JSON.stringify({ mode: 'distill', title: book.title, type: book.type, notes: book.notes || '' })
+    });
+    const json = await res.json();
+    if (json.ok) {
+      book.distilled = true;
+      book.distillCard = json.distillCard;
+      book.distilledAt = Date.now();
+      if (json.distillCard?.potentialIssues?.length) {
+        const existingTexts = new Set((book.issues || []).map(i => i.text));
+        json.distillCard.potentialIssues.forEach(text => {
+          if (!existingTexts.has(text)) {
+            book.issues = book.issues || [];
+            book.issues.push({ text, source: 'ai', addedAt: Date.now() });
+          }
+        });
+      }
+      setBooks(books);
+      renderBookDetail();
+      showToast('✓ 蒸馏完成 · 生成 ' + (json.distillCard?.potentialIssues?.length || 0) + ' 个初始议题');
+    } else {
+      renderBookDetail();
+      showToast('蒸馏失败：' + (json.error || 'EF 未部署'));
+    }
+  } catch (e) {
+    renderBookDetail();
+    showToast('蒸馏失败：' + e.message + '（需先部署 book-ai EF）');
+  }
+}
+
+function addIssue(bookId) {
+  const text = prompt('补充一个议题：');
+  if (!text || !text.trim()) return;
+  const books = getBooks();
+  const book = books.find(b => b.id === bookId);
+  if (!book) return;
+  book.issues = book.issues || [];
+  book.issues.push({ text: text.trim(), source: 'user', addedAt: Date.now() });
+  setBooks(books);
+  renderBookDetail();
+  showToast('✓ 已补充');
+}
+
+function deleteIssue(bookId, idx) {
+  if (!confirm('删除这个议题？')) return;
+  const books = getBooks();
+  const book = books.find(b => b.id === bookId);
+  if (!book || !book.issues?.[idx]) return;
+  book.issues.splice(idx, 1);
+  setBooks(books);
+  renderBookDetail();
+}
+
+function moveIssue(bookId, idx, dir) {
+  const books = getBooks();
+  const book = books.find(b => b.id === bookId);
+  if (!book || !book.issues) return;
+  const newIdx = dir === 'up' ? idx - 1 : idx + 1;
+  if (newIdx < 0 || newIdx >= book.issues.length) return;
+  [book.issues[idx], book.issues[newIdx]] = [book.issues[newIdx], book.issues[idx]];
+  setBooks(books);
+  renderBookDetail();
+}
+
+function openBookActiveModal(bookId, mode) {
+  const overlay = document.getElementById('bookActiveModalOverlay');
+  const titles = { sprout: '🌱 发芽', interrogate: '⚔️ 拷问', comment: '✨ 点评' };
+  const hints = {
+    sprout: '基于这本书，AI 主动产出：盲区联想、跨界延伸、新议题',
+    interrogate: '基于这本书，AI 主动挑刺：反方观点、前提质疑、边界失效场景',
+    comment: '基于这本书，AI 主动点评：你的闪光点、可改进、下一步',
+  };
+  document.getElementById('bam-title').textContent = titles[mode];
+  document.getElementById('bam-mode').value = mode;
+  document.getElementById('bam-body').innerHTML = `<div style="font-size:12px;color:var(--text-3);line-height:1.5;margin-bottom:8px;">${hints[mode]}</div><div id="bam-output" style="min-height:40px;"></div>`;
+  document.getElementById('bam-input').value = '';
+  document.getElementById('bam-input').placeholder = mode === 'sprout' ? '可选：补充你想让 AI 发芽的方向…' : '可选：补充你的思考…';
+  const btn = document.getElementById('bam-run');
+  btn.textContent = '生成';
+  btn.dataset.bookId = bookId;
+  overlay.style.display = 'flex';
+}
+
+function closeBookActiveModal() {
+  document.getElementById('bookActiveModalOverlay').style.display = 'none';
+}
+
+async function runBookActiveMode() {
+  const mode = document.getElementById('bam-mode').value;
+  const bookId = document.getElementById('bam-run').dataset.bookId;
+  const userInput = document.getElementById('bam-input').value.trim();
+  const books = getBooks();
+  const book = books.find(b => b.id === bookId);
+  if (!book) return;
+  const btn = document.getElementById('bam-run');
+  btn.disabled = true; btn.textContent = '🤖 思考中…';
+  const out = document.getElementById('bam-output');
+  out.innerHTML = '<div style="font-size:12px;color:var(--text-3);padding:10px;">AI 正在阅读《' + escapeHtml(book.title) + '》并' + (mode === 'sprout' ? '发芽' : mode === 'interrogate' ? '拷问' : '点评') + '…</div>';
+  try {
+    const url = (window.SUPABASE_URL || SUPABASE_CONFIG?.url || 'https://gireppsqrggetxzfaiey.supabase.co') + '/functions/v1/book-ai';
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (window.SUPABASE_ANON_KEY || SUPABASE_CONFIG?.anonKey || '') },
+      body: JSON.stringify({ mode, title: book.title, type: book.type, notes: book.notes || '', distillCard: book.distillCard || null, userInput })
+    });
+    const json = await res.json();
+    if (json.ok) {
+      out.innerHTML = `<div style="font-size:13px;color:var(--text);line-height:1.6;white-space:pre-wrap;">${escapeHtml(json.result || '')}</div>`;
+      if (mode === 'sprout' && json.newIssues?.length) {
+        const addBtn = document.createElement('button');
+        addBtn.className = 'btn-primary';
+        addBtn.style.cssText = 'margin-top:10px;font-size:12px;';
+        addBtn.textContent = '加入 ' + json.newIssues.length + ' 个新议题到池子';
+        addBtn.onclick = () => {
+          const fresh = getBooks();
+          const b = fresh.find(x => x.id === bookId);
+          if (b) {
+            b.issues = b.issues || [];
+            const existing = new Set(b.issues.map(i => i.text));
+            json.newIssues.forEach(t => { if (!existing.has(t)) b.issues.push({ text: t, source: 'sprout', addedAt: Date.now() }); });
+            setBooks(fresh);
+            showToast('✓ 已加入议题池');
+            closeBookActiveModal();
+            renderBookDetail();
+          }
+        };
+        out.appendChild(addBtn);
+      }
+    } else {
+      out.innerHTML = '<div style="font-size:12px;color:#EF4444;padding:10px;">失败：' + escapeHtml(json.error || 'EF 未部署') + '</div>';
+    }
+  } catch (e) {
+    out.innerHTML = '<div style="font-size:12px;color:#EF4444;padding:10px;">失败：' + escapeHtml(e.message) + '（需先部署 book-ai EF）</div>';
+  } finally {
+    btn.disabled = false; btn.textContent = '生成';
+  }
+}
+
+function startBookRoundtable(bookId, issueIdx) {
+  const books = getBooks();
+  const book = books.find(b => b.id === bookId);
+  if (!book || !book.issues?.[issueIdx]) return;
+  const issue = book.issues[issueIdx];
+  const topic = `《${book.title}》议题：${issue.text}`;
+  goPage('vision');
+  setTimeout(() => {
+    const topicInput = document.getElementById('vbRoundtableTopic');
+    if (topicInput) { topicInput.value = topic; topicInput.focus(); }
+    window._pendingBookRoundtable = { bookId, issueIdx, topic, issueText: issue.text, startedAt: Date.now() };
+    showToast('议题已带到圆桌 · 点"开始"召唤 6 位专家');
+    const rtArea = document.getElementById('vbRoundtableArea') || document.querySelector('.vb-roundtable');
+    if (rtArea) rtArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 300);
+}
+
+/* 把圆桌结果写回讨论册（由 startRoundtable 结束时调用） */
+function _saveBookDiscussionIfPending(roundtableSummary) {
+  if (!window._pendingBookRoundtable) return;
+  const pending = window._pendingBookRoundtable;
+  window._pendingBookRoundtable = null;
+  const books = getBooks();
+  const book = books.find(b => b.id === pending.bookId);
+  if (!book) return;
+  book.discussions = book.discussions || [];
+  book.discussions.push({
+    topic: pending.topic,
+    issueText: pending.issueText,
+    date: new Date(pending.startedAt).toISOString(),
+    expertCount: 6,
+    summary: roundtableSummary || '',
+    userReflection: '',
+    knowledgeCardId: null,
+  });
+  setBooks(books);
+  showToast('📖 已记入《' + book.title + '》讨论册（第 ' + book.discussions.length + ' 场）');
+}
+
+/* === 战略认知圆桌 2 轮结构 === */
+async function startRoundtable(){
+  const topicInput=document.getElementById('vbRoundtableTopic');
+  const topic=topicInput.value.trim();
+  if(!topic){ topicInput.focus(); topicInput.style.borderColor='#EF4444'; setTimeout(()=>topicInput.style.borderColor='',1500); return; }
+
+  // 先确保有空壳可用
+  preRenderExpertShells();
+  const rowMap = window._rtShells || {};
+  if (!Object.keys(rowMap).length) return;
+
+  const experts = getExperts();
+  const sortedExperts = experts.filter(e => rowMap[e.id]); // 用壳子里有的
+
+  const p=getProfile();
+  const visions=getVisions();
+
+  // 读取知识积累开关 + 收集圆桌素材池（已掌握成长记录 + 已批准知识卡）
+  const useKb = document.getElementById('vbRtUseKnowledge')?.checked;
+  const kbPool = useKb ? getRoundtableKnowledgePool() : [];
+  const kbCtx = buildKnowledgeContext(kbPool);
+  const kbCountEl = document.getElementById('vbRtKbCount');
+  if (kbCountEl) kbCountEl.textContent = useKb ? (kbPool.length ? '本次带入 ' + kbPool.length + ' 条' : '暂无已掌握的知识') : '已关闭';
+
+  _roundtableMessages=[];
+  _rtPickedPoints = new Set();
+  document.getElementById('vbRtActions').style.display='';
+  // 议题气泡填入议题
+  const topicTextEl = document.getElementById('vbRtTopicBubbleText');
+  if (topicTextEl) {
+    topicTextEl.textContent = topic;
+    topicTextEl.style.color = '';
+    topicTextEl.style.fontStyle = '';
+  }
+  // 清空每个专家的 R1/R2 气泡与引用块
+  sortedExperts.forEach(e => {
+    const s = rowMap[e.id];
+    if (!s) return;
+    s.r1Bubble.classList.remove('empty');
+    s.r1Bubble.innerHTML = '';
+    s.r2Bubble.classList.remove('empty');
+    s.r2Bubble.innerHTML = '';
+    if (s.r2Quote) { s.r2Quote.style.display = 'none'; s.r2Quote.querySelector('.vb-rt-quote-text').textContent = ''; }
+  });
+
+  // 偏好排序
+  const expertToModel = { musk: 'first-principles', jung: 'shadow', munger: 'inversion', mankiw: 'supply-demand', ding: 'map-territory', naval: 'leverage' };
+  const usage = getModelUsage();
+  const ordered = [...sortedExperts].sort((a, b) => {
+    const ma = expertToModel[a.id], mb = expertToModel[b.id];
+    return (usage[mb] || 0) - (usage[ma] || 0);
+  });
+  sortedExperts.length = 0;
+  sortedExperts.push(...ordered);
+  const topUsed = Object.entries(usage).filter(([_, c]) => c > 0).map(([id, c]) => Object.assign({ id, cnt: c }, getModelMeta(id))).sort((a, b) => b.cnt - a.cnt).slice(0, 3);
+  if (topUsed.length > 0 && topUsed[0].cnt > 0) {
+    showToast('📊 按你偏好顺序：' + topUsed.map(m => m.icon + escapeHtml(m.name || m.id)).join(' → ') + ' → 其它');
+  }
+
+  // ── 尝试调 EF roundtable-discuss（Qwen 真圆桌）；失败回退本地 EXPERT_VIEWS ──
+  let useEF = false;
+  let efResult = null;
+  try {
+    const url = (window.SUPABASE_URL || SUPABASE_CONFIG?.url || 'https://gireppsqrggetxzfaiey.supabase.co') + '/functions/v1/roundtable-discuss';
+    showToast('🤖 正在召唤 6 位专家（Qwen 2 轮对话）…');
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (window.SUPABASE_ANON_KEY || SUPABASE_CONFIG?.anonKey || '') },
+      body: JSON.stringify({ topic, profile: p, visions, expertIds: sortedExperts.map(e => e.id), knowledgeBase: kbCtx }),
+    });
+    if (res.ok) {
+      const json = await res.json();
+      if (json.ok) { useEF = true; efResult = json; }
+    }
+  } catch (e) { /* 静默回退 */ }
+  if (!useEF) {
+    showToast('⚠ EF 未部署，使用本地专家模板');
+  }
+
+  // ===== 第 1 轮 =====
+  for (let i = 0; i < sortedExperts.length; i++) {
+    const expert = sortedExperts[i];
+    const shell = rowMap[expert.id];
+    if (!shell) continue;
+
+    let viewLines = [];
+    if (useEF && efResult) {
+      const r1 = efResult.round1.find((r) => r.expertId === expert.id);
+      viewLines = (r1?.view || '').split(/[。\n]/).map(s => s.trim()).filter(s => s.length > 5).slice(0, 3);
+      if (!viewLines.length) viewLines = [r1?.view || '（无内容）'];
+      await new Promise(r => setTimeout(r, 80));
+    } else {
+      await new Promise(r => setTimeout(r, 250));
+      const persona = EXPERT_VIEWS[expert.id] || EXPERT_VIEWS.musk;
+      viewLines = persona.view(topic);
+    }
+
+    // R1 填入气泡：每条观点作为可勾选段落
+    viewLines.forEach((line, idx) => {
+      shell.r1Bubble.appendChild(makePickablePt(line, expert.shortName + '·R1·观' + (idx + 1)));
+    });
+    _roundtableMessages.push({ expertId: expert.id, round: 1, advice: { view: viewLines }, timestamp: Date.now() });
+    shell._viewLinesR1 = viewLines;
+  }
+
+  // ===== 第 2 轮 =====
+  const allActions = [];
+  for (let i = 0; i < sortedExperts.length; i++) {
+    const expert = sortedExperts[i];
+    const shell = rowMap[expert.id];
+    if (!shell) continue;
+
+    let viewLinesR2 = [];
+    let actionLines = [];
+    let peerName = '';
+    let peerQuote = '';
+    if (useEF && efResult) {
+      const r2 = efResult.round2.find((r) => r.expertId === expert.id);
+      viewLinesR2 = [r2?.view || '（无内容）'];
+      actionLines = r2?.action || [];
+      peerName = r2?.replyTo || '';
+      peerQuote = r2?.replyToQuote || '';
+      await new Promise(r => setTimeout(r, 60));
+    } else {
+      await new Promise(r => setTimeout(r, 200));
+      const persona = EXPERT_VIEWS[expert.id] || EXPERT_VIEWS.musk;
+      actionLines = persona.action(topic);
+      const prevIdx = (i - 1 + sortedExperts.length) % sortedExperts.length;
+      const prevExpert = sortedExperts[prevIdx];
+      const prevShell = rowMap[prevExpert.id];
+      peerName = prevExpert.shortName;
+      peerQuote = (prevShell._viewLinesR1 && prevShell._viewLinesR1[0] || '').slice(0, 38);
+      const replyOpeners = ['同意，反过来补充：', '换个角度看：', '风险点是：', '我加一层：', '你漏了：', '边界条件：'];
+      viewLinesR2 = [`${replyOpeners[i % 6]}${prevExpert.shortName}说的"${peerQuote}…"我换个角度看——`];
+    }
+
+    // 引用块：显示"回应 XXX：'对方 R1 摘要'"
+    if (shell.r2Quote) {
+      const qName = shell.r2Quote.querySelector('.vb-rt-quote-label');
+      const qText = shell.r2Quote.querySelector('.vb-rt-quote-text');
+      qName.textContent = '↳ 回应 ' + escapeHtml(peerName || '前序');
+      qText.textContent = peerQuote ? ('"' + peerQuote + '…"') : '等待对方表态...';
+      shell.r2Quote.style.display = '';
+      // 更新名字栏的 reply tag
+      const nameEl = shell.r2Row.querySelector('.vb-rt-msg-name .vb-rt-msg-reply');
+      if (nameEl) nameEl.textContent = '↳ 回应 ' + (peerName || '前序');
+    }
+    // R2 填入气泡
+    viewLinesR2.forEach((line, idx) => {
+      shell.r2Bubble.appendChild(makePickablePt(line, expert.shortName + '·R2·回应' + (idx + 1)));
+    });
+    // 收集行动（后面统一填入行动区）
+    if (actionLines && actionLines.length) {
+      actionLines.forEach((line, idx) => {
+        allActions.push({ text: line, source: expert.shortName, key: expert.shortName + '·R2·行' + (idx + 1) });
+      });
+    }
+    _roundtableMessages.push({ expertId: expert.id, round: 2, advice: { view: viewLinesR2, action: actionLines }, timestamp: Date.now() });
+  }
+
+  // 行动区统一填入（一次性显示分隔线 + 卡片列表）
+  const actionsDivider = document.getElementById('vbRtActionsDivider');
+  const actionsList = document.getElementById('vbRtActionsList');
+  if (actionsDivider && actionsList) {
+    actionsDivider.style.display = '';
+    actionsList.style.display = '';
+    actionsList.innerHTML = '';
+    allActions.forEach(({ text, source, key }) => {
+      const card = document.createElement('div');
+      card.className = 'vb-rt-action-card';
+      card.innerHTML = '<div class="vb-rt-action-check"></div><div class="vb-rt-action-text"><span class="vb-rt-action-source">' + escapeHtml(source) + '：</span>' + escapeHtml(text) + '</div>';
+      card.onclick = function() {
+        const ck = card.querySelector('.vb-rt-action-check');
+        if (card.classList.contains('picked')) {
+          card.classList.remove('picked');
+          ck.textContent = '';
+          _rtPickedPoints.delete(text);
+        } else {
+          card.classList.add('picked');
+          ck.textContent = '✓';
+          _rtPickedPoints.add(text);
+        }
+        syncPickListIncremental();
+      };
+      actionsList.appendChild(card);
+    });
+    if (allActions.length) {
+      const tip = document.createElement('div');
+      tip.className = 'vb-rt-actions-summary';
+      tip.textContent = '👆 勾选行动会自动同步到下方摘取框，共 ' + allActions.length + ' 条行动可勾选';
+      actionsList.appendChild(tip);
+    }
+  }
+
+  // 记录模型使用
+  const usedModels = [];
+  _roundtableMessages.forEach(msg => {
+    const modelId = expertToModel[msg.expertId];
+    if (modelId) { bumpModelUsage(modelId); usedModels.push(modelId); }
+  });
+
+  // 持久化
+  const existingAdvice = getExpertAdvice();
+  _roundtableMessages.forEach(msg => {
+    existingAdvice.push({ id: genId(), expertId: msg.expertId, advice: msg.advice, timestamp: msg.timestamp, isRoundtable: true, topic, round: msg.round, modelsUsed: usedModels, source: useEF ? 'qwen' : 'local' });
+  });
+  setExpertAdvice(existingAdvice);
+
+  showToast((useEF ? '🤖 Qwen ' : '📋 本地 ') + '2 轮圆桌完成 · 共 ' + _roundtableMessages.length + ' 条发言，勾选观点/行动会自动入摘取框');
+  const listEl = document.getElementById('vbRoundtableDiscussion');
+  if (listEl) listEl.scrollTop = listEl.scrollHeight;
+
+  // 若来自书籍议题圆桌，写回讨论册
+  if (window._pendingBookRoundtable) {
+    const _rtSummary = _roundtableMessages.map(m => (m.round===1?'R1':'R2')+' '+m.expertId+': '+(Array.isArray(m.advice.view)?m.advice.view.join(' / '):m.advice.view)).join('\n');
+    _saveBookDiscussionIfPending(_rtSummary);
+  }
+}
+
+/* 单条消息壳子（群聊气泡风格），见 preRenderExpertShells 调用 */
+
+function makePickablePt(text, source) {
+  const pt = document.createElement('div');
+  pt.className = 'vb-rt-pt';
+  pt.innerHTML = '<div class="vb-rt-pt-check"></div><div class="vb-rt-pt-text">' + escapeHtml(text) + '</div>';
+  pt.onclick = function() { toggleRtCardPt(this, text, source); };
+  return pt;
+}
+
+function toggleRtCardPt(el, text, source) {
+  const check = el.querySelector('.vb-rt-pt-check');
+  if (el.classList.contains('picked')) {
+    el.classList.remove('picked');
+    check.textContent = '';
+    _rtPickedPoints.delete(text);
+  } else {
+    el.classList.add('picked');
+    check.textContent = '✓';
+    _rtPickedPoints.add(text);
+  }
+  // 勾选时实时同步到摘取框（不依赖底部按钮）
+  syncPickListIncremental();
+}
+
+/* 单条增量同步：勾选立即加到摘取框；取消勾选立即移除 */
+function syncPickListIncremental() {
+  const container = document.getElementById('vbPickList');
+  const btn = document.getElementById('vbPickConfirmBtn');
+  const rawBtn = document.getElementById('vbPickRawBtn');
+  if (!container) return;
+  // 用文本内容做幂等 key：去重已有节点
+  const existing = new Set();
+  container.querySelectorAll('[data-pick-text]').forEach(n => existing.add(n.dataset.pickText));
+
+  // 对每个已勾选 text，确保 container 里有
+  for (const text of _rtPickedPoints) {
+    if (existing.has(text)) continue;
+    const item = document.createElement('div');
+    item.className = 'vb-pick-item selected';
+    item.dataset.pickText = text;
+    item.innerHTML = '<div class="vb-pick-check">✓</div><div>' + escapeHtml(text) + '</div><div class="vb-pick-source">圆桌</div>';
+    container.appendChild(item);
+  }
+  // 对已不在 _rtPickedPoints 的节点，移除
+  container.querySelectorAll('[data-pick-text]').forEach(n => {
+    if (!_rtPickedPoints.has(n.dataset.pickText)) n.remove();
+  });
+  if (_rtPickedPoints.size > 0) {
+    btn.style.display = '';
+    if (rawBtn) rawBtn.style.display = '';
+  }
+}
+
+function appendRtMessage(msg){
+  const discEl=document.getElementById('vbRoundtableDiscussion');
+  const msgEl=document.createElement('div');
+  msgEl.className='vb-rt-message';
+  msgEl.innerHTML=
+    '<div class="vb-rt-msg-header">'+
+    (msg.avatar?'<div class="vb-rt-msg-avatar" style="background:'+(msg.avatarBg||'#ccc')+'">'+msg.avatar+'</div>':'')+
+    '<span class="vb-rt-msg-name">'+msg.speaker+'</span>'+
+    '<span class="vb-rt-msg-role">'+(msg.role||'')+'</span></div>'+
+    '<div class="vb-rt-msg-body '+(msg.styleClass||'')+'">'+msg.body+'</div>';
+  discEl.appendChild(msgEl);
+  discEl.scrollTop=discEl.scrollHeight;
+}
+
+
+
+
+
+
+function formatAdviceToHtml(text){
+  let html=text.replace(/\*\*(.*?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');
+  const lines=html.split('<br>').filter(l=>l.trim());
+  html=lines.map(line=>{
+    if(line.trim().length<5) return line;
+    return '<div class="vb-rt-point" onclick="toggleRtPoint(this)"><div class="vb-rt-point-check"></div><div class="vb-rt-point-text">'+line+'</div></div>';
+  }).join('<br>');
+  return html;
+}
+
+
+
+
+function fillPickListFromRoundtable(){
+  if(_rtPickedPoints.size===0) return;
+  const container=document.getElementById('vbPickList');
+  const btn=document.getElementById('vbPickConfirmBtn');
+  const rawBtn=document.getElementById('vbPickRawBtn');
+  container.innerHTML=Array.from(_rtPickedPoints).map(text=>
+    `<div class="vb-pick-item selected"><div class="vb-pick-check">\u2713</div><div>${escapeHtml(text)}</div><div class="vb-pick-source">\u5706\u684C</div></div>`
+  ).join('');
+  btn.style.display='';
+  if(rawBtn) rawBtn.style.display='';
 }
 
 /* --- Action Items --- */
@@ -7110,32 +9910,82 @@ function deleteAction(id){setActions(getActions().filter(a=>a.id!==id));renderAc
 
 /* --- Thinking Models (same as before) --- */
 function renderModels(){
-  const gridEl=document.getElementById('vbModelGrid');
+  const container=document.getElementById('vbModelCategories');
+  if(!container) return;
   const selectedIds=DB.get('selectedModelIds',[]);
-  gridEl.innerHTML=THINKING_MODELS.map(m=>
-    `<div class="vb-model-chip ${selectedIds.includes(m.id)?'selected':''}" onclick="toggleModel('${m.id}')">
-      <span class="vb-mc-icon">${m.icon}</span><span class="vb-mc-name">${m.name}</span>
-      <span style="font-size:10px;color:var(--text-3);margin-left:auto">${m.category}</span>
-    </div>`
+
+  container.innerHTML=MODEL_CATEGORIES.map(cat=>{
+    const selectedCount=cat.models.filter(m=>selectedIds.includes(m.id)).length;
+    const isExpanded=document.getElementById('_mc_exp_'+cat.id)? document.getElementById('_mc_exp_'+cat.id).classList.contains('expanded') : false;
+
+    return '<div class="vb-mc-category-card'+(isExpanded?' expanded':'')+'" id="mcCard_'+cat.id+'" onclick="toggleModelCategory(\''+cat.id+'\')">'+
+      '<div class="vb-mc-cat-header">'+
+        '<div class="vb-mc-cat-icon" style="background:'+cat.color+'">'+cat.icon+'</div>'+
+        '<div>'+
+          '<div class="vb-mc-cat-name">'+cat.name+'</div>'+
+          '<div class="vb-mc-cat-name-en">'+cat.nameEn+'</div>'+
+        '</div>'+
+        '<span class="vb-mc-cat-count">'+selectedCount+'/'+cat.models.length+'</span>'+
+      '</div>'+
+      '<div class="vb-mc-cat-desc">'+cat.models.map(m=>m.name).join(' · ')+'</div>'+
+      '<div class="vb-mc-cat-models" id="_mc_exp_'+cat.id+'">'+
+        cat.models.map(m=>
+          '<div class="vb-mc-model-item'+(selectedIds.includes(m.id)?' selected':'')+'" onclick="event.stopPropagation();toggleModelItem(\''+m.id+'\',\''+cat.id+'\')">'+
+            '<div class="vb-mc-model-check">'+(selectedIds.includes(m.id)?'✓':'')+'</div>'+
+            '<div style="flex:1">'+
+              '<div class="vb-mc-model-name">'+m.name+'</div>'+
+              '<div class="vb-mc-model-desc">'+m.desc+'</div>'+
+            '</div>'+
+          '</div>'
+        ).join('')+
+      '</div>'+
+    '</div>';
+  }).join('');
+}
+
+function toggleModelCategory(catId){
+  const card=document.getElementById('mcCard_'+catId);
+  if(card) card.classList.toggle('expanded');
+  renderModels(); // keep expanded state would need external tracking, but re-render toggles it - so we use a simpler approach
+}
+function toggleModelItem(modelId, catId){
+  const s=DB.get('selectedModelIds',[]);
+  const i=s.indexOf(modelId);
+  if(i>=0) s.splice(i,1); else s.push(modelId);
+  DB.set('selectedModelIds',s);
+  renderModels();
+  if(s.length>=2) showModelAnalysis(s); else document.getElementById('vbModelAnalysis').style.display='none';
+  // Update count in header
+  const countEl=document.getElementById('vbModelSelCount');
+  if(countEl) countEl.textContent=s.length;
+  // Show selected area
+  const selArea=document.getElementById('vbModelSelectedArea');
+  if(selArea) selArea.style.display=s.length>0?'':'none';
+  // Update selected list
+  renderModelSelList(s);
+}
+function renderModelSelList(ids){
+  const listEl=document.getElementById('vbModelSelList');
+  if(!listEl) return;
+  const models=MODEL_CATEGORIES.flatMap(c=>c.models).filter(m=>ids.includes(m.id));
+  listEl.innerHTML=models.map(m=>
+    '<div class="vb-model-sel-item">'+m.icon+' '+m.name+' <span style="color:var(--text-3);margin-left:4px">('+m.categoryId?MODEL_CATEGORIES.find(c=>c.models.some(mm=>mm.id===m.id))?.name:''+')</span></div>'
   ).join('');
 }
-function toggleModel(mid){
-  const s=DB.get('selectedModelIds',[]);const i=s.indexOf(mid);
-  if(i>=0)s.splice(i,1);else s.push(mid);
-  DB.set('selectedModelIds',s);renderModels();
-  if(s.length>=2)showModelAnalysis(s);else document.getElementById('vbModelAnalysis').style.display='none';
-}
+
+function toggleModel(mid){ toggleModelItem(mid,''); } /* compat shim */
 function showModelAnalysis(ids){
-  const models=THINKING_MODELS.filter(m=>ids.includes(m.id));
+  const allModels=MODEL_CATEGORIES.flatMap(c=>c.models);
+  const models=allModels.filter(m=>ids.includes(m.id));
   const p=getProfile();
   const el=document.getElementById('vbModelAnalysis');const body=document.getElementById('vbModelAnalysisBody');
   el.style.display='';
-  body.innerHTML='<p><b>\u9009\u4E2D\u6A21\u578B:</b>'+models.map(m=>m.icon+' '+m.name).join(' \u00B7 ')+'</p>'+
-    '<p><b>\u5206\u6790\u5BF9\u8C61:</b>'+(p.goal||p.current||'\uFF08\u8BF7\u5728\u4E0A\u65B9\u586B\u5199\u76EE\u6807\uFF09')+'</p>'+
+  body.innerHTML='<p><b>选中模型:</b>'+models.map(m=>m.icon+' '+m.name).join(' · ')+'</p>'+
+    '<p><b>分析对象:</b>'+(p.goal||p.current||'（请在上方填写目标）')+'</p>'+
     '<hr style="border:none;border-top:1px solid rgba(59,158,217,0.15);margin:12px 0">'+
     '<div style="font-size:13px;line-height:1.8">'+
-    models.map(m=>'<div style="margin-bottom:14px;padding:12px;background:rgba(59,158,217,0.03);border-radius:8px"><b>'+m.icon+' '+m.name+'</b> ('+m.category+')<br>'+getModelContent(m.id,p)+'</div>').join('')+
-    '<div style="margin-top:12px;padding:12px;background:rgba(59,158,217,0.06);border-radius:8px;border-left:3px solid var(--primary)"><b>\uD83D\uDD17 \u4EA4\u53C7\u7ED3\u8BBA:</b>\u591A\u4E2A\u6A21\u578F\u5171\u540C\u6307\u5411\u2014\u2014<strong>\u805A\u7126\u5355\u4E00\u76EE\u6801\u3001\u4ECE\u5C0F\u6B65\u5F00\u59CB\u3001\u5EFA\u7ACB\u5373\u65F6\u53CD\u9988\u5FAA\u73AF</strong></div></div>';
+    models.map(m=>'<div style="margin-bottom:14px;padding:12px;background:rgba(59,158,217,0.03);border-radius:8px"><b>'+m.icon+' '+m.name+'</b> ('+(MODEL_CATEGORIES.find(c=>c.models.some(mm=>mm.id===m.id))?.name||'')+')<br>'+(m.desc||getModelContent(m.id,p))+'</div>').join('')+
+    '<div style="margin-top:12px;padding:12px;background:rgba(59,158,217,0.06);border-radius:8px;border-left:3px solid var(--primary)"><b>🤝 交叉结论:</b>多个模型共同指向——<strong>聚焦单一目标、从小步开始、建立即时反馈循环</strong></div></div>';
 }
 function getModelContent(mid,p){
   const g=(p.goal||'\u8BE5\u51B3\u7B56').slice(0,15);
@@ -7210,6 +10060,15 @@ function generateBuddyReply(userMsg){
   return replies[Math.floor(Math.random()*replies.length)];
 }
 
+/* --- 恢复默认 6 位专家 --- */
+function restoreDefaultExperts() {
+  if (!confirm('恢复 6 位默认专家（马斯克/荣格/芒格/曼昆/丁元英/纳瓦尔），将覆盖你当前的自定义专家。继续？')) return;
+  const def = DEFAULT_EXPERTS.map(e => ({...e}));
+  setExperts(def);
+  preRenderExpertShells();
+  showToast('✓ 已恢复 6 位默认专家');
+}
+
 /* --- Add Expert Dialog (unchanged) --- */
 function showAddExpertDialog(){
   const name=prompt('\u4E13\u5BB6\u540D\u79F0\uFF08\u5982\uFF1A\u5F7C\u5F97\u00B7\u8482\u5C14\uFF09');if(!name)return;
@@ -7219,9 +10078,9 @@ function showAddExpertDialog(){
   const colors=['#4a1942','#1a4a3a','#4a3a1a','#1a2a4a'];
   experts.push({id:genId(),name:name,shortName:name.split('\u00B7')[0].slice(0,4),role:role,question:question,
     color:colors[experts.length%colors.length],bg:'linear-gradient(135deg,'+colors[experts.length%colors.length]+','+colors[experts.length%colors.length]+'dd)',
-    icon:'\U0001F3AF',promptTemplate:''});
+    icon:'➕',promptTemplate:''});
   setExperts(experts);
-  renderExpertCards();
+  preRenderExpertShells();
 }
 
 
@@ -7939,9 +10798,12 @@ function renderInbox() {
     pendingList.innerHTML = pending.map(renderInboxItem).join('');
   }
   const filedList = document.getElementById('inboxFiledList');
+  const filedSection = document.getElementById('inboxFiledSection');
   if (!filed.length) {
-    filedList.innerHTML = `<div class="inbox-empty"><div class="es-icon">${ic('check-circle',36)}</div><div class="es-text">还没有已归类的内容</div></div>`;
+    filedSection.style.display = 'none';
+    filedList.innerHTML = '';
   } else {
+    filedSection.style.display = 'block';
     filedList.innerHTML = filed.map(renderInboxItem).join('');
   }
   // render voice memos
@@ -7950,6 +10812,13 @@ function renderInbox() {
   renderInboxImages();
   // render meeting minutes
   renderMeetingMinutes();
+}
+
+let _inboxFiledExpanded = false;
+function toggleInboxFiled() {
+  _inboxFiledExpanded = !_inboxFiledExpanded;
+  document.getElementById('inboxFiledSection').classList.toggle('expanded', _inboxFiledExpanded);
+  document.getElementById('inboxFiledChevron').textContent = _inboxFiledExpanded ? '收起' : '展开';
 }
 
 function renderInboxItem(item) {
@@ -8001,24 +10870,31 @@ function openInboxFileModal(id) {
 
 function buildFileOptions() {
   _fileOptions = [];
-  let html = '<div class="inbox-file-group"><div class="inbox-file-group-title">'+ic('heart-pulse',16)+' 个人成长</div><div class="inbox-file-options">';
+  let html = '<div class="ifs-group"><div class="ifs-group-title">'+ic('heart-pulse',14)+' 个人成长</div>';
   for (const g of GROWTH_GROUPS) {
-    for (const item of g.items) {
-      if (item.id === 'data-summary') continue;
+    const validItems = g.items.filter(i => i.id !== 'data-summary');
+    if (!validItems.length) continue;
+    html += '<div class="ifs-subgroup"><div class="ifs-subgroup-label">'+g.label+'</div><div class="inbox-file-options">';
+    for (const item of validItems) {
       const idx = _fileOptions.length;
       _fileOptions.push({ target:'growth', groupId:g.id, itemId:item.id, label:g.label+' > '+item.label });
-      html += '<div class="inbox-file-opt" data-idx="'+idx+'" onclick="selectFileOption('+idx+')">'+g.label+' · '+item.label+'</div>';
+      html += '<div class="inbox-file-opt" data-idx="'+idx+'" onclick="selectFileOption('+idx+')">'+item.label+'</div>';
     }
+    html += '</div></div>';
   }
-  html += '</div></div><div class="inbox-file-group"><div class="inbox-file-group-title">'+ic('lightbulb',16)+' 选题灵感</div><div class="inbox-file-options">';
+  html += '</div><div class="ifs-group"><div class="ifs-group-title">'+ic('lightbulb',14)+' 选题灵感</div>';
   for (const [secKey, sec] of Object.entries(IDEA_SECTIONS)) {
-    for (const sub of (IDEA_SUB_TYPES[secKey]||[])) {
+    const subs = IDEA_SUB_TYPES[secKey]||[];
+    if (!subs.length) continue;
+    html += '<div class="ifs-subgroup"><div class="ifs-subgroup-label">'+sec.label+'</div><div class="inbox-file-options">';
+    for (const sub of subs) {
       const idx = _fileOptions.length;
       _fileOptions.push({ target:'idea', section:secKey, type:sub.id, label:sec.label+' > '+sub.label });
-      html += '<div class="inbox-file-opt" data-idx="'+idx+'" onclick="selectFileOption('+idx+')">'+sec.label+' · '+sub.label+'</div>';
+      html += '<div class="inbox-file-opt" data-idx="'+idx+'" onclick="selectFileOption('+idx+')">'+sub.label+'</div>';
     }
+    html += '</div></div>';
   }
-  html += '</div></div>';
+  html += '</div>';
   return html;
 }
 
@@ -8057,6 +10933,11 @@ function confirmFileInbox() {
   item.filedAt = Date.now();
   setInbox(items);
   closeInboxFileModal();
+  _inboxFiledExpanded = false;
+  const _fs = document.getElementById('inboxFiledSection');
+  if (_fs) _fs.classList.remove('expanded');
+  const _ch = document.getElementById('inboxFiledChevron');
+  if (_ch) _ch.textContent = '展开';
   renderInbox();
   showToast('已归类到「'+sel.label+'」');
 }
@@ -8064,6 +10945,7 @@ function confirmFileInbox() {
 /* ===== 全局搜索 ===== */
 function openGlobalSearch() {
   document.getElementById('searchOverlay').classList.add('open');
+  if (isSupabaseReady()) loadKnowledgeCards(); // 预拉知识卡片缓存，保证搜索可命中
   const input = document.getElementById('searchInput');
   input.value = '';
   document.getElementById('searchBody').innerHTML = buildSearchHints();
@@ -8154,6 +11036,23 @@ function doGlobalSearch(query) {
     if (text.includes(q)) results.push({ group:'会议纪要', page:'inbox', title:m.title||'未命名会议', snippet:m.summary || (m.transcript||'').slice(0,80) || '' });
   }
 
+  // 6d. 知识库（卡片笔记）
+  if (knowledgeCardsCache.length) {
+    for (const c of knowledgeCardsCache) {
+      const text = [c.content, (c.tags || []).join(' '), c.memo].filter(Boolean).join(' ').toLowerCase();
+      if (text.includes(q)) {
+        const srcLabel = KB_SOURCE_LABELS[c.source_type] || '卡片';
+        const statusLabel = c.status === 'approved' ? '已审' : (c.status === 'pending_review' ? '待审' : c.status);
+        results.push({
+          group: '知识库',
+          page: 'growth',
+          title: (c.content || '').slice(0, 50),
+          snippet: '[' + statusLabel + '·' + srcLabel + '] ' + (c.tags || []).map(t => '#' + t).join(' ')
+        });
+      }
+    }
+  }
+
   // 7. 愿景板 v2
   const visions = DB.get('visions', []);
   for (const v of visions) {
@@ -8177,7 +11076,7 @@ function doGlobalSearch(query) {
 
   const groups = {};
   for (const r of results) { if (!groups[r.group]) groups[r.group]=[]; groups[r.group].push(r); }
-  const groupOrder = ['每日计划','复盘板块','选题灵感','内容复盘','个人成长','收集箱','语音备忘','会议纪要','愿景板'];
+  const groupOrder = ['每日计划','复盘板块','选题灵感','内容复盘','个人成长','收集箱','语音备忘','会议纪要','知识库','愿景板'];
   body.innerHTML = groupOrder.filter(g => groups[g]).map(g =>
     '<div class="search-group"><div class="search-group-title">'+g+' <span class="search-group-count">'+groups[g].length+'</span></div>' +
     groups[g].map(r =>
@@ -8376,9 +11275,8 @@ async function addInboxImages() {
   _pendingImages.forEach(img => URL.revokeObjectURL(img.url));
   _pendingImages = [];
   renderPendingImages();
-  renderPendingImages();
   renderInbox();
-  showToast('图片已添加，今晚 23:30 自动归类');
+  showToast('图片已添加，点卡片「归类」按钮整理到个人成长/选题');
 }
 async function renderInboxImages() {
   const items = getInbox().filter(i => i.type === 'image');
@@ -8387,14 +11285,14 @@ async function renderInboxImages() {
   document.getElementById('imageTabBadge').textContent = pending.length;
   const list = document.getElementById('inboxImageList');
   const empty = document.getElementById('imageEmpty');
-  const allItems = [...pending, ...filed];
-  if (!allItems.length) {
+  if (!pending.length) {
     list.innerHTML = '';
     empty.style.display = 'block';
+    empty.innerHTML = `<div class="inbox-empty"><div class="es-icon">${ic('image',36)}</div><div class="es-text">${filed.length ? '待归类的图片已清空<br>'+filed.length+' 张已归类已收起' : '还没有收集图片<br>点击虚线框选图或 Ctrl+V 粘贴截图'}</div></div>`;
     return;
   }
   empty.style.display = 'none';
-  const html = await Promise.all(allItems.map(async item => {
+  const html = await Promise.all(pending.map(async item => {
     const blob = await _getImageBlob(item.imageId);
     const thumbUrl = blob ? URL.createObjectURL(blob) : '';
     const t = new Date(item.createdAt);
@@ -8620,7 +11518,7 @@ function renderVoiceMemos() {
   if (cntEl) cntEl.textContent = memos.length;
   if (badgeEl) badgeEl.textContent = memos.length;
   if (!list) return;
-  if (memos.length === 0) { list.innerHTML = ''; if (empty) empty.style.display = 'block'; return; }
+  if (memos.length === 0) { list.innerHTML = ''; if (empty) { empty.style.display = 'block'; empty.innerHTML = `<div class="inbox-empty"><div class="es-icon">${ic('mic',36)}</div><div class="es-text">还没有语音备忘<br>点「录一条语音备忘」开始记录</div></div>`; } return; }
   if (empty) empty.style.display = 'none';
   list.innerHTML = memos.map(m => {
     const d = new Date(m.createdAt);
@@ -8758,7 +11656,7 @@ function renderMeetingMinutes() {
   const badgeEl = document.getElementById('meetingTabBadge');
   if (badgeEl) badgeEl.textContent = meetings.length;
   if (!list) return;
-  if (meetings.length === 0) { list.innerHTML = ''; if (empty) empty.style.display = 'block'; return; }
+  if (meetings.length === 0) { list.innerHTML = ''; if (empty) { empty.style.display = 'block'; empty.innerHTML = `<div class="inbox-empty"><div class="es-icon">${ic('users',36)}</div><div class="es-text">还没有会议纪要<br>绑定腾讯会议后自动同步</div></div>`; } return; }
   if (empty) empty.style.display = 'none';
   list.innerHTML = meetings.map(m => {
     const d = new Date(m.createdAt || m.meetingDate || m.created_at);
@@ -8941,6 +11839,11 @@ async function _loadMeetingMinutesFromCloud() {
 }
 
 /* ===== 生活乐子 (Life) ===== */
+function renderStyle() {
+  const el = document.getElementById('styleListArea'); if (!el) return;
+  el.innerHTML = `<div class="life-hero" style="background:linear-gradient(135deg,#3B9ED9,#2E7AB5)"><h2>👗 搞点穿搭</h2><p>穿搭灵感 · 衣橱 · 生成方案</p></div>
+    <div style="padding:14px 0;"><div class="life-empty">穿搭内容在「搞点穿搭」模块管理，左下角切换即可使用。</div></div>`;
+}
 let lifeCurrentTab = 'world';
 let worldCurrentStatus = 'want';
 let lifeCurrentDrink = null;
